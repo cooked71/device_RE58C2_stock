@@ -1,0 +1,242 @@
+#
+# Copyright (C) 2025 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+# A/B
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+
+
+
+
+#kernel
+PRODUCT_ENABLE_UFFD_GC := false
+
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/product/compatibility_matrix.xml
+DEVICE_VENDOR_COMPATIBILITY_MATRIX_FILE := device/realme/RE58C2/compatibility_matrix.device.xml
+
+#PRODUCT_VENDOR_MANIFEST_FILES := device/realme/RE58C2/manifest.xml
+
+DEVICE_MANIFEST_FILES += \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/compatibility_matrix.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/ai_engine-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.cas@1.2-service.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.drm-service.clearkey.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.gatekeeper@1.0-service.trusty.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.health-service.example.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint@2.0-unisoc.service.trusty.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.sensors-multihal.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.thermal@2.0-service.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.usb-service.example.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.wifi@1.0-service.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.wifi.hostapd.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.wifi.supplicant.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/bluetooth_audio.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/cplog_svc-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/enhance-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/face-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/hdcp-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/lights.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm-service.widevine.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/manifest_dualsim.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/manifest_media_c2_V1_1_unisoc.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/manifest_oplus_performance.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/memtrack.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/network-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/power.stats-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/rebootescrow-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/soter_default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/trusty-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/tui-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vendor-fingerprintmmi-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vendor-log-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vendor-oemlock-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vendor-power-default.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vendor.sprd.hardware.boot@1.2.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vendor.sprd.hardware.commondcs@1.0-service.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vendor.sprd.hardware.gnss@2.2-service.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vendor.sprd.hardware.thermal@2.0-service.xml \
+    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/vibrator.xml
+
+# lineage recovery
+# WITH_LINEAGE_RECOVERY := true
+# PRODUCT_PACKAGES += lineage_recovery
+
+
+# Boot control HAL
+PRODUCT_PACKAGES += \
+android.hardware.boot@1.2-impl \
+android.hardware.boot@1.2-impl.recovery \
+vendor.sprd.hardware.boot@1.2-impl \
+vendor.sprd.hardware.boot@1.2-impl.recovery
+
+#mod from twrp
+PRODUCT_PACKAGES += \
+    bootctrl \
+    bootctrl.recovery 
+
+
+PRODUCT_PACKAGES += \
+    bootctrl.ums9230
+
+PRODUCT_PACKAGES_DEBUG += \
+    bootctrl.ums9230
+
+PRODUCT_PACKAGES += \
+    linker.vendor_ramdisk \
+    tune2fs.vendor_ramdisk \
+    resize2fs.vendor_ramdisk
+
+PRODUCT_PACKAGES += \
+    linker.recovery \
+    shell_and_utilities_recovery \
+
+PRODUCT_PACKAGES += adbd.recovery
+
+PRODUCT_PACKAGES += \
+    fastbootd \
+    android.hardware.fastboot@1.0-impl-mock \
+    logcat
+
+
+
+
+
+
+# fstab files (first stage)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.module:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.module \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.RMX3624 \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_1h10 \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_1h10_go \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_4h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_4h10 \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_4h10_go:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_4h10_go \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_6h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_6h10 \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_7h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_7h10 \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_haps:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_haps \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_hulk \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_nico \
+    $(LOCAL_PATH)/ramdisk/root/first_stage_ramdisk/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_zebu
+
+
+
+PRODUCT_PACKAGES += \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=erofs \
+    POSTINSTALL_OPTIONAL_system=true
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=erofs \
+    POSTINSTALL_OPTIONAL_vendor=true
+
+PRODUCT_PACKAGES += \
+    checkpoint_gc \
+    otapreopt_script
+
+# API levels
+PRODUCT_SHIPPING_API_LEVEL := 34
+
+
+# Overlays
+PRODUCT_ENFORCE_RRO_TARGETS := *
+
+# Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# Product characteristics
+PRODUCT_CHARACTERISTICS := default
+
+# Rootdir
+PRODUCT_PACKAGES += \
+    log_to_csv.sh \
+    loading.sh \
+    para.sh \
+    total.sh \
+    create_splloader_dual_slot_byname_path.sh \
+    engineer_vendor_shell.sh \
+    idlefast.sh \
+    init.insmod.sh \
+    zramwb.sh \
+
+
+PRODUCT_PACKAGES += \
+    manifest.vendor.nxpnfclegacy.xml \
+    manifest.vendor.nxp.eventprocessor.xml 
+    
+    
+
+PRODUCT_PACKAGES += \
+    vendor.nxp.eventprocessor@1.0 \
+    vendor.nxp.nxpnfclegacy@1.0 \
+    librpmbclient \
+    libteeproduction \
+    libsecrpmbdata
+
+  
+
+
+PRODUCT_PACKAGES += \
+    init.RMX3624.rc \
+    init.RMX3624.usb.rc \
+    init.cali.rc \
+    init.module.rc \
+    init.module.usb.rc \
+    init.ram.gms.rc \
+    init.ram.native.rc \
+    init.ram.rc \
+    init.storage.rc \
+    init.ums9230_1h10.rc \
+    init.ums9230_1h10.usb.rc \
+    init.ums9230_1h10_go.rc \
+    init.ums9230_1h10_go.usb.rc \
+    init.ums9230_4h10.rc \
+    init.ums9230_4h10.usb.rc \
+    init.ums9230_4h10_go.rc \
+    init.ums9230_4h10_go.usb.rc \
+    init.ums9230_6h10.rc \
+    init.ums9230_6h10.usb.rc \
+    init.ums9230_7h10.rc \
+    init.ums9230_7h10.usb.rc \
+    init.ums9230_haps.rc \
+    init.ums9230_haps.usb.rc \
+    init.ums9230_hulk.rc \
+    init.ums9230_hulk.usb.rc \
+    init.ums9230_nico.rc \
+    init.ums9230_nico.usb.rc \
+    init.ums9230_zebu.rc \
+    init.ums9230_zebu.usb.rc \
+    init.zramwb.rc \
+
+
+PRODUCT_PREBUILT_DTBO_IMAGE := $(TARGET_PREBUILT_DTBO)
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/dtbo.img:dtbo.img
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/fstab.ums9230_4h10:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.ums9230_4h10
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+
+# Inherit the proprietary files
+$(call inherit-product, vendor/realme/RE58C2/RE58C2-vendor.mk)
