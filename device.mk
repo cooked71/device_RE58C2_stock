@@ -136,7 +136,7 @@ PRODUCT_PACKAGES += \
 # fstab files (first stage)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/fastabs/fstab.module:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.module \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.RMX3624 \
+    device/realme/RE58C2/stuff/fastabs/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.RMX3624 \
     $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_1h10 \
     $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_1h10_go \
     $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_4h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_4h10 \
