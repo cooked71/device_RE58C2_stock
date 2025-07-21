@@ -88,6 +88,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_nico.rc:root/ueventd.ums9230_nico.rc \
     $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_zebu.rc:root/ueventd.ums9230_zebu.rc
 
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/stuff/modules,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules)
+
 
 
 # Boot control HAL
