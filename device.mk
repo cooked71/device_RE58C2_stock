@@ -69,6 +69,26 @@ DEVICE_MANIFEST_FILES += \
 # WITH_LINEAGE_RECOVERY := true
 # PRODUCT_PACKAGES += lineage_recovery
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)stuff/recovery.fstab:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/recovery.fstab
+
+# Recovery-specific init/ueventd scripts from stuff/rcfiles
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/stuff/rcfiles/init.recovery.common.rc:root/init.recovery.common.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.module.rc:root/ueventd.module.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.RMX3624.rc:root/ueventd.RMX3624.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_1h10.rc:root/ueventd.ums9230_1h10.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_1h10_go.rc:root/ueventd.ums9230_1h10_go.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_4h10.rc:root/ueventd.ums9230_4h10.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_4h10_go.rc:root/ueventd.ums9230_4h10_go.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_6h10.rc:root/ueventd.ums9230_6h10.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_7h10.rc:root/ueventd.ums9230_7h10.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_haps.rc:root/ueventd.ums9230_haps.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_hulk.rc:root/ueventd.ums9230_hulk.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_nico.rc:root/ueventd.ums9230_nico.rc \
+    $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_zebu.rc:root/ueventd.ums9230_zebu.rc
+
+
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
