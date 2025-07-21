@@ -70,7 +70,7 @@ DEVICE_MANIFEST_FILES += \
 # PRODUCT_PACKAGES += lineage_recovery
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)stuff/recovery.fstab:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/recovery.fstab
+    $(LOCAL_PATH)/stuff/recovery.fstab:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/recovery.fstab
 
 # Recovery-specific init/ueventd scripts from stuff/rcfiles
 PRODUCT_COPY_FILES += \
