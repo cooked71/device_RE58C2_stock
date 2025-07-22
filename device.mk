@@ -103,6 +103,21 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_nico \
     $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_zebu
 
+#add init specific 
+PRODUCT_COPY_FILES += \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.module.rc:vendor_recovery/init.recovery.module.rc \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.RMX3624.rc:vendor_recovery/init.recovery.RMX3624.rc \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_1h10.rc:vendor_recovery/init.recovery.ums9230_1h10.rc \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_1h10_go.rc:vendor_recovery/init.recovery.ums9230_1h10_go.rc \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_4h10.rc:vendor_recovery/init.recovery.ums9230_4h10.rc \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_4h10_go.rc:vendor_recovery/init.recovery.ums9230_4h10_go.rc \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_6h10.rc:vendor_recovery/init.recovery.ums9230_6h10.rc \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_7h10.rc:vendor_recovery/init.recovery.ums9230_7h10.rc \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_haps.rc:vendor_recovery/init.recovery.ums9230_haps.rc \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_hulk.rc:vendor_recovery/init.recovery.ums9230_hulk.rc \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_nico.rc:vendor_recovery/init.recovery.ums9230_nico.rc \
+    device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_zebu.rc:vendor_recovery/init.recovery.ums9230_zebu.rc
+
 
 
 #add recovery modules
