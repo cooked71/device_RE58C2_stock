@@ -90,18 +90,18 @@ PRODUCT_COPY_FILES += \
 
 #add fstabs to recovery  (first stage)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.module:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.module \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.RMX3624 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_1h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_1h10_go \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_4h10:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_4h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_4h10_go:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_4h10_go \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_6h10:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_6h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_7h10:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_7h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_haps:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_haps \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_hulk \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_nico \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_zebu
+    $(LOCAL_PATH)/stuff/fastabs/fstab.module:root/first_stage_ramdisk/fstab.module \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.RMX3624:root/first_stage_ramdisk/fstab.RMX3624 \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10:root/first_stage_ramdisk/fstab.ums9230_1h10 \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10_go:root/first_stage_ramdisk/fstab.ums9230_1h10_go \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_4h10:root/first_stage_ramdisk/fstab.ums9230_4h10 \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_4h10_go:root/first_stage_ramdisk/fstab.ums9230_4h10_go \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_6h10:root/first_stage_ramdisk/fstab.ums9230_6h10 \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_7h10:root/first_stage_ramdisk/fstab.ums9230_7h10 \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_haps:root/first_stage_ramdisk/fstab.ums9230_haps \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_hulk:root/first_stage_ramdisk/fstab.ums9230_hulk \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_nico:root/first_stage_ramdisk/fstab.ums9230_nico \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_zebu:root/first_stage_ramdisk/fstab.ums9230_zebu
 
 #add init specific 
 PRODUCT_COPY_FILES += \
