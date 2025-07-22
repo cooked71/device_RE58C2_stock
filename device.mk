@@ -167,18 +167,19 @@ PRODUCT_PACKAGES += \
 
 # fstab files to ramdisk (first stage)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.module:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.module \
-    device/realme/RE58C2/stuff/fastabs/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.RMX3624 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_1h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_1h10_go \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_4h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_4h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_4h10_go:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_4h10_go \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_6h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_6h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_7h10:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_7h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_haps:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_haps \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_hulk \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_nico \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.ums9230_zebu
+    device/realme/RE58C2/stuff/fastabs/fstab.module:vendor_recovery/first_stage_ramdisk/fstab.module \
+    device/realme/RE58C2/stuff/fastabs/fstab.RMX3624:vendor_recovery/first_stage_ramdisk/fstab.RMX3624 \
+    device/realme/RE58C2/stuff/fastabs/fstab.ums9230_1h10:vendor_recovery/first_stage_ramdisk/fstab.ums9230_1h10 \
+    device/realme/RE58C2/stuff/fastabs/fstab.ums9230_1h10_go:vendor_recovery/first_stage_ramdisk/fstab.ums9230_1h10_go \
+    device/realme/RE58C2/stuff/fastabs/fstab.ums9230_4h10:vendor_recovery/first_stage_ramdisk/fstab.ums9230_4h10 \
+    device/realme/RE58C2/stuff/fastabs/fstab.ums9230_4h10_go:vendor_recovery/first_stage_ramdisk/fstab.ums9230_4h10_go \
+    device/realme/RE58C2/stuff/fastabs/fstab.ums9230_6h10:vendor_recovery/first_stage_ramdisk/fstab.ums9230_6h10 \
+    device/realme/RE58C2/stuff/fastabs/fstab.ums9230_7h10:vendor_recovery/first_stage_ramdisk/fstab.ums9230_7h10 \
+    device/realme/RE58C2/stuff/fastabs/fstab.ums9230_haps:vendor_recovery/first_stage_ramdisk/fstab.ums9230_haps \
+    device/realme/RE58C2/stuff/fastabs/fstab.ums9230_hulk:vendor_recovery/first_stage_ramdisk/fstab.ums9230_hulk \
+    device/realme/RE58C2/stuff/fastabs/fstab.ums9230_nico:vendor_recovery/first_stage_ramdisk/fstab.ums9230_nico \
+    device/realme/RE58C2/stuff/fastabs/fstab.ums9230_zebu:vendor_recovery/first_stage_ramdisk/fstab.ums9230_zebu
+
 
 
 
