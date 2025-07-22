@@ -165,7 +165,7 @@ PRODUCT_PACKAGES += \
 
 
 
-# fstab files to ramdisk (first stage)
+# fstab files to recovery (first stage)
 PRODUCT_COPY_FILES += \
     device/realme/RE58C2/stuff/fastabs/fstab.module:vendor_recovery/first_stage_ramdisk/fstab.module \
     device/realme/RE58C2/stuff/fastabs/fstab.RMX3624:vendor_recovery/first_stage_ramdisk/fstab.RMX3624 \
