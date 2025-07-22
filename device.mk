@@ -69,11 +69,11 @@ DEVICE_MANIFEST_FILES += \
 # WITH_LINEAGE_RECOVERY := true
 # PRODUCT_PACKAGES += lineage_recovery
 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/recovery.fstab:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/recovery.fstab
 
 # Recovery-specific init/ueventd scripts from stuff/rcfiles
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/rcfiles/init.recovery.common.rc:root/init.recovery.common.rc \
     $(LOCAL_PATH)/stuff/rcfiles/ueventd.module.rc:root/ueventd.module.rc \
     $(LOCAL_PATH)/stuff/rcfiles/ueventd.RMX3624.rc:root/ueventd.RMX3624.rc \
@@ -89,7 +89,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_zebu.rc:root/ueventd.ums9230_zebu.rc
 
 #add fstabs to recovery  (first stage)
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/fastabs/fstab.module:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.module \
     $(LOCAL_PATH)/stuff/fastabs/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.RMX3624 \
     $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_1h10 \
@@ -104,7 +104,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/first_stage_ramdisk/fstab.ums9230_zebu
 
 #add init specific 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     device/realme/RE58C2/stuff/initfiles/init.recovery.module.rc:vendor_recovery/init.recovery.module.rc \
     device/realme/RE58C2/stuff/initfiles/init.recovery.RMX3624.rc:vendor_recovery/init.recovery.RMX3624.rc \
     device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_1h10.rc:vendor_recovery/init.recovery.ums9230_1h10.rc \
@@ -119,24 +119,29 @@ PRODUCT_COPY_FILES += \
     device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_zebu.rc:vendor_recovery/init.recovery.ums9230_zebu.rc
 
 #add fstabs to recovery  (root)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.module:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.module \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.RMX3624:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.RMX3624 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.ums9230_1h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.ums9230_1h10_go \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_4h10:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.ums9230_4h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_4h10_go:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.ums9230_4h10_go \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_6h10:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.ums9230_6h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_7h10:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.ums9230_7h10 \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_haps:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.ums9230_haps \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_hulk:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.ums9230_hulk \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_nico:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.ums9230_nico \
-    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_zebu:$(TARGET_COPY_OUT_RECOVERY)/root/fstab.ums9230_zebu
+#PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.module:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.module \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.RMX3624 \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.ums9230_1h10 \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10_go:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.ums9230_1h10_go \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_4h10:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.ums9230_4h10 \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_4h10_go:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.ums9230_4h10_go \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_6h10:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.ums9230_6h10 \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_7h10:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.ums9230_7h10 \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_haps:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.ums9230_haps \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_hulk:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.ums9230_hulk \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_nico:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.ums9230_nico \
+    $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_zebu:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.ums9230_zebu
 
 
 #add recovery modules
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/stuff/modules,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules)
+#PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/stuff/modules,$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/lib/modules)
+
+
+
+#from twrp
+
 
 
 
