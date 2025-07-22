@@ -73,7 +73,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/recovery.fstab:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/recovery.fstab
 
 # Recovery-specific init/ueventd scripts from stuff/rcfiles
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/rcfiles/init.recovery.common.rc:root/init.recovery.common.rc \
     $(LOCAL_PATH)/stuff/rcfiles/ueventd.module.rc:root/ueventd.module.rc \
     $(LOCAL_PATH)/stuff/rcfiles/ueventd.RMX3624.rc:root/ueventd.RMX3624.rc \
@@ -89,7 +89,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/rcfiles/ueventd.ums9230_zebu.rc:root/ueventd.ums9230_zebu.rc
 
 #add fstabs to recovery  (first stage)
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/fastabs/fstab.module:root/first_stage_ramdisk/fstab.module \
     $(LOCAL_PATH)/stuff/fastabs/fstab.RMX3624:root/first_stage_ramdisk/fstab.RMX3624 \
     $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10:root/first_stage_ramdisk/fstab.ums9230_1h10 \
@@ -104,7 +104,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_zebu:root/first_stage_ramdisk/fstab.ums9230_zebu
 
 #add init specific 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     device/realme/RE58C2/stuff/initfiles/init.recovery.module.rc:vendor_recovery/init.recovery.module.rc \
     device/realme/RE58C2/stuff/initfiles/init.recovery.RMX3624.rc:vendor_recovery/init.recovery.RMX3624.rc \
     device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_1h10.rc:vendor_recovery/init.recovery.ums9230_1h10.rc \
@@ -119,7 +119,7 @@ PRODUCT_COPY_FILES += \
     device/realme/RE58C2/stuff/initfiles/init.recovery.ums9230_zebu.rc:vendor_recovery/init.recovery.ums9230_zebu.rc
 
 #add fstabs to recovery  (root)
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/fastabs/fstab.module:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.module \
     $(LOCAL_PATH)/stuff/fastabs/fstab.RMX3624:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.RMX3624 \
     $(LOCAL_PATH)/stuff/fastabs/fstab.ums9230_1h10:$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/fstab.ums9230_1h10 \
