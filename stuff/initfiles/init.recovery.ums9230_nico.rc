@@ -1,1 +1,2 @@
-import /init.recovery.common.rc
+on early-init
+    import /init.recovery.common.rc
