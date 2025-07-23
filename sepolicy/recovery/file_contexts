@@ -1,0 +1,1 @@
+/init.recovery.*\.rc            u:object_r:recovery_file:s0
