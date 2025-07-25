@@ -40,7 +40,6 @@ DEVICE_MANIFEST_FILES += \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/android.hardware.wifi.supplicant.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/bluetooth_audio.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/cplog_svc-default.xml \
- #   vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/enhance-default.xml \#
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/face-default.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/hdcp-default.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/lights.xml \
