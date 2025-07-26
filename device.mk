@@ -183,7 +183,6 @@ INIT_RC_FILES := \
     init.ums9230_hulk.usb.rc \
     init.RE58C2.rc \
     init.RE58C2.usb.rc \
-
     init.ums9230_nico.rc \
     init.ums9230_nico.usb.rc \
     init.ums9230_zebu.rc \
