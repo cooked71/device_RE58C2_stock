@@ -1,25 +1,20 @@
+# device/realme/RE58C2/recovery/root/etc/recovery.fstab
+
 # Dynamic Partitions (A/B)
 /system       erofs   /dev/block/mapper/system     ro,avb=vbmeta_system,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey,slotselect
-/vendor       erofs   /dev/block/mapper/vendor     ro,avb=vbmeta_vendor,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey,slotselect
-/product      erofs   /dev/block/mapper/product    ro,avb=vbmeta_product,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey,slotselect
-/system_ext   erofs   /dev/block/mapper/system_ext ro,avb=vbmeta_system_ext,slotselect
-/odm          erofs   /dev/block/mapper/odm        ro,avb=vbmeta_odm,slotselect
-/vendor_dlkm  erofs   /dev/block/mapper/vendor_dlkm ro,avb=vbmeta_system_ext,slotselect
+/vendor       erofs   /dev/block/mapper/vendor     ro,avb=vbmeta_vendor,slotselect
+/product      erofs   /dev/block/mapper/product    ro,avb=vbmeta_product,slotselect
 
 # Boot Partitions
 /boot         emmc    /dev/block/by-name/boot_a    flags=slotselect
 /vendor_boot  emmc    /dev/block/by-name/vendor_boot_a flags=slotselect
-/dtbo         emmc    /dev/block/by-name/dtbo_a    flags=slotselect
 
 # Data Partitions
-/data         f2fs    /dev/block/by-name/userdata  latemount,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,reservedsize=128M
-/metadata     f2fs    /dev/block/by-name/metadata  noatime,check,formattable
+/data         f2fs    /dev/block/by-name/userdata  latemount,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,reservedsize=128M
 
-# Special Partitions (Realme/Oppo)
-/avbmeta_rs   emmc    /dev/block/by-name/avbmeta_rs_a flags=slotselect
-/oplusreserve emmc    /dev/block/by-name/oplusreserve1 flags=backup=1
-/opporeserve  emmc    /dev/block/by-name/opporeserve flags=backup=1
+# Special Partitions (Realme)
+/oplusreserve emmc    /dev/block/by-name/oplusreserve1 flags=display="OplusReserve"
+/opporeserve  emmc    /dev/block/by-name/opporeserve flags=display="OppoReserve"
 
 # Storage
-/sdcard       auto    /dev/block/mmcblk1p1         flags=display="MicroSD";storage;wipeingui;removable;fsflags="utf8"
-/usbotg       auto    /dev/block/sda1              flags=display="USB-OTG";storage;wipeingui;removable;fsflags="utf8"
+/sdcard       auto    /dev/block/mmcblk1p1         flags=display="MicroSD";storage;removable;fsflags="utf8"
