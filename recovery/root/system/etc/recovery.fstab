@@ -1,24 +1,25 @@
-# Dynamic Partitions (A/B)
+# Dynamic Partitions (A/B) - Mapper Paths
 /system       erofs   /dev/block/mapper/system     ro,avb=vbmeta_system,slotselect
 /vendor       erofs   /dev/block/mapper/vendor     ro,avb=vbmeta_vendor,slotselect
 /product      erofs   /dev/block/mapper/product    ro,avb=vbmeta_product,slotselect
 /system_ext   erofs   /dev/block/mapper/system_ext ro,avb=vbmeta_system_ext,slotselect
 /odm          erofs   /dev/block/mapper/odm        ro,avb=vbmeta_odm,slotselect
+/vendor_dlkm  erofs   /dev/block/mapper/vendor_dlkm ro,avb=vbmeta_system_ext,slotselect
 
-# Boot Partitions
+# Boot Partitions - Physical Paths
 /boot         emmc    /dev/block/by-name/boot_a    flags=slotselect
 /vendor_boot  emmc    /dev/block/by-name/vendor_boot_a flags=slotselect
 /dtbo         emmc    /dev/block/by-name/dtbo_a    flags=slotselect
 
 # Data Partitions
-/data         f2fs    /dev/block/by-name/userdata  latemount,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
-/metadata     f2fs    /dev/block/by-name/metadata  noatime,check
+/data         f2fs    /dev/block/by-name/userdata  latemount,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,reservedsize=128M,checkpoint=fs
+/metadata     f2fs    /dev/block/by-name/metadata  noatime,check,formattable
 
-# Special Partitions
+# Special Partitions (Realme/Oppo)
 /avbmeta_rs   emmc    /dev/block/by-name/avbmeta_rs_a flags=slotselect
-/oplusreserve emmc    /dev/block/by-name/oplusreserve1
-/opporeserve  emmc    /dev/block/by-name/opporeserve
+/oplusreserve emmc    /dev/block/by-name/oplusreserve1 flags=backup=1;display="OplusReserve"
+/opporeserve  emmc    /dev/block/by-name/opporeserve flags=backup=1;display="OppoReserve"
 
-# External SD Card (vfat/exFAT)
+# Storage
 /sdcard       auto    /dev/block/mmcblk1p1         flags=display="MicroSD";storage;wipeingui;removable;fsflags="utf8"
 /usbotg       auto    /dev/block/sda1              flags=display="USB-OTG";storage;wipeingui;removable;fsflags="utf8"
