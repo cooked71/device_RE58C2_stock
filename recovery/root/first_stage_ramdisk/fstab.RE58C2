@@ -10,9 +10,6 @@
 /data         f2fs    /dev/block/by-name/userdata  latemount,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized
 /metadata     f2fs    /dev/block/by-name/metadata  noatime,check,formattable
 
-# Removed Items
-# - Duplicate system entries (erofs+ext4)
-# - first_stage_mount flags
-# - logical partition flags
-# - Redundant metadata entry
-# - avb_keys paths (handled by vbmeta.img)
+# SD Card Support (vfat/exFAT/NTFS)
+/sdcard       auto    /dev/block/mmcblk1p1         flags=display="SD Card";storage;wipeingui;removable;fsflags="utf8"
+/usbotg       auto    /dev/block/sda1              flags=display="USB OTG";storage;wipeingui;removable;fsflags="utf8"
