@@ -12,6 +12,20 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := false
 
+# API levels
+PRODUCT_SHIPPING_API_LEVEL := 34
+
+# Overlays
+PRODUCT_ENFORCE_RRO_TARGETS := *
+
+# Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# Product characteristics
+PRODUCT_CHARACTERISTICS := default
+
+
+
 # VINTF Configuration
 DEVICE_VENDOR_COMPATIBILITY_MATRIX_FILE := \
     device/realme/RE58C2/compatibility_matrix.device.xml
