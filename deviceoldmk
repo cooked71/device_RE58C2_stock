@@ -139,8 +139,17 @@ PRODUCT_COPY_FILES += \
 
 
 
-#from twrp
+# Force include vendor_dlkm files
+PRODUCT_PACKAGES += \
+    init_vendor_dlkm \
+    vendor_dlkm_modules_load \
+    mali_kbase \
+    sprd_wlan_combo \
+    sprd_thermal
 
+# Ensure modules are loaded
+BOARD_VENDOR_KERNEL_MODULES := \
+    $(wildcard $(DEVICE_PATH)/proprietary/vendor_dlkm/lib/modules/*.ko)
 
 
 
