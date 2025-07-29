@@ -195,7 +195,7 @@ BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
 VENDOR_SECURITY_PATCH := 2024-07-05
 
 #sepolicy for fastdotd
-BOARD_SEPOLICY_DIRS += device/realme/RE58C2/sepolicy/common
+BOARD_SEPOLICY_DIRS += device/realme/RE58C2/sepolicy/
 BOARD_RECOVERY_SEPOLICY_DIRS += device/realme/RE58C2/sepolicy/recovery
 
 # Kernel modules
