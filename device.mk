@@ -85,6 +85,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img \
     $(LOCAL_PATH)/prebuilts/dtbo.img:dtbo.img
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/sepolicy/vendor_dlkm/file_contexts:$(TARGET_COPY_OUT_VENDOR)/etc/selinux/vendor_dlkm_file_contexts
+
 # Recovery configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/stuff/recovery.fstab:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/recovery.fstab
