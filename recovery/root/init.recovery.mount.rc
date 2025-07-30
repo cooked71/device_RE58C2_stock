@@ -1,0 +1,42 @@
+on early-init
+    # Ensure mapper directory exists
+    mkdir /dev/block/mapper 0700 root root
+
+on init
+    # Create mount points
+    mkdir /metadata 0771 system system
+    mkdir /mnt 0755 root root
+    mkdir /mnt/system 0755 root root
+    mkdir /mnt/product 0755 root root
+    mkdir /mnt/system_ext 0755 root root
+    mkdir /mnt/vendor 0755 root root
+    mkdir /mnt/odm 0755 root root
+    mkdir /mnt/vendor_dlkm 0755 root root
+
+    # Mount metadata (important for AVB and file-based encryption)
+    mount_all /system/etc/recovery.fstab
+
+    # Wait for logical partitions
+    wait /dev/block/mapper/system_a
+    wait /dev/block/mapper/product_a
+    wait /dev/block/mapper/system_ext_a
+    wait /dev/block/mapper/vendor_a
+    wait /dev/block/mapper/odm_a
+    wait /dev/block/mapper/vendor_dlkm_a
+
+on post-fs
+    # Mount each logical dynamic partition read-only
+    mount erofs /dev/block/mapper/system_a /mnt/system ro
+    mount erofs /dev/block/mapper/product_a /mnt/product ro
+    mount erofs /dev/block/mapper/system_ext_a /mnt/system_ext ro
+    mount erofs /dev/block/mapper/vendor_a /mnt/vendor ro
+    mount erofs /dev/block/mapper/odm_a /mnt/odm ro
+    mount erofs /dev/block/mapper/vendor_dlkm_a /mnt/vendor_dlkm ro
+
+    # Restore SELinux contexts (optional but safe)
+    restorecon_recursive /mnt/system
+    restorecon_recursive /mnt/product
+    restorecon_recursive /mnt/system_ext
+    restorecon_recursive /mnt/vendor
+    restorecon_recursive /mnt/odm
+    restorecon_recursive /mnt/vendor_dlkm
