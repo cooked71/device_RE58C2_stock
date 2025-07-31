@@ -75,7 +75,11 @@ DEVICE_MANIFEST_FILES += $(foreach manifest,$(HARDWARE_MANIFESTS),\
 
 # Recovery configuration
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/stuff/recovery.fstab:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/recovery.fstab
+    $(LOCAL_PATH)/recovery/root/recovery.fstab:$(TARGET_COPY_OUT_RECOVERY)/etc/recovery.fstab \
+    $(LOCAL_PATH)/recovery/root/init.recovery.mount.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mount.rc
+
+
+
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
