@@ -1,42 +1,28 @@
 on early-init
-    # Ensure mapper directory exists
-    mkdir /dev/block/mapper 0700 root root
+    # Make sure metadata is available early (needed for decryption & AVB)
+    mount f2fs /dev/block/by-name/metadata /metadata noatime,nosuid,nodev,discard,check,formattable,first_stage_mount,wait
 
 on init
-    # Create mount points
-    mkdir /metadata 0771 system system
-    mkdir /mnt 0755 root root
-    mkdir /mnt/system 0755 root root
-    mkdir /mnt/product 0755 root root
-    mkdir /mnt/system_ext 0755 root root
-    mkdir /mnt/vendor 0755 root root
-    mkdir /mnt/odm 0755 root root
-    mkdir /mnt/vendor_dlkm 0755 root root
+    # Mount dynamic partitions (read-only in recovery)
+    mount erofs system /system ro,logical,first_stage_mount,slotselect,avb=vbmeta_system,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey,wait
+    mount erofs product /product ro,logical,first_stage_mount,slotselect,avb=vbmeta_product,wait
+    mount erofs system_ext /system_ext ro,logical,first_stage_mount,slotselect,avb=vbmeta_system,wait
+    mount erofs vendor /vendor ro,logical,first_stage_mount,slotselect,avb=vbmeta_vendor,wait
+    mount erofs odm /odm ro,logical,first_stage_mount,slotselect,avb=vbmeta_odm,wait
+    mount erofs vendor_dlkm /vendor_dlkm ro,logical,first_stage_mount,slotselect,avb=vbmeta_vendor_dlkm,wait
 
-    # Mount metadata (important for AVB and file-based encryption)
-    mount_all /system/etc/recovery.fstab
+    # Mount data (with encryption parameters)
+    mount f2fs /dev/block/by-name/userdata /data noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,inline_xattr,inline_data,inlinecrypt,fsync_mode=nobarrier,latemount,wait,check,formattable,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,reservedsize=128M,checkpoint=fs
 
-    # Wait for logical partitions
-    wait /dev/block/mapper/system_a
-    wait /dev/block/mapper/product_a
-    wait /dev/block/mapper/system_ext_a
-    wait /dev/block/mapper/vendor_a
-    wait /dev/block/mapper/odm_a
-    wait /dev/block/mapper/vendor_dlkm_a
+    # Mount cache
+    mount f2fs /dev/block/by-name/cache /cache noatime,nosuid,nodev,discard,wait,check,formattable
+
+on fs
+    # Prepare removable storage handling
+    mkdir /mnt/media_rw 0700 root root
+    mkdir /mnt/media_rw/sdcard0 0700 root root
+    mkdir /mnt/media_rw/usbdisk 0700 root root
 
 on post-fs
-    # Mount each logical dynamic partition read-only
-    mount erofs /dev/block/mapper/system_a /mnt/system ro
-    mount erofs /dev/block/mapper/product_a /mnt/product ro
-    mount erofs /dev/block/mapper/system_ext_a /mnt/system_ext ro
-    mount erofs /dev/block/mapper/vendor_a /mnt/vendor ro
-    mount erofs /dev/block/mapper/odm_a /mnt/odm ro
-    mount erofs /dev/block/mapper/vendor_dlkm_a /mnt/vendor_dlkm ro
-
-    # Restore SELinux contexts (optional but safe)
-    restorecon_recursive /mnt/system
-    restorecon_recursive /mnt/product
-    restorecon_recursive /mnt/system_ext
-    restorecon_recursive /mnt/vendor
-    restorecon_recursive /mnt/odm
-    restorecon_recursive /mnt/vendor_dlkm
+    # Start vold for USB OTG and SD card handling
+    start vold
