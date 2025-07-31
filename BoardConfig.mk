@@ -162,39 +162,36 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
 # Verified Boot (AVB)
+# ===== Verified Boot (AVB) =====
 BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
-BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
-BOARD_AVB_VENDOR_BOOT_ALGORITHM := SHA256_RSA4096
+
+# AVB key for signing vbmeta, boot, and vendor_boot (test key for development)
+BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_ROLLBACK_INDEX := 1
+BOARD_AVB_ROLLBACK_INDEX_LOCATION := 1
+
+# Vendor boot signing
+BOARD_AVB_VENDOR_BOOT_KEY_PATH := $(BOARD_AVB_KEY_PATH)
+BOARD_AVB_VENDOR_BOOT_ALGORITHM := $(BOARD_AVB_ALGORITHM)
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := 1
-BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
+BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 3
 
+# Boot signing
+BOARD_AVB_BOOT_KEY_PATH := $(BOARD_AVB_KEY_PATH)
+BOARD_AVB_BOOT_ALGORITHM := $(BOARD_AVB_ALGORITHM)
+BOARD_AVB_BOOT_ROLLBACK_INDEX := 1
+BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
 
-# Verified Boot (AVB) from chat gpt
-# BOARD_AVB_ENABLE := true
+# ===== VBMETA FLAGS =====
+# Development: allow verification skipping but keep hashtree enabled if possible
+# --flags 2 = disable verification only (less warning-prone than 3)
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
 
-# vbmeta signing (top-level vbmeta that covers partitions)
-#BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
-#BOARD_AVB_ALGORITHM := SHA256_RSA4096
-#BOARD_AVB_ROLLBACK_INDEX := 1
-#BOARD_AVB_ROLLBACK_INDEX_LOCATION := 1
-
-# Optional: disable hashtree verification during development
+# Optional: if partition verification fails, disable hashtree to boot anyway
+# Uncomment this ONLY if you can't pass verification for system/vendor
 #BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
 
-# Sign vendor_boot
-#BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
-#BOARD_AVB_VENDOR_BOOT_ALGORITHM := SHA256_RSA4096
-#BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := 1
-#BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 3
-
-# Sign boot
-#BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
-#BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA4096
-#BOARD_AVB_BOOT_ROLLBACK_INDEX := 1
-#BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
-# end chatgtp
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2024-07-05
