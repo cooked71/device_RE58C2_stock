@@ -1,42 +1,24 @@
-# init.recovery.mount.rc
-# Realme (Dynamic Partitions) — LineageOS 21
-# Auto-mount key partitions early in recovery
+# Dynamic partitions (logical, EROFS)
+system        /system        erofs    ro,wait,logical,first_stage_mount,avb=vbmeta_system,slotselect
+system_ext    /system_ext    erofs    ro,wait,logical,first_stage_mount,avb=vbmeta_system,slotselect
+product       /product       erofs    ro,wait,logical,first_stage_mount,avb=vbmeta_product,slotselect
+vendor        /vendor        erofs    ro,wait,logical,first_stage_mount,avb=vbmeta_vendor,slotselect
+odm           /odm           erofs    ro,wait,logical,first_stage_mount,avb=vbmeta_odm,slotselect
+vendor_dlkm   /vendor_dlkm   erofs    ro,wait,logical,first_stage_mount,avb=vbmeta_system_ext,slotselect
 
-on early-init
-    # Create required mount points
-    mkdir /system 0755 root root
-    mkdir /system_ext 0755 root root
-    mkdir /product 0755 root root
-    mkdir /vendor 0755 root root
-    mkdir /odm 0755 root root
-    mkdir /vendor_dlkm 0755 root root
-    mkdir /data 0771 system system
-    mkdir /metadata 0771 root root
-    mkdir /cache 0770 system cache
-    mkdir /persist 0771 system system
-    mkdir /mnt 0755 root root
+# Metadata
+/dev/block/by-name/metadata  /metadata  ext4   noatime,nosuid,nodev,discard,errors=panic wait,formattable,first_stage_mount,check
 
-    # Set encryption properties for recovery
-    setprop ro.crypto.state encrypted
-    setprop vold.decrypt trigger_default_encryption
+# User data
+/dev/block/by-name/userdata  /data      f2fs   noatime,nosuid,nodev,discard,inlinecrypt,reserve_root=32768,resgid=1065,checkpoint=fs latemount,wait,check,formattable
 
-on fs
-    # Mount metadata first (required for encryption)
-    mount ext4 /dev/block/by-name/metadata /metadata wait,formattable,check,first_stage_mount
+# Cache
+/dev/block/by-name/cache     /cache     f2fs   noatime,nosuid,nodev,discard wait,check,formattable
 
-    # Mount dynamic partitions (logical partitions)
-    mount erofs system /system ro,wait,logical,slotselect,first_stage_mount,avb=vbmeta_system
-    mount erofs system_ext /system_ext ro,wait,logical,slotselect,first_stage_mount,avb=vbmeta_system
-    mount erofs product /product ro,wait,logical,slotselect,first_stage_mount,avb=vbmeta_product
-    mount erofs vendor /vendor ro,wait,logical,slotselect,first_stage_mount,avb=vbmeta_vendor
-    mount erofs odm /odm ro,wait,logical,slotselect,first_stage_mount,avb=vbmeta_odm
-    mount erofs vendor_dlkm /vendor_dlkm ro,wait,logical,slotselect,first_stage_mount,avb=vbmeta_system_ext
+# Boot & recovery
+/dev/block/by-name/boot      /boot      emmc   defaults   recoveryonly
+/dev/block/by-name/recovery  /recovery  emmc   defaults   recoveryonly
 
-    # Mount persist for calibration and modem configs
-    mount ext4 /dev/block/by-name/persist /persist ro,nosuid,nodev,barrier=1 wait
-
-    # Mount cache if present
-    mount f2fs /dev/block/by-name/cache /cache noatime,nosuid,nodev,discard wait,check,formattable
-
-    # Mount userdata (data)
-    mount f2fs /dev/block/by-name/userdata /data noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,inline_xattr,inline_data,inlinecrypt,fsync_mode=nobarrier latemount,wait,check,fileencryption=aes-256-xts:aes-256-ct
+# Removable storage
+/devices/platform/soc/*/mmc_host/mmc1/*/block/mmcblk1  auto  vfat  defaults  voldmanaged=sdcard1:auto
+/devices/platform/soc/*/usb*/usb*                     auto  vfat  defaults  voldmanaged=usb:auto
