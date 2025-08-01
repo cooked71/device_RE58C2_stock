@@ -14,6 +14,7 @@ on early-init
     mkdir /metadata 0771 root root
     mkdir /cache 0770 system cache
     mkdir /persist 0771 system system
+    mkdir /misc  0755 root root
     mkdir /mnt 0755 root root
 
     # Set encryption properties for recovery
@@ -41,6 +42,9 @@ on fs
     # Mount userdata (data)
     mount f2fs /dev/block/by-name/userdata /data noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,inline_xattr,inline_data,inlinecrypt,fsync_mode=nobarrier latemount,wait,check,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,reservedsize=128M,checkpoint=fs,formattable
 
+    # Mount misc for BCB (bootloader control block)
+    mount emmc /dev/block/by-name/misc /misc defaults recoveryonly wait
+
 on post-fs
     # Set correct SELinux contexts
     restorecon_recursive /system
@@ -52,3 +56,4 @@ on post-fs
     restorecon_recursive /persist
     restorecon_recursive /data
     restorecon_recursive /cache
+    restorecon_recursive /misc
