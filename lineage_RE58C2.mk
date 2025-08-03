@@ -12,7 +12,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit from RE58C2 device
-$(call inherit-product, device/realme/RE58C2/device.mk)
+#$(call inherit-product, device/realme/RE58C2/device.mk)
 
 
 PRODUCT_DEVICE := RE58C2
