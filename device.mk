@@ -210,8 +210,8 @@ PRODUCT_COPY_FILES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
- $(LOCAL_PATH) 
- # vendor/realme/RE58C2
+ $(LOCAL_PATH) \
+ vendor/realme/RE58C2
 
 
 
@@ -225,11 +225,7 @@ endif
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/stuff/modules,$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/lib/modules)
 
-# Inherit the proprietary files
-ifneq ($(RE58C2_VENDOR_INCLUDED),true)
-RE58C2_VENDOR_INCLUDED := true
-$(call inherit-product, vendor/realme/RE58C2/RE58C2-vendor.mk)
-endif
+
 # ---------------------------------------------
 # ✅ ADD CORE AOSP/LINEAGE APPS FOR A FULL SYSTEM
 # ---------------------------------------------
