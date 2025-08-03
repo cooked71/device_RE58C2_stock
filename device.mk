@@ -4,6 +4,12 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+ifneq ($(RE58C2_VENDOR_INCLUDED),true)
+RE58C2_VENDOR_INCLUDED := true
+$(call inherit-product, vendor/realme/RE58C2/RE58C2-vendor.mk)
+endif
+
+
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
