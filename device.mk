@@ -209,9 +209,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/dtbo.img:dtbo.img
 
 # Soong namespaces
-#PRODUCT_SOONG_NAMESPACES += \
-#    $(LOCAL_PATH) \
-#    vendor/realme/RE58C2
+PRODUCT_SOONG_NAMESPACES += \
+ $(LOCAL_PATH) 
+ # vendor/realme/RE58C2
 
 
 
