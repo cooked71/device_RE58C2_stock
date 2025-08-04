@@ -43,15 +43,18 @@ TARGET_NO_BOOTLOADER := true
 TARGET_SCREEN_DENSITY := 320
 
 # A/B partitions
-AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS += \
-   vendor_dlkm \
-    system \
-    product \
-    system_ext \
-    vendor \
-    odm
+# AB_OTA_UPDATER := true
+# AB_OTA_PARTITIONS += \
+#   vendor_dlkm \
+#    system \
+#    product \
+#    system_ext \
+#    vendor \
+#    odm
   
+
+TARGET_NO_AB_OTA := true
+BOARD_AB_OTA_ENABLE := false  
 
 # Vendor Boot configuration
 #BOARD_USES_RECOVERY_AS_BOOT :=
