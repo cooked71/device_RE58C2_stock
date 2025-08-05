@@ -14,8 +14,8 @@ endif
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # A/B
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := false
@@ -120,8 +120,9 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
     update_verifier \
-    checkpoint_gc \
     otapreopt_script
+#    checkpoint_gc \
+    
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -129,11 +130,11 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_system=erofs \
     POSTINSTALL_OPTIONAL_system=true
 
-AB_OTA_POSTINSTALL_CONFIG += \
-    RUN_POSTINSTALL_vendor=true \
-    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
-    FILESYSTEM_TYPE_vendor=erofs \
-    POSTINSTALL_OPTIONAL_vendor=true
+# AB_OTA_POSTINSTALL_CONFIG += \
+#    RUN_POSTINSTALL_vendor=true \
+#    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+#    FILESYSTEM_TYPE_vendor=erofs \
+#    POSTINSTALL_OPTIONAL_vendor=true
 
 # API levels
 PRODUCT_SHIPPING_API_LEVEL := 34
