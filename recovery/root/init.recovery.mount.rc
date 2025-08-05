@@ -12,7 +12,6 @@ on early-init
     mkdir /vendor_dlkm 0755 root root
     mkdir /data 0771 system system
     mkdir /metadata 0771 root root
-    mkdir /metadata/ota 0755 root root
     mkdir /cache 0770 system cache
     mkdir /persist 0771 system system
     mkdir /misc  0755 root root
@@ -58,4 +57,7 @@ on post-fs
     restorecon_recursive /data
     restorecon_recursive /cache
     restorecon_recursive /misc
+    mkdir /metadata/ota 0755 root root
+
+
 
