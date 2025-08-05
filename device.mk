@@ -4,18 +4,12 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-ifneq ($(RE58C2_VENDOR_INCLUDED),true)
-RE58C2_VENDOR_INCLUDED := true
-$(call inherit-product, vendor/realme/RE58C2/RE58C2-vendor.mk)
-endif
-
-
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # A/B
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := false
@@ -120,21 +114,20 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
     update_verifier \
+    checkpoint_gc \
     otapreopt_script
-#    checkpoint_gc \
-    
 
-#AB_OTA_POSTINSTALL_CONFIG += \
-#    RUN_POSTINSTALL_system=true \
-#    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-#    FILESYSTEM_TYPE_system=ext4 \
-#    POSTINSTALL_OPTIONAL_system=true
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=erofs \
+    POSTINSTALL_OPTIONAL_system=true
 
-# AB_OTA_POSTINSTALL_CONFIG += \
-#    RUN_POSTINSTALL_vendor=true \
-#    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
-#    FILESYSTEM_TYPE_vendor=erofs \
-#    POSTINSTALL_OPTIONAL_vendor=true
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=erofs \
+    POSTINSTALL_OPTIONAL_vendor=true
 
 # API levels
 PRODUCT_SHIPPING_API_LEVEL := 34
@@ -217,15 +210,9 @@ PRODUCT_COPY_FILES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
- $(LOCAL_PATH) \
- vendor/realme/RE58C2
+    $(LOCAL_PATH) \
+    vendor/realme/RE58C2
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/system.prop:system/system/build.prop \
-    $(LOCAL_PATH)/vendor.prop:vendor/build.prop \
-    $(LOCAL_PATH)/odm_dlkm.prop:vendor/odm_dlkm/etc/build.prop \
-    $(LOCAL_PATH)/system_dlkm.prop:system/system/system_dlkm/etc/build.prop \
-    $(LOCAL_PATH)/system_ext.prop:system_ext/etc/build.prop
 
 
 
@@ -238,6 +225,8 @@ endif
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/stuff/modules,$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/lib/modules)
 
+# Inherit the proprietary files
+$(call inherit-product, vendor/realme/RE58C2/RE58C2-vendor.mk)
 
 # ---------------------------------------------
 # ✅ ADD CORE AOSP/LINEAGE APPS FOR A FULL SYSTEM
