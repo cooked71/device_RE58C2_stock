@@ -223,7 +223,6 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/system.prop:system/system/build.prop \
     $(LOCAL_PATH)/vendor.prop:vendor/build.prop \
-    $(LOCAL_PATH)/product.prop:product/etc/build.prop \
     $(LOCAL_PATH)/odm_dlkm.prop:vendor/odm_dlkm/etc/build.prop \
     $(LOCAL_PATH)/system_dlkm.prop:system/system/system_dlkm/etc/build.prop \
     $(LOCAL_PATH)/system_ext.prop:system_ext/etc/build.prop
