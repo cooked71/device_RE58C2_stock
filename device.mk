@@ -86,6 +86,17 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/init.recovery.mount.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mount.rc
 
+# First stage ramdisk files for vendor_boot ramdisk.cpio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vendor_boot/first_stage_ramdisk/fstab.RE58C2:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.RE58C2 \
+    $(LOCAL_PATH)/vendor_boot/first_stage_ramdisk/fstab.ums9230_4h10_go:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.ums9230_4h10_go \
+    $(LOCAL_PATH)/vendor_boot/first_stage_ramdisk/fstab.ums9230_zebu:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.ums9230_zebu \
+    $(LOCAL_PATH)/vendor_boot/first_stage_ramdisk/fstab.RMX3624:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.RMX3624 \
+    $(LOCAL_PATH)/vendor_boot/first_stage_ramdisk/fstab.ums9230_6h10:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.ums9230_6h10 \
+    $(LOCAL_PATH)/vendor_boot/first_stage_ramdisk/fstab.ums9230_7h10:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.ums9230_7h10 \
+    $(LOCAL_PATH)/vendor_boot/first_stage_ramdisk/fstab.ums9230_hulk:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.ums9230_hulk \
+    $(LOCAL_PATH)/vendor_boot/first_stage_ramdisk/fstab.ums9230_nico:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.ums9230_nico
+
 
 
 # Boot control HAL
