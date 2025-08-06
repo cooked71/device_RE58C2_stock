@@ -40,4 +40,6 @@ vendor_dlkm /vendor_dlkm erofs ro wait,avb=vbmeta_system_ext,logical,first_stage
 /dev/block/by-name/cache /cache f2fs noatime,nosuid,nodev,discard wait,check,formattable
 /dev/block/by-name/cache /cache ext4 noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait,check,formattable
 /dev/block/by-name/prodnv /mnt/vendor ext4 noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait,check
-/dev/block/mmcblk1p1 /storage/sdcard0 vfat defaults defaults
+# Removable storage
+/devices/platform/soc/soc:*/*.usb/musb-hdrc.*.auto/usb*                      auto    vfat    defaults      voldmanaged=usbdisk:auto
+/devices/platform/soc/soc:ap-*/*.sdio/mmc_host/mmc1/mmc1:*/block/mmcblk1     auto    vfat    defaults      voldmanaged=sdcard0:auto,noemulatedsd,encryptable=footer
