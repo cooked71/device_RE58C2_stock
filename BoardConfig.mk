@@ -51,6 +51,10 @@ AB_OTA_PARTITIONS += \
     system_ext \
     vendor \
     odm
+
+# AVB for system_other (postinstall)
+BOARD_AVB_SYSTEM_KEY_PATH := $(DEVICE_PATH)/avb_keys/system.key
+BOARD_AVB_SYSTEM_ALGORITHM := SHA256_RSA4096
   
 
 # Vendor Boot configuration
