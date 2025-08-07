@@ -97,6 +97,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor_boot/first_stage_ramdisk/fstab.ums9230_hulk:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.ums9230_hulk \
     $(LOCAL_PATH)/vendor_boot/first_stage_ramdisk/fstab.ums9230_nico:$(TARGET_COPY_OUT_RAMDISK)/first_stage_ramdisk/fstab.ums9230_nico
 
+PRODUCT_COPY_FILES += \
+ $(LOCAL_PATH)/avb_keys/system_other.avbpubkey:product/etc/security/avb/system_other.avbpubkey
 
 
 # Boot control HAL
