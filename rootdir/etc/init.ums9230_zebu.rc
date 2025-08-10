@@ -43,6 +43,12 @@ on early-boot
     # wait_for_prop vendor.all.modules.ready 1
 
 on early-init
+    # Bind mount vendor_dlkm modules to vendor/lib/modules  
+    mount -o bind /vendor_dlkm/lib/modules /vendor/lib/modules
+
+    # Bind mount system_dlkm modules to system/lib/modules
+    mount -o bind /system_dlkm/lib/modules /system/lib/modules
+ 
     start insmod-sh
 
 service insmod-sh /vendor/bin/init.insmod.sh /vendor/lib/modules/init.insmod.cfg ${ro.bootmode}
