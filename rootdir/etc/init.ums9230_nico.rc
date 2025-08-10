@@ -58,7 +58,6 @@ service insmod-sh /vendor/bin/init.insmod.sh /vendor/lib/modules/init.insmod.cfg
     disabled
     oneshot
 
-
 on property:sys.boot_completed=1
     write /sys/bus/platform/drivers/sprd_serial/200a0000.serial/uart_gpio_ctrl 1
 
