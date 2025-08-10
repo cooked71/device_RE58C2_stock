@@ -10,7 +10,7 @@ on init
 on post-fs-data
     setprop vold.post_fs_data_done 1
     # setprop debug.sf.latch_unsignaled 1
-    insmod ${ro.vendor.ko.mount.point}/socko/akm4377.ko
+    # insmod ${ro.vendor.ko.mount.point}/socko/akm4377.ko
 
 # Set watchdog timer to 30 seconds and pet it every 10 seconds to get a 20 second margin
 service watchdogd /system/bin/watchdogd 10 30
