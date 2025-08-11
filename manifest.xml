@@ -77,7 +77,6 @@
     </hal>
     <hal format="aidl" version="1.0">
         <name>vendor.sprd.hardware.enhance</name>
-        <transport>hwbinder</transport>
         <fqname>IEnhance/default</fqname>
     </hal>
     <hal format="hidl" version="1.0">
