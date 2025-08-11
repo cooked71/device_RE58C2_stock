@@ -75,8 +75,12 @@
         <transport>hwbinder</transport>
         <fqname>@1.0::IConnmgr/default</fqname>
     </hal>
-    <hal format="aidl">
+   <hal format="aidl">
         <name>vendor.sprd.hardware.enhance</name>
+        <interface>
+            <name>IEnhance</name>
+            <instance>default</instance>
+        </interface>
         <fqname>IEnhance/default</fqname>
     </hal>
     <hal format="hidl">
