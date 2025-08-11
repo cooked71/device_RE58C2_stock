@@ -27,7 +27,7 @@ DEVICE_MANIFEST_FILES := \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest.xml
 
 # VINTF manifests from vendor
-PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
+PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := false
 PRODUCT_PACKAGES += \
     manifest_oplus_performance.xml \
     manifest_dualsim.xml \
