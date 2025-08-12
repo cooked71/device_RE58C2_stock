@@ -7,13 +7,12 @@ DEVICE_PATH := device/realme/RE58C2
 # =====================
 # Build System Settings
 # =====================
+ALLOW_MISSING_DEPENDENCIES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_DUP_RULES := true
-#BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
-ALLOW_MISSING_DEPENDENCIES := true
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlays
-BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 # =================
 # Platform Settings
@@ -43,8 +42,6 @@ TARGET_2ND_CFLAGS += -mfloat-abi=softfp -mfpu=neon -march=armv7-a
 # Kernel Header Setup
 # =====================
 BOARD_32BIT_KERNEL_HEADERS := $(DEVICE_PATH)/headers/arm32_headers/include
-
-# Auto-detect header location
 ifneq ($(wildcard $(BOARD_32BIT_KERNEL_HEADERS)/asm-arm/sigcontext.h),)
   ARM_HEADER_PATH := asm-arm
 else ifneq ($(wildcard $(BOARD_32BIT_KERNEL_HEADERS)/asm/sigcontext.h),)
@@ -52,18 +49,11 @@ else ifneq ($(wildcard $(BOARD_32BIT_KERNEL_HEADERS)/asm/sigcontext.h),)
 else
   $(error No valid 32-bit kernel headers found in $(BOARD_32BIT_KERNEL_HEADERS))
 endif
-
-# Header configuration
 TARGET_KERNEL_HEADERS := $(BOARD_32BIT_KERNEL_HEADERS)
-ifneq ($(TARGET_ARCH),arm64)
-  LOCAL_HEADER_LIBS := $(BOARD_32BIT_KERNEL_HEADERS)
-  LOCAL_C_INCLUDES += $(BOARD_32BIT_KERNEL_HEADERS)/$(ARM_HEADER_PATH)
-endif
 
 # =====================
-# Kernel Configuration
+# Prebuilt Kernel
 # =====================
-# Prebuilt Kernel Settings
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
@@ -71,7 +61,6 @@ TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilts/dtbo.img
 TARGET_KERNEL_SOURCE :=
 TARGET_KERNEL_CONFIG :=
 
-# Verify prebuilts
 ifeq ($(wildcard $(TARGET_PREBUILT_KERNEL)),)
   $(error Prebuilt kernel missing at $(TARGET_PREBUILT_KERNEL))
 endif
@@ -79,25 +68,20 @@ ifeq ($(wildcard $(TARGET_PREBUILT_DTB)),)
   $(error Prebuilt DTB missing at $(TARGET_PREBUILT_DTB))
 endif
 
-# Kernel toolchain (absolute path)
-KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/clang/kernel/linux-x86/clang-r416183b
-TARGET_KERNEL_CLANG_PATH := $(KERNEL_TOOLCHAIN)/bin
-TARGET_KERNEL_CLANG_VERSION := r416183b
+# =====================
+# Boot / Vendor Boot
+# =====================
+BOARD_BOOT_HEADER_VERSION := 4
+BOARD_VENDOR_RAMDISK_USE_DIRECTLY := true
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
-# Verify toolchain exists
-ifeq ($(wildcard $(KERNEL_TOOLCHAIN)/bin/clang),)
-  $(error Kernel Clang toolchain missing at $(KERNEL_TOOLCHAIN)/bin/clang)
-endif
-
-# Kernel Parameters
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 buildvariant=user
-BOARD_VENDOR_CMDLINE := console=ttyS1,115200n8
-BOARD_MKBOOTIMG_ARGS += --header_version 4
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x05400000
 BOARD_DTB_OFFSET := 0x01f00000
+BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 buildvariant=user
+BOARD_VENDOR_CMDLINE := console=ttyS1,115200n8
 
 # =====================
 # Partition Configuration
@@ -153,20 +137,16 @@ TARGET_COPY_OUT_ODM := odm
 # =====================
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
-
-# Main vbmeta
 BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_ROLLBACK_INDEX := 1
 BOARD_AVB_ROLLBACK_INDEX_LOCATION := 1
 
-# Boot
 BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_BOOT_ROLLBACK_INDEX := 1
 BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
 
-# Vendor Boot
 BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_VENDOR_BOOT_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := 1
@@ -176,39 +156,29 @@ BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 3
 # Kernel Modules
 # =================
 BOOT_KERNEL_MODULES := $(shell cat $(DEVICE_PATH)/prebuilts/modules/modules.load)
-BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)/prebuilts/vendor_dlkm/lib/modules/*.ko)
+BOARD_VENDOR_KERNEL_MODULES := \
+    $(wildcard $(DEVICE_PATH)/prebuilts/vendor_dlkm/lib/modules/*.ko)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
 
-# ==============
+# =================
 # Security
-# ==============
+# =================
 VENDOR_SECURITY_PATCH := 2024-07-05
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/
 BOARD_RECOVERY_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
 BOARD_SEPOLICY_VERS := 30.0
 
-# ==============
+# =================
 # Properties
-# ==============
+# =================
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 
-# ==============
+# =================
 # Vendor Blobs
-# ==============
+# =================
 include vendor/realme/RE58C2/BoardConfigVendor.mk
-
-# ====================
-# Prebuilt Validation
-# ====================
-ifeq ($(wildcard $(TARGET_PREBUILT_KERNEL)),)
-  $(error Prebuilt kernel missing at $(TARGET_PREBUILT_KERNEL))
-endif
-
-ifeq ($(wildcard $(TARGET_PREBUILT_DTB)),)
-  $(error Prebuilt DTB missing at $(TARGET_PREBUILT_DTB))
-endif
