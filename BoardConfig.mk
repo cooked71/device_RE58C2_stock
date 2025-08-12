@@ -68,10 +68,15 @@ TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
 TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilts/dtbo.img
 TARGET_KERNEL_HEADERS_GEN := false
 
-# Toolchain Configuration
-KERNEL_TOOLCHAIN := prebuilts/clang/host/linux-x86/clang-r416183b
+# Absolute path to kernel Clang toolchain
+KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/clang/kernel/linux-x86/clang-r416183b
 TARGET_KERNEL_CLANG_PATH := $(KERNEL_TOOLCHAIN)/bin
 TARGET_KERNEL_CLANG_VERSION := r416183b
+
+# Verify toolchain exists
+ifeq ($(wildcard $(KERNEL_TOOLCHAIN)/bin/clang),)
+  $(error Kernel Clang toolchain missing at $(KERNEL_TOOLCHAIN)/bin/clang)
+endif
 
 # Kernel Parameters
 BOARD_KERNEL_BASE := 0x00000000
