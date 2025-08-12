@@ -23,9 +23,9 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 # ------------------------
 # These lines ensure the kernel and blobs get into boot/vendor_boot
 PRODUCT_COPY_FILES += \
-    $(TARGET_PREBUILT_KERNEL):kernel \
-    $(TARGET_PREBUILT_DTB):dtb.img \
-    $(TARGET_PREBUILT_DTBO):dtbo.img
+    $(TARGET_PREBUILT_KERNEL):$(LOCAL_PATH)/prebuiltskernel \
+    $(TARGET_PREBUILT_DTB):$(LOCAL_PATH)/prebuiltsdtb.img \
+    $(TARGET_PREBUILT_DTBO):$(LOCAL_PATH)/prebuiltsdtbo.img
 
 # ------------------------
 # Device-specific manifests
