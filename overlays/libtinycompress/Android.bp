@@ -1,0 +1,12 @@
+cc_library {
+    name: "libtinycompress",
+    target: {
+        android_arm: {
+            cflags: ["-DNO_128BIT"],
+            include_dirs: [
+                "bionic/libc/kernel/uapi/asm-arm",
+                "$(BOARD_32BIT_KERNEL_HEADERS)"
+            ],
+        },
+    },
+}
