@@ -86,7 +86,8 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 #clangversion
 TARGET_KERNEL_CLANG_VERSION := r416183b
-TARGET_KERNEL_HEADERS := $(DEVICE_PATH)/arm32_headers
+TARGET_KERNEL_HEADERS := device/realme/RE58C2/headers/arm32_headers/include
+TARGET_KERNEL_64_HEADERS := false
 
 # Kernel arguments
 BOARD_KERNEL_BASE := 0x00000000
