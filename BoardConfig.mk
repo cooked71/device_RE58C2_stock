@@ -97,7 +97,7 @@ TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilts/dtbo.img
 TARGET_KERNEL_HEADERS_GEN := false
 
 # Toolchain Configuration
-KERNEL_TOOLCHAIN := prebuilts/clang/host/linux-x86/clang-r416183b
+KERNEL_TOOLCHAIN := prebuilts/clang/kernel/linux-x86/clang-r416183b
 TARGET_KERNEL_CLANG_PATH := $(KERNEL_TOOLCHAIN)/bin
 TARGET_KERNEL_CLANG_VERSION := r416183b
 
