@@ -68,6 +68,8 @@ TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
 TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilts/dtbo.img
+TARGET_KERNEL_SOURCE :=
+TARGET_KERNEL_CONFIG :=
 
 # Verify prebuilts
 ifeq ($(wildcard $(TARGET_PREBUILT_KERNEL)),)
