@@ -85,7 +85,7 @@ BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 #clangversion
-KERNEL_CLANG_PATH := prebuilts/clang/host/linux-x86/clang-r416183b/bin
+KERNEL_CLANG_PATH := prebuilts/clang/host/linux-x86/clang-r416183b/
 TARGET_KERNEL_CLANG_VERSION := r416183b
 TARGET_KERNEL_CLANG_PATH := $(KERNEL_CLANG_PATH)
 BOARD_32BIT_KERNEL_HEADERS := $(DEVICE_PATH)/headers/arm32_headers/include/
