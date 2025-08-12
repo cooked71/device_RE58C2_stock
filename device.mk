@@ -218,9 +218,6 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     vendor/realme/RE58C2
 
-soong_config_set \
-    BoardConfigVar \
-    TARGET_KERNEL_HEADERS "device/realme/RE58C2/headers/arm32_headers/include"
 
 
 
