@@ -13,8 +13,8 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
  */
-#ifndef _LINUX_APM_H
-#define _LINUX_APM_H
+#ifndef _UAPI_LINUX_APM_H
+#define _UAPI_LINUX_APM_H
 
 
 #include <linux/types.h>
@@ -135,4 +135,4 @@ struct apm_bios_info {
 #define APM_IOC_STANDBY		_IO('A', 1)
 #define APM_IOC_SUSPEND		_IO('A', 2)
 
-#endif /* _LINUX_APM_H */
+#endif /* _UAPI_LINUX_APM_H */

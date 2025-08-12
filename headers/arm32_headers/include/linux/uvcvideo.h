@@ -52,7 +52,7 @@ struct uvc_xu_control_mapping {
 	__u32 v4l2_type;
 	__u32 data_type;
 
-	struct uvc_menu_info *menu_info;
+	struct uvc_menu_info __user *menu_info;
 	__u32 menu_count;
 
 	__u32 reserved[4];
@@ -64,7 +64,7 @@ struct uvc_xu_control_query {
 	__u8 query;		/* Video Class-Specific Request Code, */
 				/* defined in linux/usb/video.h A.8.  */
 	__u16 size;
-	__u8 *data;
+	__u8 __user *data;
 };
 
 #define UVCIOC_CTRL_MAP		_IOWR('u', 0x20, struct uvc_xu_control_mapping)
@@ -94,6 +94,6 @@ struct uvc_meta_buf {
 	__u8 length;
 	__u8 flags;
 	__u8 buf[];
-} __attribute__((packed));
+} __packed;
 
 #endif

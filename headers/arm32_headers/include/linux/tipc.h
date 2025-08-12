@@ -264,7 +264,7 @@ struct tipc_sioc_nodeid_req {
 #define tipc_name tipc_service_addr
 #define tipc_name_seq tipc_service_range
 
-static __inline__ __u32 tipc_addr(unsigned int zone,
+static inline __u32 tipc_addr(unsigned int zone,
 			      unsigned int cluster,
 			      unsigned int node)
 {
@@ -273,17 +273,17 @@ static __inline__ __u32 tipc_addr(unsigned int zone,
 		node;
 }
 
-static __inline__ unsigned int tipc_zone(__u32 addr)
+static inline unsigned int tipc_zone(__u32 addr)
 {
 	return addr >> TIPC_ZONE_OFFSET;
 }
 
-static __inline__ unsigned int tipc_cluster(__u32 addr)
+static inline unsigned int tipc_cluster(__u32 addr)
 {
 	return (addr & TIPC_CLUSTER_MASK) >> TIPC_CLUSTER_OFFSET;
 }
 
-static __inline__ unsigned int tipc_node(__u32 addr)
+static inline unsigned int tipc_node(__u32 addr)
 {
 	return addr & TIPC_NODE_MASK;
 }

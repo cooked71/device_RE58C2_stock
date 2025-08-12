@@ -6,8 +6,8 @@
  * Copyright (C) 1995, 1996, 1997 Olaf Kirch <okir@monad.swb.de>
  */
 
-#ifndef _LINUX_NFSD_FH_H
-#define _LINUX_NFSD_FH_H
+#ifndef _UAPI_LINUX_NFSD_FH_H
+#define _UAPI_LINUX_NFSD_FH_H
 
 #include <linux/types.h>
 #include <linux/nfs.h>
@@ -102,4 +102,4 @@ struct knfsd_fh {
 /* Do not use, provided for userspace compatiblity. */
 #define	fh_auth			fh_base.fh_new.fb_auth
 
-#endif /* _LINUX_NFSD_FH_H */
+#endif /* _UAPI_LINUX_NFSD_FH_H */

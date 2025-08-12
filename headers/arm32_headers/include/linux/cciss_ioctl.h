@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef CCISS_IOCTLH
-#define CCISS_IOCTLH
+#ifndef _UAPICCISS_IOCTLH
+#define _UAPICCISS_IOCTLH
 
 #include <linux/types.h>
 #include <linux/ioctl.h>
@@ -43,7 +43,7 @@ typedef struct _IOCTL_Command_struct {
   RequestBlock_struct      Request;
   ErrorInfo_struct  	   error_info; 
   WORD			   buf_size;  /* size in bytes of the buf */
-  BYTE			   *buf;
+  BYTE			   __user *buf;
 } IOCTL_Command_struct;
 
 typedef struct _BIG_IOCTL_Command_struct {
@@ -53,7 +53,7 @@ typedef struct _BIG_IOCTL_Command_struct {
   DWORD			   malloc_size; /* < MAX_KMALLOC_SIZE in cciss.c */
   DWORD			   buf_size;    /* size in bytes of the buf */
   				        /* < malloc_size * MAXSGENTRIES */
-  BYTE			   *buf;
+  BYTE			   __user *buf;
 } BIG_IOCTL_Command_struct;
 
 typedef struct _LogvolInfo_struct{
@@ -86,4 +86,4 @@ typedef struct _LogvolInfo_struct{
 #define CCISS_GETLUNINFO   _IOR(CCISS_IOC_MAGIC, 17, LogvolInfo_struct)
 #define CCISS_BIG_PASSTHRU _IOWR(CCISS_IOC_MAGIC, 18, BIG_IOCTL_Command_struct)
 
-#endif /* CCISS_IOCTLH */
+#endif /* _UAPICCISS_IOCTLH */

@@ -13,16 +13,17 @@
  * 	Port numbers are stored in HOST byte order.
  */
 
-#ifndef _IPTABLES_H
-#define _IPTABLES_H
+#ifndef _UAPI_IPTABLES_H
+#define _UAPI_IPTABLES_H
 
 #include <linux/types.h>
-
+#include <linux/compiler.h>
 #include <linux/if.h>
 #include <linux/netfilter_ipv4.h>
 
 #include <linux/netfilter/x_tables.h>
 
+#ifndef __KERNEL__
 #define IPT_FUNCTION_MAXNAMELEN XT_FUNCTION_MAXNAMELEN
 #define IPT_TABLE_MAXNAMELEN XT_TABLE_MAXNAMELEN
 #define ipt_match xt_match
@@ -64,6 +65,7 @@
 /* fn returns 0 to continue iteration */
 #define IPT_ENTRY_ITERATE(entries, size, fn, args...) \
 	XT_ENTRY_ITERATE(struct ipt_entry, entries, size, fn, ## args)
+#endif
 
 /* Yes, Virginia, you have to zero the padding. */
 struct ipt_ip {
@@ -198,7 +200,7 @@ struct ipt_replace {
 	/* Number of counters (must be equal to current number of entries). */
 	unsigned int num_counters;
 	/* The old entries' counters. */
-	struct xt_counters *counters;
+	struct xt_counters __user *counters;
 
 	/* The entries (hang off end: not really an array). */
 	struct ipt_entry entries[0];
@@ -226,4 +228,4 @@ ipt_get_target(struct ipt_entry *e)
 /*
  *	Main firewall chains definitions and global var's definitions.
  */
-#endif /* _IPTABLES_H */
+#endif /* _UAPI_IPTABLES_H */

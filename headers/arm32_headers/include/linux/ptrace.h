@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_PTRACE_H
-#define _LINUX_PTRACE_H
+#ifndef _UAPI_LINUX_PTRACE_H
+#define _UAPI_LINUX_PTRACE_H
 /* ptrace.h */
 /* structs and defines to help the user use the ptrace system call. */
 
@@ -143,4 +143,4 @@ struct ptrace_syscall_info {
 #include <asm/ptrace.h>
 
 
-#endif /* _LINUX_PTRACE_H */
+#endif /* _UAPI_LINUX_PTRACE_H */

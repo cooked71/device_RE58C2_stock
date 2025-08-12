@@ -12,8 +12,8 @@
 *******************************************************************************
 ******************************************************************************/
 
-#ifndef __DLM_DOT_H__
-#define __DLM_DOT_H__
+#ifndef _UAPI__DLM_DOT_H__
+#define _UAPI__DLM_DOT_H__
 
 /*
  * Interface to Distributed Lock Manager (DLM)
@@ -73,4 +73,4 @@ struct dlm_lksb {
 #define DLM_LSFL_NEWEXCL     	0x00000008
 
 
-#endif /* __DLM_DOT_H__ */
+#endif /* _UAPI__DLM_DOT_H__ */

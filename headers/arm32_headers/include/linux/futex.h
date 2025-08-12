@@ -1,8 +1,8 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_FUTEX_H
-#define _LINUX_FUTEX_H
+#ifndef _UAPI_LINUX_FUTEX_H
+#define _UAPI_LINUX_FUTEX_H
 
-
+#include <linux/compiler.h>
 #include <linux/types.h>
 
 /* Second argument to futex syscall */
@@ -56,7 +56,7 @@
  * changed.
  */
 struct robust_list {
-	struct robust_list *next;
+	struct robust_list __user *next;
 };
 
 /*
@@ -91,7 +91,7 @@ struct robust_list_head {
 	 * _might_ have taken. We check the owner TID in any case,
 	 * so only truly owned locks will be handled.
 	 */
-	struct robust_list *list_op_pending;
+	struct robust_list __user *list_op_pending;
 };
 
 /*
@@ -150,4 +150,4 @@ struct robust_list_head {
   (((op & 0xf) << 28) | ((cmp & 0xf) << 24)		\
    | ((oparg & 0xfff) << 12) | (cmparg & 0xfff))
 
-#endif /* _LINUX_FUTEX_H */
+#endif /* _UAPI_LINUX_FUTEX_H */

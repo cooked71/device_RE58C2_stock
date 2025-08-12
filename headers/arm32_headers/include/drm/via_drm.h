@@ -43,7 +43,7 @@ extern "C" {
 #define VIA_NR_XVMC_LOCKS               5
 #define VIA_MAX_CACHELINE_SIZE          64
 #define XVMCLOCKPTR(saPriv,lockNo)					\
-	((__volatile__ struct drm_hw_lock *)(((((unsigned long) (saPriv)->XvMCLockArea) + \
+	((volatile struct drm_hw_lock *)(((((unsigned long) (saPriv)->XvMCLockArea) + \
 				      (VIA_MAX_CACHELINE_SIZE - 1)) &	\
 				     ~(VIA_MAX_CACHELINE_SIZE - 1)) +	\
 				    VIA_MAX_CACHELINE_SIZE*(lockNo)))
@@ -169,7 +169,7 @@ typedef struct _drm_via_dma_init {
 } drm_via_dma_init_t;
 
 typedef struct _drm_via_cmdbuffer {
-	char *buf;
+	char __user *buf;
 	unsigned long size;
 } drm_via_cmdbuffer_t;
 

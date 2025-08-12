@@ -530,19 +530,19 @@ enum {
 };
 
 #define NILFS_CHECKPOINT_FNS(flag, name)				\
-static __inline__ void							\
+static inline void							\
 nilfs_checkpoint_set_##name(struct nilfs_checkpoint *cp)		\
 {									\
 	cp->cp_flags = __cpu_to_le32(__le32_to_cpu(cp->cp_flags) |	\
 				     (1UL << NILFS_CHECKPOINT_##flag));	\
 }									\
-static __inline__ void							\
+static inline void							\
 nilfs_checkpoint_clear_##name(struct nilfs_checkpoint *cp)		\
 {									\
 	cp->cp_flags = __cpu_to_le32(__le32_to_cpu(cp->cp_flags) &	\
 				   ~(1UL << NILFS_CHECKPOINT_##flag));	\
 }									\
-static __inline__ int							\
+static inline int							\
 nilfs_checkpoint_##name(const struct nilfs_checkpoint *cp)		\
 {									\
 	return !!(__le32_to_cpu(cp->cp_flags) &				\
@@ -592,20 +592,20 @@ enum {
 };
 
 #define NILFS_SEGMENT_USAGE_FNS(flag, name)				\
-static __inline__ void							\
+static inline void							\
 nilfs_segment_usage_set_##name(struct nilfs_segment_usage *su)		\
 {									\
 	su->su_flags = __cpu_to_le32(__le32_to_cpu(su->su_flags) |	\
 				   (1UL << NILFS_SEGMENT_USAGE_##flag));\
 }									\
-static __inline__ void							\
+static inline void							\
 nilfs_segment_usage_clear_##name(struct nilfs_segment_usage *su)	\
 {									\
 	su->su_flags =							\
 		__cpu_to_le32(__le32_to_cpu(su->su_flags) &		\
 			    ~(1UL << NILFS_SEGMENT_USAGE_##flag));      \
 }									\
-static __inline__ int							\
+static inline int							\
 nilfs_segment_usage_##name(const struct nilfs_segment_usage *su)	\
 {									\
 	return !!(__le32_to_cpu(su->su_flags) &				\
@@ -616,7 +616,7 @@ NILFS_SEGMENT_USAGE_FNS(ACTIVE, active)
 NILFS_SEGMENT_USAGE_FNS(DIRTY, dirty)
 NILFS_SEGMENT_USAGE_FNS(ERROR, error)
 
-static __inline__ void
+static inline void
 nilfs_segment_usage_set_clean(struct nilfs_segment_usage *su)
 {
 	su->su_lastmod = __cpu_to_le64(0);
@@ -624,7 +624,7 @@ nilfs_segment_usage_set_clean(struct nilfs_segment_usage *su)
 	su->su_flags = __cpu_to_le32(0);
 }
 
-static __inline__ int
+static inline int
 nilfs_segment_usage_clean(const struct nilfs_segment_usage *su)
 {
 	return !__le32_to_cpu(su->su_flags);

@@ -14,8 +14,13 @@
 #ifndef _SPRD_AUDIODSP_IOCTL_H
 #define _SPRD_AUDIODSP_IOCTL_H
 
+#ifdef __KERNEL__
+#include <linux/types.h>
+#include <linux/ioctl.h>
+#else
 #include <stdio.h>
 #include <sys/ioctl.h>
+#endif
 
 #define DSPLOG_CMD_MARGIC 'X'
 

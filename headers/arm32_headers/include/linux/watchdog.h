@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _LINUX_WATCHDOG_H
-#define _LINUX_WATCHDOG_H
+#ifndef _UAPI_LINUX_WATCHDOG_H
+#define _UAPI_LINUX_WATCHDOG_H
 
 #include <linux/ioctl.h>
 #include <linux/types.h>
@@ -55,4 +55,4 @@ struct watchdog_info {
 #define	WDIOS_TEMPPANIC		0x0004	/* Kernel panic on temperature trip */
 
 
-#endif /* _LINUX_WATCHDOG_H */
+#endif /* _UAPI_LINUX_WATCHDOG_H */

@@ -43,8 +43,8 @@
  * DAMAGE.
  */
 
-#ifndef _CAN_RAW_H
-#define _CAN_RAW_H
+#ifndef _UAPI_CAN_RAW_H
+#define _UAPI_CAN_RAW_H
 
 #include <linux/can.h>
 

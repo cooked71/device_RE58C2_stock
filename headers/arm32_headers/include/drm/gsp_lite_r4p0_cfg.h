@@ -11,8 +11,8 @@
  * GNU General Public License for more details.
  */
 
-#ifndef _VIDEO_GSP_LITE_R4P0_CFG_H_
-#define _VIDEO_GSP_LITE_R4P0_CFG_H_
+#ifndef _UAPI_VIDEO_GSP_LITE_R4P0_CFG_H_
+#define _UAPI_VIDEO_GSP_LITE_R4P0_CFG_H_
 
 #include <linux/ioctl.h>
 #include <linux/types.h>

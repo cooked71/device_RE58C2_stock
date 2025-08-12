@@ -78,7 +78,7 @@ struct sev_user_data_status {
 	__u32 flags;				/* Out */
 	__u8 build;				/* Out */
 	__u32 guest_count;			/* Out */
-} __attribute__((packed));
+} __packed;
 
 /**
  * struct sev_user_data_pek_csr - PEK_CSR command parameters
@@ -89,7 +89,7 @@ struct sev_user_data_status {
 struct sev_user_data_pek_csr {
 	__u64 address;				/* In */
 	__u32 length;				/* In/Out */
-} __attribute__((packed));
+} __packed;
 
 /**
  * struct sev_user_data_cert_import - PEK_CERT_IMPORT command parameters
@@ -104,7 +104,7 @@ struct sev_user_data_pek_cert_import {
 	__u32 pek_cert_len;			/* In */
 	__u64 oca_cert_address;			/* In */
 	__u32 oca_cert_len;			/* In */
-} __attribute__((packed));
+} __packed;
 
 /**
  * struct sev_user_data_pdh_cert_export - PDH_CERT_EXPORT command parameters
@@ -119,7 +119,7 @@ struct sev_user_data_pdh_cert_export {
 	__u32 pdh_cert_len;			/* In/Out */
 	__u64 cert_chain_address;		/* In */
 	__u32 cert_chain_len;			/* In/Out */
-} __attribute__((packed));
+} __packed;
 
 /**
  * struct sev_user_data_get_id - GET_ID command parameters (deprecated)
@@ -130,7 +130,7 @@ struct sev_user_data_pdh_cert_export {
 struct sev_user_data_get_id {
 	__u8 socket1[64];			/* Out */
 	__u8 socket2[64];			/* Out */
-} __attribute__((packed));
+} __packed;
 
 /**
  * struct sev_user_data_get_id2 - GET_ID command parameters
@@ -140,7 +140,7 @@ struct sev_user_data_get_id {
 struct sev_user_data_get_id2 {
 	__u64 address;				/* In */
 	__u32 length;				/* In/Out */
-} __attribute__((packed));
+} __packed;
 
 /**
  * struct sev_issue_cmd - SEV ioctl parameters
@@ -153,7 +153,7 @@ struct sev_issue_cmd {
 	__u32 cmd;				/* In */
 	__u64 data;				/* In */
 	__u32 error;				/* Out */
-} __attribute__((packed));
+} __packed;
 
 #define SEV_IOC_TYPE		'S'
 #define SEV_ISSUE_CMD	_IOWR(SEV_IOC_TYPE, 0x0, struct sev_issue_cmd)

@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: GPL-2.0+ WITH Linux-syscall-note */
 /* Copyright 2017 IBM Corp. */
-#ifndef _MISC_OCXL_H
-#define _MISC_OCXL_H
+#ifndef _UAPI_MISC_OCXL_H
+#define _UAPI_MISC_OCXL_H
 
 #include <linux/types.h>
 #include <linux/ioctl.h>
@@ -77,4 +77,4 @@ struct ocxl_ioctl_irq_fd {
 #define OCXL_IOCTL_ENABLE_P9_WAIT	_IOR(OCXL_MAGIC, 0x15, struct ocxl_ioctl_p9_wait)
 #define OCXL_IOCTL_GET_FEATURES _IOR(OCXL_MAGIC, 0x16, struct ocxl_ioctl_features)
 
-#endif /* _MISC_OCXL_H */
+#endif /* _UAPI_MISC_OCXL_H */

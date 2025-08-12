@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _PR_H
-#define _PR_H
+#ifndef _UAPI_PR_H
+#define _UAPI_PR_H
 
 #include <linux/types.h>
 
@@ -48,4 +48,4 @@ struct pr_clear {
 #define IOC_PR_PREEMPT_ABORT	_IOW('p', 204, struct pr_preempt)
 #define IOC_PR_CLEAR		_IOW('p', 205, struct pr_clear)
 
-#endif /* _PR_H */
+#endif /* _UAPI_PR_H */

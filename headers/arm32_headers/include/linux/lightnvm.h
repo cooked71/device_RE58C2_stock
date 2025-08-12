@@ -17,12 +17,17 @@
  * USA.
  */
 
-#ifndef _LINUX_LIGHTNVM_H
-#define _LINUX_LIGHTNVM_H
+#ifndef _UAPI_LINUX_LIGHTNVM_H
+#define _UAPI_LINUX_LIGHTNVM_H
 
+#ifdef __KERNEL__
+#include <linux/const.h>
+#include <linux/ioctl.h>
+#else /* __KERNEL__ */
 #include <stdio.h>
 #include <sys/ioctl.h>
 #define DISK_NAME_LEN 32
+#endif /* __KERNEL__ */
 
 #include <linux/types.h>
 #include <linux/ioctl.h>

@@ -4,8 +4,8 @@
  * published by the Free Software Foundation.
  */
 
-#ifndef _PARPORT_H_
-#define _PARPORT_H_
+#ifndef _UAPI_PARPORT_H_
+#define _UAPI_PARPORT_H_
 
 /* Start off with user-visible constants */
 
@@ -92,4 +92,4 @@ typedef enum {
 #define PARPORT_W91284PIC		(1<<1) /* have a Warp9 w91284pic in the device */
 
 /* The rest is for the kernel only */
-#endif /* _PARPORT_H_ */
+#endif /* _UAPI_PARPORT_H_ */

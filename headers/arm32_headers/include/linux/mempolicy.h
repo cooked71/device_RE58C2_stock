@@ -3,8 +3,8 @@
  * NUMA memory policies for Linux.
  * Copyright 2003,2004 Andi Kleen SuSE Labs
  */
-#ifndef _LINUX_MEMPOLICY_H
-#define _LINUX_MEMPOLICY_H
+#ifndef _UAPI_LINUX_MEMPOLICY_H
+#define _UAPI_LINUX_MEMPOLICY_H
 
 #include <linux/errno.h>
 
@@ -63,4 +63,4 @@ enum {
 #define MPOL_F_MORON	(1 << 4) /* Migrate On protnone Reference On Node */
 
 
-#endif /* _LINUX_MEMPOLICY_H */
+#endif /* _UAPI_LINUX_MEMPOLICY_H */

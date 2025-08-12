@@ -16,8 +16,8 @@
  *		as published by the Free Software Foundation; either version
  *		2 of the License, or (at your option) any later version.
  */
-#ifndef _LINUX_IN_H
-#define _LINUX_IN_H
+#ifndef _UAPI_LINUX_IN_H
+#define _UAPI_LINUX_IN_H
 
 #include <linux/types.h>
 #include <linux/libc-compat.h>
@@ -308,4 +308,4 @@ struct sockaddr_in {
 #include <asm/byteorder.h> 
 
 
-#endif /* _LINUX_IN_H */
+#endif /* _UAPI_LINUX_IN_H */

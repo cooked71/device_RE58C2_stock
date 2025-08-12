@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_STAT_H
-#define _LINUX_STAT_H
+#ifndef _UAPI_LINUX_STAT_H
+#define _UAPI_LINUX_STAT_H
 
 #include <linux/types.h>
 
@@ -171,4 +171,4 @@ struct statx {
 #define STATX_ATTR_VERITY		0x00100000 /* [I] Verity protected file */
 
 
-#endif /* _LINUX_STAT_H */
+#endif /* _UAPI_LINUX_STAT_H */

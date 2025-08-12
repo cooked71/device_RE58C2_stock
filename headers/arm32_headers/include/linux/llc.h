@@ -11,8 +11,8 @@
  *
  * See the GNU General Public License for more details.
  */
-#ifndef __LINUX_LLC_H
-#define __LINUX_LLC_H
+#ifndef _UAPI__LINUX_LLC_H
+#define _UAPI__LINUX_LLC_H
 
 #include <linux/socket.h>
 #include <linux/if.h> 		/* For IFHWADDRLEN. */
@@ -83,4 +83,4 @@ struct llc_pktinfo {
 	unsigned char lpi_mac[IFHWADDRLEN];
 };
 
-#endif /* __LINUX_LLC_H */
+#endif /* _UAPI__LINUX_LLC_H */

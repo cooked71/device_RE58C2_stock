@@ -19,8 +19,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA
  */
 
-#ifndef _LINUX_SISFB_H_
-#define _LINUX_SISFB_H_
+#ifndef _UAPI_LINUX_SISFB_H_
+#define _UAPI_LINUX_SISFB_H_
 
 #include <linux/types.h>
 #include <asm/ioctl.h>
@@ -207,4 +207,4 @@ struct sis_memreq {
 /**********************************************/
 
 
-#endif /* _LINUX_SISFB_H_ */
+#endif /* _UAPI_LINUX_SISFB_H_ */

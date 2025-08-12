@@ -16,8 +16,8 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-#ifndef CN_PROC_H
-#define CN_PROC_H
+#ifndef _UAPICN_PROC_H
+#define _UAPICN_PROC_H
 
 #include <linux/types.h>
 
@@ -131,4 +131,4 @@ struct proc_event {
 	} event_data;
 };
 
-#endif /* CN_PROC_H */
+#endif /* _UAPICN_PROC_H */

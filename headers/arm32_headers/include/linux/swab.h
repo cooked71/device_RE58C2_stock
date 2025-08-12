@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_SWAB_H
-#define _LINUX_SWAB_H
+#ifndef _UAPI_LINUX_SWAB_H
+#define _UAPI_LINUX_SWAB_H
 
 #include <linux/types.h>
 #include <linux/stddef.h>
@@ -45,7 +45,7 @@
  * ___swab16, ___swab32, ___swab64, ___swahw32, ___swahb32
  */
 
-static __inline__  __u16 __fswab16(__u16 val)
+static inline __attribute_const__ __u16 __fswab16(__u16 val)
 {
 #if defined (__arch_swab16)
 	return __arch_swab16(val);
@@ -54,7 +54,7 @@ static __inline__  __u16 __fswab16(__u16 val)
 #endif
 }
 
-static __inline__  __u32 __fswab32(__u32 val)
+static inline __attribute_const__ __u32 __fswab32(__u32 val)
 {
 #if defined(__arch_swab32)
 	return __arch_swab32(val);
@@ -63,7 +63,7 @@ static __inline__  __u32 __fswab32(__u32 val)
 #endif
 }
 
-static __inline__  __u64 __fswab64(__u64 val)
+static inline __attribute_const__ __u64 __fswab64(__u64 val)
 {
 #if defined (__arch_swab64)
 	return __arch_swab64(val);
@@ -76,7 +76,7 @@ static __inline__  __u64 __fswab64(__u64 val)
 #endif
 }
 
-static __inline__  __u32 __fswahw32(__u32 val)
+static inline __attribute_const__ __u32 __fswahw32(__u32 val)
 {
 #ifdef __arch_swahw32
 	return __arch_swahw32(val);
@@ -85,7 +85,7 @@ static __inline__  __u32 __fswahw32(__u32 val)
 #endif
 }
 
-static __inline__  __u32 __fswahb32(__u32 val)
+static inline __attribute_const__ __u32 __fswahb32(__u32 val)
 {
 #ifdef __arch_swahb32
 	return __arch_swahb32(val);
@@ -209,7 +209,7 @@ static __always_inline __u64 __swab64p(const __u64 *p)
  *
  * See __swahw32() for details of wordswapping.
  */
-static __inline__ __u32 __swahw32p(const __u32 *p)
+static inline __u32 __swahw32p(const __u32 *p)
 {
 #ifdef __arch_swahw32p
 	return __arch_swahw32p(p);
@@ -224,7 +224,7 @@ static __inline__ __u32 __swahw32p(const __u32 *p)
  *
  * See __swahb32() for details of high/low byteswapping.
  */
-static __inline__ __u32 __swahb32p(const __u32 *p)
+static inline __u32 __swahb32p(const __u32 *p)
 {
 #ifdef __arch_swahb32p
 	return __arch_swahb32p(p);
@@ -237,7 +237,7 @@ static __inline__ __u32 __swahb32p(const __u32 *p)
  * __swab16s - byteswap a 16-bit value in-place
  * @p: pointer to a naturally-aligned 16-bit value
  */
-static __inline__ void __swab16s(__u16 *p)
+static inline void __swab16s(__u16 *p)
 {
 #ifdef __arch_swab16s
 	__arch_swab16s(p);
@@ -277,7 +277,7 @@ static __always_inline void __swab64s(__u64 *p)
  *
  * See __swahw32() for details of wordswapping
  */
-static __inline__ void __swahw32s(__u32 *p)
+static inline void __swahw32s(__u32 *p)
 {
 #ifdef __arch_swahw32s
 	__arch_swahw32s(p);
@@ -292,7 +292,7 @@ static __inline__ void __swahw32s(__u32 *p)
  *
  * See __swahb32() for details of high and low byte swapping
  */
-static __inline__ void __swahb32s(__u32 *p)
+static inline void __swahb32s(__u32 *p)
 {
 #ifdef __arch_swahb32s
 	__arch_swahb32s(p);
@@ -302,4 +302,4 @@ static __inline__ void __swahb32s(__u32 *p)
 }
 
 
-#endif /* _LINUX_SWAB_H */
+#endif /* _UAPI_LINUX_SWAB_H */

@@ -13,8 +13,8 @@
  *            Removed PARANOIA, plus various cleanup and comments
  */
 
-#ifndef LINUX_NBD_H
-#define LINUX_NBD_H
+#ifndef _UAPILINUX_NBD_H
+#define _UAPILINUX_NBD_H
 
 #include <linux/types.h>
 
@@ -86,4 +86,4 @@ struct nbd_reply {
 	__be32 error;		/* 0 = ok, else error	*/
 	char handle[8];		/* handle you got from request	*/
 };
-#endif /* LINUX_NBD_H */
+#endif /* _UAPILINUX_NBD_H */

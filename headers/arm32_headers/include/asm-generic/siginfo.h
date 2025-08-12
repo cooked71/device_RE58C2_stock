@@ -1,13 +1,13 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _ASM_GENERIC_SIGINFO_H
-#define _ASM_GENERIC_SIGINFO_H
+#ifndef _UAPI_ASM_GENERIC_SIGINFO_H
+#define _UAPI_ASM_GENERIC_SIGINFO_H
 
-
+#include <linux/compiler.h>
 #include <linux/types.h>
 
 typedef union sigval {
 	int sival_int;
-	void *sival_ptr;
+	void __user *sival_ptr;
 } sigval_t;
 
 #define SI_MAX_SIZE	128
@@ -62,7 +62,7 @@ union __sifields {
 
 	/* SIGILL, SIGFPE, SIGSEGV, SIGBUS, SIGTRAP, SIGEMT */
 	struct {
-		void *_addr; /* faulting insn/memory ref. */
+		void __user *_addr; /* faulting insn/memory ref. */
 #ifdef __ARCH_SI_TRAPNO
 		int _trapno;	/* TRAP # which caused the signal */
 #endif
@@ -83,8 +83,8 @@ union __sifields {
 			/* used when si_code=SEGV_BNDERR */
 			struct {
 				char _dummy_bnd[__ADDR_BND_PKEY_PAD];
-				void *_lower;
-				void *_upper;
+				void __user *_lower;
+				void __user *_upper;
 			} _addr_bnd;
 			/* used when si_code=SEGV_PKUERR */
 			struct {
@@ -102,7 +102,7 @@ union __sifields {
 
 	/* SIGSYS */
 	struct {
-		void *_call_addr; /* calling user insn */
+		void __user *_call_addr; /* calling user insn */
 		int _syscall;	/* triggering system call number */
 		unsigned int _arch;	/* AUDIT_ARCH_* of syscall */
 	} _sigsys;
@@ -337,4 +337,4 @@ typedef struct sigevent {
 #define sigev_notify_thread_id	 _sigev_un._tid
 
 
-#endif /* _ASM_GENERIC_SIGINFO_H */
+#endif /* _UAPI_ASM_GENERIC_SIGINFO_H */

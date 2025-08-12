@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _IPV6_H
-#define _IPV6_H
+#ifndef _UAPI_IPV6_H
+#define _UAPI_IPV6_H
 
 #include <linux/libc-compat.h>
 #include <linux/types.h>
@@ -191,4 +191,4 @@ enum {
 };
 
 
-#endif /* _IPV6_H */
+#endif /* _UAPI_IPV6_H */

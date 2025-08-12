@@ -8,8 +8,8 @@
  * 2 of the License, or (at your option) any later version.
  */
 
-#ifndef _LINUX_ASPEED_LPC_CTRL_H
-#define _LINUX_ASPEED_LPC_CTRL_H
+#ifndef _UAPI_LINUX_ASPEED_LPC_CTRL_H
+#define _UAPI_LINUX_ASPEED_LPC_CTRL_H
 
 #include <linux/ioctl.h>
 #include <linux/types.h>
@@ -59,4 +59,4 @@ struct aspeed_lpc_ctrl_mapping {
 #define ASPEED_LPC_CTRL_IOCTL_MAP	_IOW(__ASPEED_LPC_CTRL_IOCTL_MAGIC, \
 		0x01, struct aspeed_lpc_ctrl_mapping)
 
-#endif /* _LINUX_ASPEED_LPC_CTRL_H */
+#endif /* _UAPI_LINUX_ASPEED_LPC_CTRL_H */

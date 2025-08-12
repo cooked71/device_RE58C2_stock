@@ -5,8 +5,8 @@
  * Interrupt support added 1993 Nigel Gamble
  * Removed 8255 status defines from inside __KERNEL__ Marcelo Tosatti 
  */
-#ifndef _LINUX_LP_H
-#define _LINUX_LP_H
+#ifndef _UAPI_LINUX_LP_H
+#define _UAPI_LINUX_LP_H
 
 #include <linux/types.h>
 #include <linux/ioctl.h>
@@ -108,4 +108,4 @@
 #define LP_TIMEOUT_POLLED	(10 * HZ)
 
 
-#endif /* _LINUX_LP_H */
+#endif /* _UAPI_LINUX_LP_H */

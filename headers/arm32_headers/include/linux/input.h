@@ -6,14 +6,16 @@
  * under the terms of the GNU General Public License version 2 as published by
  * the Free Software Foundation.
  */
-#ifndef _INPUT_H
-#define _INPUT_H
+#ifndef _UAPI_INPUT_H
+#define _UAPI_INPUT_H
 
 
+#ifndef __KERNEL__
 #include <sys/time.h>
 #include <sys/ioctl.h>
 #include <sys/types.h>
 #include <linux/types.h>
+#endif
 
 #include "input-event-codes.h"
 
@@ -406,7 +408,7 @@ struct ff_periodic_effect {
 	struct ff_envelope envelope;
 
 	__u32 custom_len;
-	__s16 *custom_data;
+	__s16 __user *custom_data;
 };
 
 /**
@@ -509,4 +511,4 @@ struct ff_effect {
 #define FF_MAX		0x7f
 #define FF_CNT		(FF_MAX+1)
 
-#endif /* _INPUT_H */
+#endif /* _UAPI_INPUT_H */

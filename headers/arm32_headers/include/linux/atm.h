@@ -9,15 +9,15 @@
  *          Instead, #include <atm.h>
  */
 
-#ifndef _LINUX_ATM_H
-#define _LINUX_ATM_H
+#ifndef _UAPI_LINUX_ATM_H
+#define _UAPI_LINUX_ATM_H
 
 /*
  * BEGIN_xx and END_xx markers are used for automatic generation of
  * documentation. Do not change them.
  */
 
-
+#include <linux/compiler.h>
 #include <linux/atmapi.h>
 #include <linux/atmsap.h>
 #include <linux/atmioc.h>
@@ -234,9 +234,9 @@ static __inline__ int atmpvc_addr_in_use(struct sockaddr_atmpvc addr)
 struct atmif_sioc {
 	int number;
 	int length;
-	void *arg;
+	void __user *arg;
 };
 
 
 typedef unsigned short atm_backend_t;
-#endif /* _LINUX_ATM_H */
+#endif /* _UAPI_LINUX_ATM_H */

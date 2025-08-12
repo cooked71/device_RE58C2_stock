@@ -8,8 +8,8 @@
  *
  * Copyright 2019 Google LLC
  */
-#ifndef _LINUX_INCREMENTALFS_H
-#define _LINUX_INCREMENTALFS_H
+#ifndef _UAPI_LINUX_INCREMENTALFS_H
+#define _UAPI_LINUX_INCREMENTALFS_H
 
 #include <linux/limits.h>
 #include <linux/ioctl.h>
@@ -587,4 +587,4 @@ struct incfs_get_last_read_error_args {
 	__u64	reserved2;
 };
 
-#endif /* _LINUX_INCREMENTALFS_H */
+#endif /* _UAPI_LINUX_INCREMENTALFS_H */

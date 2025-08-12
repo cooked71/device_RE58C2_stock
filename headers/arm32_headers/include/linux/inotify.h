@@ -5,8 +5,8 @@
  * Copyright (C) 2005 John McCutchan
  */
 
-#ifndef _LINUX_INOTIFY_H
-#define _LINUX_INOTIFY_H
+#ifndef _UAPI_LINUX_INOTIFY_H
+#define _UAPI_LINUX_INOTIFY_H
 
 /* For O_CLOEXEC and O_NONBLOCK */
 #include <linux/fcntl.h>
@@ -81,4 +81,4 @@ struct inotify_event {
  */
 #define INOTIFY_IOC_SETNEXTWD	_IOW('I', 0, __s32)
 
-#endif /* _LINUX_INOTIFY_H */
+#endif /* _UAPI_LINUX_INOTIFY_H */

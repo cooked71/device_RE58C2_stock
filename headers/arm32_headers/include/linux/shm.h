@@ -1,11 +1,13 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_SHM_H_
-#define _LINUX_SHM_H_
+#ifndef _UAPI_LINUX_SHM_H_
+#define _UAPI_LINUX_SHM_H_
 
 #include <linux/ipc.h>
 #include <linux/errno.h>
 #include <asm-generic/hugetlb_encode.h>
+#ifndef __KERNEL__
 #include <unistd.h>
+#endif
 
 /*
  * SHMMNI, SHMMAX and SHMALL are default upper limits which can be
@@ -106,4 +108,4 @@ struct shm_info {
 };
 
 
-#endif /* _LINUX_SHM_H_ */
+#endif /* _UAPI_LINUX_SHM_H_ */

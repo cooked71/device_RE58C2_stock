@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef __ASM_GENERIC_BITS_PER_LONG
-#define __ASM_GENERIC_BITS_PER_LONG
+#ifndef _UAPI__ASM_GENERIC_BITS_PER_LONG
+#define _UAPI__ASM_GENERIC_BITS_PER_LONG
 
 /*
  * There seems to be no way of detecting this automatically from user
@@ -13,4 +13,4 @@
 #define __BITS_PER_LONG 32
 #endif
 
-#endif /* __ASM_GENERIC_BITS_PER_LONG */
+#endif /* _UAPI__ASM_GENERIC_BITS_PER_LONG */

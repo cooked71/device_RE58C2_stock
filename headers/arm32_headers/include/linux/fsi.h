@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0+ WITH Linux-syscall-note */
-#ifndef _LINUX_FSI_H
-#define _LINUX_FSI_H
+#ifndef _UAPI_LINUX_FSI_H
+#define _UAPI_LINUX_FSI_H
 
 #include <linux/types.h>
 #include <linux/ioctl.h>
@@ -55,4 +55,4 @@ struct scom_access {
 #define FSI_SCOM_WRITE	_IOWR('s', 0x02, struct scom_access)
 #define FSI_SCOM_RESET	_IOW('s', 0x03, __u32)
 
-#endif /* _LINUX_FSI_H */
+#endif /* _UAPI_LINUX_FSI_H */

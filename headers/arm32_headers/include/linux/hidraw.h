@@ -11,8 +11,8 @@
  * this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin St - Fifth Floor, Boston, MA 02110-1301 USA.
  */
-#ifndef _HIDRAW_H
-#define _HIDRAW_H
+#ifndef _UAPI_HIDRAW_H
+#define _UAPI_HIDRAW_H
 
 
 
@@ -48,4 +48,4 @@ struct hidraw_devinfo {
 
 /* kernel-only API declarations */
 
-#endif /* _HIDRAW_H */
+#endif /* _UAPI_HIDRAW_H */

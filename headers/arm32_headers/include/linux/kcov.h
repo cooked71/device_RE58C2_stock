@@ -53,7 +53,7 @@ enum {
 #define KCOV_SUBSYSTEM_MASK	(0xffull << 56)
 #define KCOV_INSTANCE_MASK	(0xffffffffull)
 
-static __inline__ __u64 kcov_remote_handle(__u64 subsys, __u64 inst)
+static inline __u64 kcov_remote_handle(__u64 subsys, __u64 inst)
 {
 	if (subsys & ~KCOV_SUBSYSTEM_MASK || inst & ~KCOV_INSTANCE_MASK)
 		return 0;

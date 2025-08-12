@@ -3,10 +3,10 @@
  * Linux Socket Filter Data Structures
  */
 
-#ifndef __LINUX_FILTER_H__
-#define __LINUX_FILTER_H__
+#ifndef _UAPI__LINUX_FILTER_H__
+#define _UAPI__LINUX_FILTER_H__
 
-
+#include <linux/compiler.h>
 #include <linux/types.h>
 #include <linux/bpf_common.h>
 
@@ -30,7 +30,7 @@ struct sock_filter {	/* Filter block */
 
 struct sock_fprog {	/* Required for SO_ATTACH_FILTER. */
 	unsigned short		len;	/* Number of filter blocks */
-	struct sock_filter *filter;
+	struct sock_filter __user *filter;
 };
 
 /* ret - BPF_K and BPF_X also apply */
@@ -87,4 +87,4 @@ struct sock_fprog {	/* Required for SO_ATTACH_FILTER. */
 #define BPF_NET_OFF	SKF_NET_OFF
 #define BPF_LL_OFF	SKF_LL_OFF
 
-#endif /* __LINUX_FILTER_H__ */
+#endif /* _UAPI__LINUX_FILTER_H__ */

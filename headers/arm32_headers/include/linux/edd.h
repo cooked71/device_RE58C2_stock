@@ -28,8 +28,8 @@
  * GNU General Public License for more details.
  *
  */
-#ifndef _LINUX_EDD_H
-#define _LINUX_EDD_H
+#ifndef _UAPI_LINUX_EDD_H
+#define _UAPI_LINUX_EDD_H
 
 #include <linux/types.h>
 
@@ -189,4 +189,4 @@ struct edd {
 
 #endif				/*!__ASSEMBLY__ */
 
-#endif /* _LINUX_EDD_H */
+#endif /* _UAPI_LINUX_EDD_H */

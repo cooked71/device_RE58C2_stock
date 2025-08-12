@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
 
-#ifndef _XT_CONNLABEL_H
-#define _XT_CONNLABEL_H
+#ifndef _UAPI_XT_CONNLABEL_H
+#define _UAPI_XT_CONNLABEL_H
 
 #include <linux/types.h>
 
@@ -16,4 +16,4 @@ struct xt_connlabel_mtinfo {
 	__u16 options;
 };
 
-#endif /* _XT_CONNLABEL_H */
+#endif /* _UAPI_XT_CONNLABEL_H */

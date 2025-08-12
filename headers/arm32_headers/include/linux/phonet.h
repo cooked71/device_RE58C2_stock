@@ -21,8 +21,8 @@
  * 02110-1301 USA
  */
 
-#ifndef LINUX_PHONET_H
-#define LINUX_PHONET_H
+#ifndef _UAPILINUX_PHONET_H
+#define _UAPILINUX_PHONET_H
 
 #include <linux/types.h>
 #include <linux/socket.h>
@@ -110,77 +110,77 @@ struct sockaddr_pn {
 /* Well known address */
 #define PN_DEV_PC	0x10
 
-static __inline__ __u16 pn_object(__u8 addr, __u16 port)
+static inline __u16 pn_object(__u8 addr, __u16 port)
 {
 	return (addr << 8) | (port & 0x3ff);
 }
 
-static __inline__ __u8 pn_obj(__u16 handle)
+static inline __u8 pn_obj(__u16 handle)
 {
 	return handle & 0xff;
 }
 
-static __inline__ __u8 pn_dev(__u16 handle)
+static inline __u8 pn_dev(__u16 handle)
 {
 	return handle >> 8;
 }
 
-static __inline__ __u16 pn_port(__u16 handle)
+static inline __u16 pn_port(__u16 handle)
 {
 	return handle & 0x3ff;
 }
 
-static __inline__ __u8 pn_addr(__u16 handle)
+static inline __u8 pn_addr(__u16 handle)
 {
 	return (handle >> 8) & 0xfc;
 }
 
-static __inline__ void pn_sockaddr_set_addr(struct sockaddr_pn *spn, __u8 addr)
+static inline void pn_sockaddr_set_addr(struct sockaddr_pn *spn, __u8 addr)
 {
 	spn->spn_dev &= 0x03;
 	spn->spn_dev |= addr & 0xfc;
 }
 
-static __inline__ void pn_sockaddr_set_port(struct sockaddr_pn *spn, __u16 port)
+static inline void pn_sockaddr_set_port(struct sockaddr_pn *spn, __u16 port)
 {
 	spn->spn_dev &= 0xfc;
 	spn->spn_dev |= (port >> 8) & 0x03;
 	spn->spn_obj = port & 0xff;
 }
 
-static __inline__ void pn_sockaddr_set_object(struct sockaddr_pn *spn,
+static inline void pn_sockaddr_set_object(struct sockaddr_pn *spn,
 						__u16 handle)
 {
 	spn->spn_dev = pn_dev(handle);
 	spn->spn_obj = pn_obj(handle);
 }
 
-static __inline__ void pn_sockaddr_set_resource(struct sockaddr_pn *spn,
+static inline void pn_sockaddr_set_resource(struct sockaddr_pn *spn,
 						__u8 resource)
 {
 	spn->spn_resource = resource;
 }
 
-static __inline__ __u8 pn_sockaddr_get_addr(const struct sockaddr_pn *spn)
+static inline __u8 pn_sockaddr_get_addr(const struct sockaddr_pn *spn)
 {
 	return spn->spn_dev & 0xfc;
 }
 
-static __inline__ __u16 pn_sockaddr_get_port(const struct sockaddr_pn *spn)
+static inline __u16 pn_sockaddr_get_port(const struct sockaddr_pn *spn)
 {
 	return ((spn->spn_dev & 0x03) << 8) | spn->spn_obj;
 }
 
-static __inline__ __u16 pn_sockaddr_get_object(const struct sockaddr_pn *spn)
+static inline __u16 pn_sockaddr_get_object(const struct sockaddr_pn *spn)
 {
 	return pn_object(spn->spn_dev, spn->spn_obj);
 }
 
-static __inline__ __u8 pn_sockaddr_get_resource(const struct sockaddr_pn *spn)
+static inline __u8 pn_sockaddr_get_resource(const struct sockaddr_pn *spn)
 {
 	return spn->spn_resource;
 }
 
 /* Phonet device ioctl requests */
 
-#endif /* LINUX_PHONET_H */
+#endif /* _UAPILINUX_PHONET_H */

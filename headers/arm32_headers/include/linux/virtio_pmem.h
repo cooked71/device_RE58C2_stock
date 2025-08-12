@@ -7,8 +7,8 @@
  * Author(s): Pankaj Gupta <pagupta@redhat.com>
  */
 
-#ifndef _LINUX_VIRTIO_PMEM_H
-#define _LINUX_VIRTIO_PMEM_H
+#ifndef _UAPI_LINUX_VIRTIO_PMEM_H
+#define _UAPI_LINUX_VIRTIO_PMEM_H
 
 #include <linux/types.h>
 #include <linux/virtio_ids.h>

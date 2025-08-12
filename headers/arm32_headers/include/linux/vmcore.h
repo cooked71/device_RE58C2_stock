@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _VMCORE_H
-#define _VMCORE_H
+#ifndef _UAPI_VMCORE_H
+#define _UAPI_VMCORE_H
 
 #include <linux/types.h>
 
@@ -15,4 +15,4 @@ struct vmcoredd_header {
 	__u8 dump_name[VMCOREDD_MAX_NAME_BYTES]; /* Device dump's name */
 };
 
-#endif /* _VMCORE_H */
+#endif /* _UAPI_VMCORE_H */

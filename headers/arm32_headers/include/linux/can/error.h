@@ -42,8 +42,8 @@
  * DAMAGE.
  */
 
-#ifndef _CAN_ERROR_H
-#define _CAN_ERROR_H
+#ifndef _UAPI_CAN_ERROR_H
+#define _UAPI_CAN_ERROR_H
 
 #define CAN_ERR_DLC 8 /* dlc for error message frames */
 
@@ -125,4 +125,4 @@
 /* TX error counter / data[6] */
 /* RX error counter / data[7] */
 
-#endif /* _CAN_ERROR_H */
+#endif /* _UAPI_CAN_ERROR_H */

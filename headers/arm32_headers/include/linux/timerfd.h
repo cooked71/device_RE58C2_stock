@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef _LINUX_TIMERFD_H
-#define _LINUX_TIMERFD_H
+#ifndef _UAPI_LINUX_TIMERFD_H
+#define _UAPI_LINUX_TIMERFD_H
 
 #include <linux/types.h>
 
@@ -34,4 +34,4 @@
 
 #define TFD_IOC_SET_TICKS	_IOW('T', 0, __u64)
 
-#endif /* _LINUX_TIMERFD_H */
+#endif /* _UAPI_LINUX_TIMERFD_H */

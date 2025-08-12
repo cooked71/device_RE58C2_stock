@@ -35,7 +35,7 @@
 #define __LINUX_PUBLIC_PRIVCMD_H__
 
 #include <linux/types.h>
-
+#include <linux/compiler.h>
 #include <xen/interface/xen.h>
 
 struct privcmd_hypercall {
@@ -56,14 +56,14 @@ struct privcmd_mmap_entry {
 struct privcmd_mmap {
 	int num;
 	domid_t dom; /* target domain */
-	struct privcmd_mmap_entry *entry;
+	struct privcmd_mmap_entry __user *entry;
 };
 
 struct privcmd_mmapbatch {
 	int num;     /* number of pages to populate */
 	domid_t dom; /* target domain */
 	__u64 addr;  /* virtual address */
-	xen_pfn_t *arr; /* array of mfns - or'd with
+	xen_pfn_t __user *arr; /* array of mfns - or'd with
 				  PRIVCMD_MMAPBATCH_*_ERROR on err */
 };
 
@@ -74,19 +74,19 @@ struct privcmd_mmapbatch_v2 {
 	unsigned int num; /* number of pages to populate */
 	domid_t dom;      /* target domain */
 	__u64 addr;       /* virtual address */
-	const xen_pfn_t *arr; /* array of mfns */
-	int *err;  /* array of error codes */
+	const xen_pfn_t __user *arr; /* array of mfns */
+	int __user *err;  /* array of error codes */
 };
 
 struct privcmd_dm_op_buf {
-	void *uptr;
+	void __user *uptr;
 	size_t size;
 };
 
 struct privcmd_dm_op {
 	domid_t dom;
 	__u16 num;
-	const struct privcmd_dm_op_buf *ubufs;
+	const struct privcmd_dm_op_buf __user *ubufs;
 };
 
 struct privcmd_mmap_resource {

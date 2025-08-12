@@ -174,28 +174,28 @@ struct mic_vring {
 #define mic_aligned_desc_size(d) __mic_align(mic_desc_size(d), 8)
 
 #ifndef INTEL_MIC_CARD
-static __inline__ unsigned mic_desc_size(const struct mic_device_desc *desc)
+static inline unsigned mic_desc_size(const struct mic_device_desc *desc)
 {
 	return sizeof(*desc) + desc->num_vq * sizeof(struct mic_vqconfig)
 		+ desc->feature_len * 2 + desc->config_len;
 }
 
-static __inline__ struct mic_vqconfig *
+static inline struct mic_vqconfig *
 mic_vq_config(const struct mic_device_desc *desc)
 {
 	return (struct mic_vqconfig *)(desc + 1);
 }
 
-static __inline__ __u8 *mic_vq_features(const struct mic_device_desc *desc)
+static inline __u8 *mic_vq_features(const struct mic_device_desc *desc)
 {
 	return (__u8 *)(mic_vq_config(desc) + desc->num_vq);
 }
 
-static __inline__ __u8 *mic_vq_configspace(const struct mic_device_desc *desc)
+static inline __u8 *mic_vq_configspace(const struct mic_device_desc *desc)
 {
 	return mic_vq_features(desc) + desc->feature_len * 2;
 }
-static __inline__ unsigned mic_total_desc_size(struct mic_device_desc *desc)
+static inline unsigned mic_total_desc_size(struct mic_device_desc *desc)
 {
 	return mic_aligned_desc_size(desc) + sizeof(struct mic_device_ctrl);
 }

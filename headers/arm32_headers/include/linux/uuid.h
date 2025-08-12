@@ -15,8 +15,8 @@
  * GNU General Public License for more details.
  */
 
-#ifndef _LINUX_UUID_H_
-#define _LINUX_UUID_H_
+#ifndef _UAPI_LINUX_UUID_H_
+#define _UAPI_LINUX_UUID_H_
 
 #include <linux/types.h>
 
@@ -39,4 +39,4 @@ typedef guid_t uuid_le;
 	UUID_LE(0x00000000, 0x0000, 0x0000, 0x00, 0x00, 0x00, 0x00,	\
 	     0x00, 0x00, 0x00, 0x00)
 
-#endif /* _LINUX_UUID_H_ */
+#endif /* _UAPI_LINUX_UUID_H_ */

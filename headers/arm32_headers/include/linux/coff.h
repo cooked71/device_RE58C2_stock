@@ -11,8 +11,8 @@
    more information about COFF, then O'Reilly has a very excellent book.
 */
 
-#ifndef _LINUX_COFF_H
-#define _LINUX_COFF_H
+#ifndef _UAPI_LINUX_COFF_H
+#define _UAPI_LINUX_COFF_H
 
 #define  E_SYMNMLEN  8   /* Number of characters in a symbol name         */
 #define  E_FILNMLEN 14   /* Number of characters in a file name           */
@@ -354,4 +354,4 @@ struct COFF_reloc {
 /* For new sections we haven't heard of before */
 #define COFF_DEF_SECTION_ALIGNMENT       4
 
-#endif /* _LINUX_COFF_H */
+#endif /* _UAPI_LINUX_COFF_H */

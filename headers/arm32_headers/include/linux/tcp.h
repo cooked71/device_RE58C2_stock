@@ -15,8 +15,8 @@
  *		as published by the Free Software Foundation; either version
  *		2 of the License, or (at your option) any later version.
  */
-#ifndef _LINUX_TCP_H
-#define _LINUX_TCP_H
+#ifndef _UAPI_LINUX_TCP_H
+#define _UAPI_LINUX_TCP_H
 
 #include <linux/types.h>
 #include <asm/byteorder.h>
@@ -336,4 +336,4 @@ struct tcp_zerocopy_receive {
 	__u32 length;		/* in/out: number of bytes to map/mapped */
 	__u32 recv_skip_hint;	/* out: amount of bytes to skip */
 };
-#endif /* _LINUX_TCP_H */
+#endif /* _UAPI_LINUX_TCP_H */

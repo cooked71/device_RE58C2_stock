@@ -42,8 +42,8 @@
  * DAMAGE.
  */
 
-#ifndef _CAN_BCM_H
-#define _CAN_BCM_H
+#ifndef _UAPI_CAN_BCM_H
+#define _UAPI_CAN_BCM_H
 
 #include <linux/types.h>
 #include <linux/can.h>

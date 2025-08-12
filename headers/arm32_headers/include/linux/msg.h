@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_MSG_H
-#define _LINUX_MSG_H
+#ifndef _UAPI_LINUX_MSG_H
+#define _UAPI_LINUX_MSG_H
 
 #include <linux/ipc.h>
 
@@ -87,4 +87,4 @@ struct msginfo {
 #define MSGSEG (__MSGSEG <= 0xffff ? __MSGSEG : 0xffff)
 
 
-#endif /* _LINUX_MSG_H */
+#endif /* _UAPI_LINUX_MSG_H */

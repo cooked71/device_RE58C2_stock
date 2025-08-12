@@ -4,8 +4,8 @@
 /* Written 1995-2000 by Werner Almesberger, EPFL LRC/ICA */
  
 
-#ifndef LINUX_SONET_H
-#define LINUX_SONET_H
+#ifndef _UAPILINUX_SONET_H
+#define _UAPILINUX_SONET_H
 
 #define __SONET_ITEMS \
     __HANDLE_ITEM(section_bip); 	/* section parity errors (B1) */ \
@@ -58,4 +58,4 @@ struct sonet_stats {
 
 
 
-#endif /* LINUX_SONET_H */
+#endif /* _UAPILINUX_SONET_H */

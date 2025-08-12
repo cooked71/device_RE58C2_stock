@@ -1,8 +1,8 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
 /* fou.h - FOU Interface */
 
-#ifndef _LINUX_FOU_H
-#define _LINUX_FOU_H
+#ifndef _UAPI_LINUX_FOU_H
+#define _UAPI_LINUX_FOU_H
 
 /* NETLINK_GENERIC related info
  */
@@ -45,4 +45,4 @@ enum {
 
 #define FOU_CMD_MAX	(__FOU_CMD_MAX - 1)
 
-#endif /* _LINUX_FOU_H */
+#endif /* _UAPI_LINUX_FOU_H */

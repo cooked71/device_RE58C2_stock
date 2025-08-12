@@ -27,8 +27,8 @@
 
 /*****************************************************************************/
 
-#ifndef _LINUX_USBDEVICE_FS_H
-#define _LINUX_USBDEVICE_FS_H
+#ifndef _UAPI_LINUX_USBDEVICE_FS_H
+#define _UAPI_LINUX_USBDEVICE_FS_H
 
 #include <linux/types.h>
 #include <linux/magic.h>
@@ -44,14 +44,14 @@ struct usbdevfs_ctrltransfer {
 	__u16 wIndex;
 	__u16 wLength;
 	__u32 timeout;  /* in milliseconds */
- 	void *data;
+ 	void __user *data;
 };
 
 struct usbdevfs_bulktransfer {
 	unsigned int ep;
 	unsigned int len;
 	unsigned int timeout; /* in milliseconds */
-	void *data;
+	void __user *data;
 };
 
 struct usbdevfs_setinterface {
@@ -61,7 +61,7 @@ struct usbdevfs_setinterface {
 
 struct usbdevfs_disconnectsignal {
 	unsigned int signr;
-	void *context;
+	void __user *context;
 };
 
 #define USBDEVFS_MAXDRIVERNAME 255
@@ -119,7 +119,7 @@ struct usbdevfs_urb {
 	unsigned char endpoint;
 	int status;
 	unsigned int flags;
-	void *buffer;
+	void __user *buffer;
 	int buffer_length;
 	int actual_length;
 	int start_frame;
@@ -130,7 +130,7 @@ struct usbdevfs_urb {
 	int error_count;
 	unsigned int signr;	/* signal to be sent on completion,
 				  or 0 if none should be sent. */
-	void *usercontext;
+	void __user *usercontext;
 	struct usbdevfs_iso_packet_desc iso_frame_desc[0];
 };
 
@@ -139,7 +139,7 @@ struct usbdevfs_ioctl {
 	int	ifno;		/* interface 0..N ; negative numbers reserved */
 	int	ioctl_code;	/* MUST encode size + direction of data so the
 				 * macros in <asm/ioctl.h> give correct values */
-	void *data;	/* param buffer (in, or out) */
+	void __user *data;	/* param buffer (in, or out) */
 };
 
 /* You can do most things with hubs just through control messages,
@@ -228,4 +228,4 @@ struct usbdevfs_streams {
 #define USBDEVFS_ALLOW_SUSPEND     _IO('U', 34)
 #define USBDEVFS_WAIT_FOR_RESUME   _IO('U', 35)
 
-#endif /* _LINUX_USBDEVICE_FS_H */
+#endif /* _UAPI_LINUX_USBDEVICE_FS_H */

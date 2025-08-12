@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _NF_CONNTRACK_FTP_H
-#define _NF_CONNTRACK_FTP_H
+#ifndef _UAPI_NF_CONNTRACK_FTP_H
+#define _UAPI_NF_CONNTRACK_FTP_H
 /* FTP tracking. */
 
 /* This enum is exposed to userspace */
@@ -16,4 +16,4 @@ enum nf_ct_ftp_type {
 };
 
 
-#endif /* _NF_CONNTRACK_FTP_H */
+#endif /* _UAPI_NF_CONNTRACK_FTP_H */

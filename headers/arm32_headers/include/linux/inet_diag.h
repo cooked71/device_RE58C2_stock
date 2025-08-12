@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _INET_DIAG_H_
-#define _INET_DIAG_H_
+#ifndef _UAPI_INET_DIAG_H_
+#define _UAPI_INET_DIAG_H_
 
 #include <linux/types.h>
 
@@ -211,4 +211,4 @@ union tcp_cc_info {
 	struct tcp_dctcp_info	dctcp;
 	struct tcp_bbr_info	bbr;
 };
-#endif /* _INET_DIAG_H_ */
+#endif /* _UAPI_INET_DIAG_H_ */

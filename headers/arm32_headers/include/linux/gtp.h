@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_GTP_H_
-#define _LINUX_GTP_H_
+#ifndef _UAPI_LINUX_GTP_H_
+#define _UAPI_LINUX_GTP_H_
 
 enum gtp_genl_cmds {
 	GTP_CMD_NEWPDP,
@@ -32,4 +32,4 @@ enum gtp_attrs {
 };
 #define GTPA_MAX (__GTPA_MAX + 1)
 
-#endif /* _LINUX_GTP_H_ */
+#endif /* _UAPI_LINUX_GTP_H_ */

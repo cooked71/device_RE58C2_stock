@@ -21,8 +21,8 @@
  *		2 of the License, or (at your option) any later version.
  */
 
-#ifndef SDLA_H
-#define SDLA_H
+#ifndef _UAPISDLA_H
+#define _UAPISDLA_H
 
 /* adapter type */
 #define SDLA_TYPES
@@ -59,7 +59,7 @@
 struct sdla_mem {
    int  addr;
    int  len;
-   void *data;
+   void __user *data;
 };
 
 #define SDLA_START			(FRAD_LAST_IOCTL + 7)
@@ -114,4 +114,4 @@ struct sdla_dlci_conf {
 };
 
 
-#endif /* SDLA_H */
+#endif /* _UAPISDLA_H */

@@ -37,8 +37,8 @@
  *	0.1	20/06/2002
  *		- first public version
  */
-#ifndef __UINPUT_H_
-#define __UINPUT_H_
+#ifndef _UAPI__UINPUT_H_
+#define _UAPI__UINPUT_H_
 
 #include <linux/types.h>
 #include <linux/input.h>
@@ -229,4 +229,4 @@ struct uinput_user_dev {
 	__s32 absfuzz[ABS_CNT];
 	__s32 absflat[ABS_CNT];
 };
-#endif /* __UINPUT_H_ */
+#endif /* _UAPI__UINPUT_H_ */

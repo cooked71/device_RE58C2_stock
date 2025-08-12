@@ -38,8 +38,8 @@
  * via the ioctl interface.
  */
 
-#ifndef FSL_HYPERVISOR_H
-#define FSL_HYPERVISOR_H
+#ifndef _UAPIFSL_HYPERVISOR_H
+#define _UAPIFSL_HYPERVISOR_H
 
 #include <linux/types.h>
 
@@ -218,4 +218,4 @@ struct fsl_hv_ioctl_prop {
 	_IOWR(FSL_HV_IOCTL_TYPE, 8, struct fsl_hv_ioctl_prop)
 
 
-#endif /* FSL_HYPERVISOR_H */
+#endif /* _UAPIFSL_HYPERVISOR_H */

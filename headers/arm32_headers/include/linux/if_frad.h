@@ -22,8 +22,8 @@
  *		2 of the License, or (at your option) any later version.
  */
 
-#ifndef _FRAD_H_
-#define _FRAD_H_
+#ifndef _UAPI_FRAD_H_
+#define _UAPI_FRAD_H_
 
 #include <linux/if.h>
 
@@ -120,4 +120,4 @@ struct frad_conf
 #define FRAD_CLOCK_EXT		0x0000
 
 
-#endif /* _FRAD_H_ */
+#endif /* _UAPI_FRAD_H_ */

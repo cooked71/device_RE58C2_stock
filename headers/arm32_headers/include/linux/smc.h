@@ -9,8 +9,8 @@
  *  Author(s):  Thomas Richter <tmricht@linux.vnet.ibm.com>
  */
 
-#ifndef _LINUX_SMC_H_
-#define _LINUX_SMC_H_
+#ifndef _UAPI_LINUX_SMC_H_
+#define _UAPI_LINUX_SMC_H_
 
 /* Netlink SMC_PNETID attributes */
 enum {
@@ -33,4 +33,4 @@ enum {				/* SMC PNET Table commands */
 #define SMCR_GENL_FAMILY_NAME		"SMC_PNETID"
 #define SMCR_GENL_FAMILY_VERSION	1
 
-#endif /* _LINUX_SMC_H */
+#endif /* _UAPI_LINUX_SMC_H */

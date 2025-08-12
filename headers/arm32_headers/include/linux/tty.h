@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_TTY_H
-#define _LINUX_TTY_H
+#ifndef _UAPI_LINUX_TTY_H
+#define _UAPI_LINUX_TTY_H
 
 /*
  * 'tty.h' defines some structures used by tty_io.c and some defines.
@@ -39,4 +39,4 @@
 #define N_SPEAKUP	26	/* Speakup communication with synths */
 #define N_NULL		27	/* Null ldisc used for error handling */
 
-#endif /* _LINUX_TTY_H */
+#endif /* _UAPI_LINUX_TTY_H */

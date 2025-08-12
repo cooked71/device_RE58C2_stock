@@ -12,8 +12,8 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-#ifndef __ULEDS_H_
-#define __ULEDS_H_
+#ifndef _UAPI__ULEDS_H_
+#define _UAPI__ULEDS_H_
 
 #define LED_MAX_NAME_SIZE	64
 
@@ -22,4 +22,4 @@ struct uleds_user_dev {
 	int max_brightness;
 };
 
-#endif /* __ULEDS_H_ */
+#endif /* _UAPI__ULEDS_H_ */

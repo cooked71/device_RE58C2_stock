@@ -15,8 +15,8 @@
  *		as published by the Free Software Foundation; either version
  *		2 of the License, or (at your option) any later version.
  */
-#ifndef _LINUX_UDP_H
-#define _LINUX_UDP_H
+#ifndef _UAPI_LINUX_UDP_H
+#define _UAPI_LINUX_UDP_H
 
 #include <linux/types.h>
 
@@ -44,4 +44,4 @@ struct udphdr {
 #define UDP_ENCAP_RXRPC		6
 
 #define UDP_ENCAP_ESPINUDP_V6	16 /*support esp in udp in ipv6*/
-#endif /* _LINUX_UDP_H */
+#endif /* _UAPI_LINUX_UDP_H */

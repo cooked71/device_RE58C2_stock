@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_ELFCORE_H
-#define _LINUX_ELFCORE_H
+#ifndef _UAPI_LINUX_ELFCORE_H
+#define _UAPI_LINUX_ELFCORE_H
 
 #include <linux/types.h>
 #include <linux/signal.h>
@@ -17,11 +17,13 @@ struct elf_siginfo
 };
 
 
+#ifndef __KERNEL__
 typedef elf_greg_t greg_t;
 typedef elf_gregset_t gregset_t;
 typedef elf_fpregset_t fpregset_t;
 typedef elf_fpxregset_t fpxregset_t;
 #define NGREG ELF_NGREG
+#endif
 
 /*
  * Definitions to generate Intel SVR4-like core files.
@@ -89,9 +91,11 @@ struct elf_prpsinfo
 	char	pr_psargs[ELF_PRARGSZ];	/* initial part of arg list */
 };
 
+#ifndef __KERNEL__
 typedef struct elf_prstatus prstatus_t;
 typedef struct elf_prpsinfo prpsinfo_t;
 #define PRARGSZ ELF_PRARGSZ 
+#endif
 
 
-#endif /* _LINUX_ELFCORE_H */
+#endif /* _UAPI_LINUX_ELFCORE_H */

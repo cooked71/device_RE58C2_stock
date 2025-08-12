@@ -1,5 +1,5 @@
-#ifndef _LINUX_VIRTIO_RING_H
-#define _LINUX_VIRTIO_RING_H
+#ifndef _UAPI_LINUX_VIRTIO_RING_H
+#define _UAPI_LINUX_VIRTIO_RING_H
 /* An interface for efficient virtio implementation, currently for use by KVM,
  * but hopefully others soon.  Do NOT change this since it will
  * break existing servers and clients.
@@ -31,7 +31,9 @@
  * SUCH DAMAGE.
  *
  * Copyright Rusty Russell IBM Corporation 2007. */
+#ifndef __KERNEL__
 #include <stdint.h>
+#endif
 #include <linux/types.h>
 #include <linux/virtio_types.h>
 
@@ -162,7 +164,7 @@ struct vring {
 #define vring_used_event(vr) ((vr)->avail->ring[(vr)->num])
 #define vring_avail_event(vr) (*(__virtio16 *)&(vr)->used->ring[(vr)->num])
 
-static __inline__ void vring_init(struct vring *vr, unsigned int num, void *p,
+static inline void vring_init(struct vring *vr, unsigned int num, void *p,
 			      unsigned long align)
 {
 	vr->num = num;
@@ -172,7 +174,7 @@ static __inline__ void vring_init(struct vring *vr, unsigned int num, void *p,
 		+ align-1) & ~(align - 1));
 }
 
-static __inline__ unsigned vring_size(unsigned int num, unsigned long align)
+static inline unsigned vring_size(unsigned int num, unsigned long align)
 {
 	return ((sizeof(struct vring_desc) * num + sizeof(__virtio16) * (3 + num)
 		 + align - 1) & ~(align - 1))
@@ -183,7 +185,7 @@ static __inline__ unsigned vring_size(unsigned int num, unsigned long align)
 /* Assuming a given event_idx value from the other side, if
  * we have just incremented index from old to new_idx,
  * should we trigger an event? */
-static __inline__ int vring_need_event(__u16 event_idx, __u16 new_idx, __u16 old)
+static inline int vring_need_event(__u16 event_idx, __u16 new_idx, __u16 old)
 {
 	/* Note: Xen has similar logic for notification hold-off
 	 * in include/xen/interface/io/ring.h with req_event and req_prod
@@ -211,4 +213,4 @@ struct vring_packed_desc {
 	__le16 flags;
 };
 
-#endif /* _LINUX_VIRTIO_RING_H */
+#endif /* _UAPI_LINUX_VIRTIO_RING_H */

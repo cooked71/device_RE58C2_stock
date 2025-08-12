@@ -7,8 +7,8 @@
  *    Scott  Bauer      <scott.bauer@intel.com>
  */
 
-#ifndef _SED_OPAL_H
-#define _SED_OPAL_H
+#ifndef _UAPI_SED_OPAL_H
+#define _UAPI_SED_OPAL_H
 
 #include <linux/types.h>
 
@@ -129,4 +129,4 @@ struct opal_shadow_mbr {
 #define IOC_OPAL_MBR_DONE           _IOW('p', 233, struct opal_mbr_done)
 #define IOC_OPAL_WRITE_SHADOW_MBR   _IOW('p', 234, struct opal_shadow_mbr)
 
-#endif /* _SED_OPAL_H */
+#endif /* _UAPI_SED_OPAL_H */

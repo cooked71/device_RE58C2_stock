@@ -20,12 +20,12 @@
  ****************************************************************
  */
 
-#ifndef _LINUX_SYSCTL_H
-#define _LINUX_SYSCTL_H
+#ifndef _UAPI_LINUX_SYSCTL_H
+#define _UAPI_LINUX_SYSCTL_H
 
 #include <linux/const.h>
 #include <linux/types.h>
-
+#include <linux/compiler.h>
 
 #define CTL_MAXNAME 10		/* how many path components do we allow in a
 				   call to sysctl?   In other words, what is
@@ -33,11 +33,11 @@
 				   member of a struct __sysctl_args to have? */
 
 struct __sysctl_args {
-	int *name;
+	int __user *name;
 	int nlen;
-	void *oldval;
-	size_t *oldlenp;
-	void *newval;
+	void __user *oldval;
+	size_t __user *oldlenp;
+	void __user *newval;
 	size_t newlen;
 	unsigned long __unused[4];
 };
@@ -915,4 +915,4 @@ enum
 };
 
 
-#endif /* _LINUX_SYSCTL_H */
+#endif /* _UAPI_LINUX_SYSCTL_H */

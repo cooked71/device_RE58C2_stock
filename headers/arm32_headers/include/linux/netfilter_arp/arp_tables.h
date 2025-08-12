@@ -7,16 +7,17 @@
  * 	flags are stored in host byte order (of course).
  */
 
-#ifndef _ARPTABLES_H
-#define _ARPTABLES_H
+#ifndef _UAPI_ARPTABLES_H
+#define _UAPI_ARPTABLES_H
 
 #include <linux/types.h>
-
+#include <linux/compiler.h>
 #include <linux/if.h>
 #include <linux/netfilter_arp.h>
 
 #include <linux/netfilter/x_tables.h>
 
+#ifndef __KERNEL__
 #define ARPT_FUNCTION_MAXNAMELEN XT_FUNCTION_MAXNAMELEN
 #define ARPT_TABLE_MAXNAMELEN XT_TABLE_MAXNAMELEN
 #define arpt_entry_target xt_entry_target
@@ -30,6 +31,7 @@
 #define ARPT_ERROR_TARGET XT_ERROR_TARGET
 #define ARPT_ENTRY_ITERATE(entries, size, fn, args...) \
 	XT_ENTRY_ITERATE(struct arpt_entry, entries, size, fn, ## args)
+#endif
 
 #define ARPT_DEV_ADDR_LEN_MAX 16
 
@@ -176,7 +178,7 @@ struct arpt_replace {
 	/* Number of counters (must be equal to current number of entries). */
 	unsigned int num_counters;
 	/* The old entries' counters. */
-	struct xt_counters *counters;
+	struct xt_counters __user *counters;
 
 	/* The entries (hang off end: not really an array). */
 	struct arpt_entry entries[0];
@@ -203,4 +205,4 @@ static __inline__ struct xt_entry_target *arpt_get_target(struct arpt_entry *e)
 /*
  *	Main firewall chains definitions and global var's definitions.
  */
-#endif /* _ARPTABLES_H */
+#endif /* _UAPI_ARPTABLES_H */

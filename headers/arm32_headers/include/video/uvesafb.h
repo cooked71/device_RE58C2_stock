@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _UVESAFB_H
-#define _UVESAFB_H
+#ifndef _UAPI_UVESAFB_H
+#define _UAPI_UVESAFB_H
 
 #include <linux/types.h>
 
@@ -58,4 +58,4 @@ struct vbe_ib {
 	char  misc_data[512];
 } __attribute__ ((packed));
 
-#endif /* _UVESAFB_H */
+#endif /* _UAPI_UVESAFB_H */

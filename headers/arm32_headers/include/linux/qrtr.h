@@ -44,6 +44,6 @@ struct qrtr_ctrl_pkt {
 			__le32 port;
 		} client;
 	};
-} __attribute__((packed));
+} __packed;
 
 #endif /* _LINUX_QRTR_H */

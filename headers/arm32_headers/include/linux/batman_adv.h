@@ -4,8 +4,8 @@
  * Matthias Schiffer
  */
 
-#ifndef _LINUX_BATMAN_ADV_H_
-#define _LINUX_BATMAN_ADV_H_
+#ifndef _UAPI_LINUX_BATMAN_ADV_H_
+#define _UAPI_LINUX_BATMAN_ADV_H_
 
 #define BATADV_NL_NAME "batadv"
 
@@ -674,4 +674,4 @@ enum batadv_tp_meter_reason {
 	BATADV_TP_REASON_TOO_MANY		= 133,
 };
 
-#endif /* _LINUX_BATMAN_ADV_H_ */
+#endif /* _UAPI_LINUX_BATMAN_ADV_H_ */

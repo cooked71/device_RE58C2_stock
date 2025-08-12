@@ -8,8 +8,8 @@
  * the Free Software Foundation.
  */
 
-#ifndef _IIO_TYPES_H_
-#define _IIO_TYPES_H_
+#ifndef _UAPI_IIO_TYPES_H_
+#define _UAPI_IIO_TYPES_H_
 
 enum iio_chan_type {
 	IIO_VOLTAGE,
@@ -112,5 +112,5 @@ enum iio_event_direction {
 	IIO_EV_DIR_NONE,
 };
 
-#endif /* _IIO_TYPES_H_ */
+#endif /* _UAPI_IIO_TYPES_H_ */
 

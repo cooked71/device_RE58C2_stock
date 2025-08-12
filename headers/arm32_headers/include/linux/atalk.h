@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef __LINUX_ATALK_H__
-#define __LINUX_ATALK_H__
+#ifndef _UAPI__LINUX_ATALK_H__
+#define _UAPI__LINUX_ATALK_H__
 
 #include <linux/types.h>
 #include <asm/byteorder.h>
@@ -42,4 +42,4 @@ struct atalk_netrange {
 	__be16	nr_lastnet;
 };
 
-#endif /* __LINUX_ATALK_H__ */
+#endif /* _UAPI__LINUX_ATALK_H__ */

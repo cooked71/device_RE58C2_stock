@@ -16,8 +16,8 @@
  * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  * Boston, MA 021110-1307, USA.
  */
-#ifndef LINUX_NBD_NETLINK_H
-#define LINUX_NBD_NETLINK_H
+#ifndef _UAPILINUX_NBD_NETLINK_H
+#define _UAPILINUX_NBD_NETLINK_H
 
 #define NBD_GENL_FAMILY_NAME		"nbd"
 #define NBD_GENL_VERSION		0x1
@@ -96,4 +96,4 @@ enum {
 };
 #define NBD_CMD_MAX	(__NBD_CMD_MAX - 1)
 
-#endif /* LINUX_NBD_NETLINK_H */
+#endif /* _UAPILINUX_NBD_NETLINK_H */

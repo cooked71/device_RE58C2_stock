@@ -1,5 +1,5 @@
-#ifndef _NFCINFO_H_
-#define _NFCINFO_H_
+#ifndef _UAPI_NFCINFO_H_
+#define _UAPI_NFCINFO_H_
 
 #include <linux/ioctl.h>
 

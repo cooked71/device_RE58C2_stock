@@ -22,13 +22,13 @@
 #ifndef __LINUX_IVTVFB_H__
 #define __LINUX_IVTVFB_H__
 
-
+#include <linux/compiler.h>
 #include <linux/types.h>
 
 /* Framebuffer external API */
 
 struct ivtvfb_dma_frame {
-	void *source;
+	void __user *source;
 	unsigned long dest_offset;
 	int count;
 };

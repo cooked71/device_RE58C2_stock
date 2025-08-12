@@ -13,8 +13,8 @@
  *
  */
 
-#ifndef _LINUX_ACCT_H
-#define _LINUX_ACCT_H
+#ifndef _UAPI_LINUX_ACCT_H
+#define _UAPI_LINUX_ACCT_H
 
 #include <linux/types.h>
 
@@ -60,7 +60,9 @@ struct acct
 	comp_t		ac_majflt;		/* Major Pagefaults */
 	comp_t		ac_swaps;		/* Number of Swaps */
 /* m68k had no padding here. */
+#if !defined(CONFIG_M68K) || !defined(__KERNEL__)
 	__u16		ac_ahz;			/* AHZ */
+#endif
 	__u32		ac_exitcode;		/* Exitcode */
 	char		ac_comm[ACCT_COMM + 1];	/* Command Name */
 	__u8		ac_etime_hi;		/* Elapsed Time MSB */
@@ -80,7 +82,11 @@ struct acct_v3
 	__u32		ac_pid;			/* Process ID */
 	__u32		ac_ppid;		/* Parent Process ID */
 	__u32		ac_btime;		/* Process Creation Time */
+#ifdef __KERNEL__
+	__u32		ac_etime;		/* Elapsed Time */
+#else
 	float		ac_etime;		/* Elapsed Time */
+#endif
 	comp_t		ac_utime;		/* User Time */
 	comp_t		ac_stime;		/* System Time */
 	comp_t		ac_mem;			/* Average Memory Usage */
@@ -110,8 +116,10 @@ struct acct_v3
 #error unspecified endianness
 #endif
 
+#ifndef __KERNEL__
 #define ACCT_VERSION	2
 #define AHZ		(HZ)
+#endif	/* __KERNEL */
 
 
-#endif /* _LINUX_ACCT_H */
+#endif /* _UAPI_LINUX_ACCT_H */

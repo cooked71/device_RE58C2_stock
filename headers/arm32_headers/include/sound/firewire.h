@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _SOUND_FIREWIRE_H_INCLUDED
-#define _SOUND_FIREWIRE_H_INCLUDED
+#ifndef _UAPI_SOUND_FIREWIRE_H_INCLUDED
+#define _UAPI_SOUND_FIREWIRE_H_INCLUDED
 
 #include <linux/ioctl.h>
 #include <linux/types.h>
@@ -108,4 +108,4 @@ struct snd_firewire_tascam_state {
 	__be32 data[SNDRV_FIREWIRE_TASCAM_STATE_COUNT];
 };
 
-#endif /* _SOUND_FIREWIRE_H_INCLUDED */
+#endif /* _UAPI_SOUND_FIREWIRE_H_INCLUDED */

@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _IF_TUNNEL_H_
-#define _IF_TUNNEL_H_
+#ifndef _UAPI_IF_TUNNEL_H_
+#define _UAPI_IF_TUNNEL_H_
 
 #include <linux/types.h>
 #include <linux/if.h>
@@ -146,7 +146,7 @@ enum {
 #define IFLA_GRE_MAX	(__IFLA_GRE_MAX - 1)
 
 /* VTI-mode i_flags */
-#define VTI_ISVTI ((__be16)0x0001)
+#define VTI_ISVTI ((__force __be16)0x0001)
 
 enum {
 	IFLA_VTI_UNSPEC,
@@ -180,4 +180,4 @@ enum {
 #define TUNNEL_OPTIONS_PRESENT \
 		(TUNNEL_GENEVE_OPT | TUNNEL_VXLAN_OPT | TUNNEL_ERSPAN_OPT)
 
-#endif /* _IF_TUNNEL_H_ */
+#endif /* _UAPI_IF_TUNNEL_H_ */

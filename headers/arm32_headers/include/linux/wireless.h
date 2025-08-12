@@ -8,8 +8,8 @@
  * Copyright (c) 1997-2007 Jean Tourrilhes, All Rights Reserved.
  */
 
-#ifndef _LINUX_WIRELESS_H
-#define _LINUX_WIRELESS_H
+#ifndef _UAPI_LINUX_WIRELESS_H
+#define _UAPI_LINUX_WIRELESS_H
 
 /************************** DOCUMENTATION **************************/
 /*
@@ -74,7 +74,11 @@
 #include <linux/socket.h>		/* for "struct sockaddr" et al	*/
 #include <linux/if.h>			/* for IFNAMSIZ and co... */
 
+#ifdef __KERNEL__
+#	include <linux/stddef.h>	/* for offsetof */
+#else
 #	include <stddef.h>		/* for offsetof */
+#endif
 
 /***************************** VERSION *****************************/
 /*
@@ -685,7 +689,7 @@ struct iw_param {
  *	pointer to memory allocated in user space.
  */
 struct iw_point {
-  void *pointer;	/* Pointer to the data  (in user space) */
+  void __user	*pointer;	/* Pointer to the data  (in user space) */
   __u16		length;		/* number of fields or size in bytes */
   __u16		flags;		/* Optional params */
 };
@@ -1108,4 +1112,4 @@ struct iw_event {
 #define IW_EV_QUAL_PK_LEN	(IW_EV_LCP_PK_LEN + sizeof(struct iw_quality))
 #define IW_EV_POINT_PK_LEN	(IW_EV_LCP_PK_LEN + 4)
 
-#endif /* _LINUX_WIRELESS_H */
+#endif /* _UAPI_LINUX_WIRELESS_H */

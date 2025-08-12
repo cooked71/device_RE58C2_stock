@@ -10,8 +10,8 @@
  * 2 of the License, or (at your option) any later version.
  */
 
-#ifndef _LINUX_ELF_FDPIC_H
-#define _LINUX_ELF_FDPIC_H
+#ifndef _UAPI_LINUX_ELF_FDPIC_H
+#define _UAPI_LINUX_ELF_FDPIC_H
 
 #include <linux/elf.h>
 
@@ -32,4 +32,4 @@ struct elf32_fdpic_loadmap {
 
 #define ELF32_FDPIC_LOADMAP_VERSION	0x0000
 
-#endif /* _LINUX_ELF_FDPIC_H */
+#endif /* _UAPI_LINUX_ELF_FDPIC_H */

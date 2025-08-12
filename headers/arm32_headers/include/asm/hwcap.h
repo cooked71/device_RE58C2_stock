@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef __ASMARM_HWCAP_H
-#define __ASMARM_HWCAP_H
+#ifndef _UAPI__ASMARM_HWCAP_H
+#define _UAPI__ASMARM_HWCAP_H
 
 /*
  * HWCAP flags - for elf_hwcap (in kernel) and AT_HWCAP
@@ -38,4 +38,4 @@
 #define HWCAP2_SHA2	(1 << 3)
 #define HWCAP2_CRC32	(1 << 4)
 
-#endif /* __ASMARM_HWCAP_H */
+#endif /* _UAPI__ASMARM_HWCAP_H */

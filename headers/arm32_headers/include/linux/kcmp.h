@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_KCMP_H
-#define _LINUX_KCMP_H
+#ifndef _UAPI_LINUX_KCMP_H
+#define _UAPI_LINUX_KCMP_H
 
 #include <linux/types.h>
 
@@ -25,4 +25,4 @@ struct kcmp_epoll_slot {
 	__u32 toff;		/* target offset within same numbered sequence */
 };
 
-#endif /* _LINUX_KCMP_H */
+#endif /* _UAPI_LINUX_KCMP_H */

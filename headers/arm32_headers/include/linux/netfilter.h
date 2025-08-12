@@ -1,9 +1,9 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef __LINUX_NETFILTER_H
-#define __LINUX_NETFILTER_H
+#ifndef _UAPI__LINUX_NETFILTER_H
+#define _UAPI__LINUX_NETFILTER_H
 
 #include <linux/types.h>
-
+#include <linux/compiler.h>
 #include <linux/in.h>
 #include <linux/in6.h>
 
@@ -33,9 +33,11 @@
 #define NF_DROP_ERR(x) (((-x) << 16) | NF_DROP)
 
 /* only for userspace compatibility */
+#ifndef __KERNEL__
 
 /* NF_VERDICT_BITS should be 8 now, but userspace might break if this changes */
 #define NF_VERDICT_BITS 16
+#endif
 
 enum nf_inet_hooks {
 	NF_INET_PRE_ROUTING,
@@ -71,4 +73,4 @@ union nf_inet_addr {
 	struct in6_addr	in6;
 };
 
-#endif /* __LINUX_NETFILTER_H */
+#endif /* _UAPI__LINUX_NETFILTER_H */

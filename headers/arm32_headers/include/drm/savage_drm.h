@@ -109,17 +109,17 @@ typedef struct drm_savage_init {
 typedef union drm_savage_cmd_header drm_savage_cmd_header_t;
 typedef struct drm_savage_cmdbuf {
 	/* command buffer in client's address space */
-	drm_savage_cmd_header_t *cmd_addr;
+	drm_savage_cmd_header_t __user *cmd_addr;
 	unsigned int size;	/* size of the command buffer in 64bit units */
 
 	unsigned int dma_idx;	/* DMA buffer index to use */
 	int discard;		/* discard DMA buffer when done */
 	/* vertex buffer in client's address space */
-	unsigned int *vb_addr;
+	unsigned int __user *vb_addr;
 	unsigned int vb_size;	/* size of client vertex buffer in bytes */
 	unsigned int vb_stride;	/* stride of vertices in 32bit words */
 	/* boxes in client's address space */
-	struct drm_clip_rect *box_addr;
+	struct drm_clip_rect __user *box_addr;
 	unsigned int nbox;	/* number of clipping boxes */
 } drm_savage_cmdbuf_t;
 

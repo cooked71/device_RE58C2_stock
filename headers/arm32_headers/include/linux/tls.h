@@ -31,8 +31,8 @@
  * SOFTWARE.
  */
 
-#ifndef _LINUX_TLS_H
-#define _LINUX_TLS_H
+#ifndef _UAPI_LINUX_TLS_H
+#define _UAPI_LINUX_TLS_H
 
 #include <linux/types.h>
 
@@ -124,4 +124,4 @@ enum {
 #define TLS_CONF_HW 3
 #define TLS_CONF_HW_RECORD 4
 
-#endif /* _LINUX_TLS_H */
+#endif /* _UAPI_LINUX_TLS_H */

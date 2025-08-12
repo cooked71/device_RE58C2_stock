@@ -8,12 +8,12 @@
  * 2 of the License, or (at your option) any later version.
  */
 
-#ifndef _LINUX_BT_BMC_H
-#define _LINUX_BT_BMC_H
+#ifndef _UAPI_LINUX_BT_BMC_H
+#define _UAPI_LINUX_BT_BMC_H
 
 #include <linux/ioctl.h>
 
 #define __BT_BMC_IOCTL_MAGIC	0xb1
 #define BT_BMC_IOCTL_SMS_ATN	_IO(__BT_BMC_IOCTL_MAGIC, 0x00)
 
-#endif /* _LINUX_BT_BMC_H */
+#endif /* _UAPI_LINUX_BT_BMC_H */

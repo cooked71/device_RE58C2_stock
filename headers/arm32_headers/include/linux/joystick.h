@@ -19,8 +19,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-#ifndef _LINUX_JOYSTICK_H
-#define _LINUX_JOYSTICK_H
+#ifndef _UAPI_LINUX_JOYSTICK_H
+#define _UAPI_LINUX_JOYSTICK_H
 
 
 
@@ -130,4 +130,4 @@ struct JS_DATA_SAVE_TYPE_64 {
 };
 
 
-#endif /* _LINUX_JOYSTICK_H */
+#endif /* _UAPI_LINUX_JOYSTICK_H */

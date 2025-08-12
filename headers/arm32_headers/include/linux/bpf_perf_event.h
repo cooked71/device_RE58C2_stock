@@ -5,8 +5,8 @@
  * modify it under the terms of version 2 of the GNU General Public
  * License as published by the Free Software Foundation.
  */
-#ifndef __LINUX_BPF_PERF_EVENT_H__
-#define __LINUX_BPF_PERF_EVENT_H__
+#ifndef _UAPI__LINUX_BPF_PERF_EVENT_H__
+#define _UAPI__LINUX_BPF_PERF_EVENT_H__
 
 #include <asm/bpf_perf_event.h>
 
@@ -16,4 +16,4 @@ struct bpf_perf_event_data {
 	__u64 addr;
 };
 
-#endif /* __LINUX_BPF_PERF_EVENT_H__ */
+#endif /* _UAPI__LINUX_BPF_PERF_EVENT_H__ */

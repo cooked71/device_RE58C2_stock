@@ -12,7 +12,7 @@
 #define _PPP_IOCTL_H
 
 #include <linux/types.h>
-
+#include <linux/compiler.h>
 #include <linux/ppp_defs.h>
 
 /*
@@ -59,7 +59,7 @@ struct npioctl {
 
 /* Structure describing a CCP configuration option, for PPPIOCSCOMPRESS */
 struct ppp_option_data {
-	__u8	*ptr;
+	__u8	__user *ptr;
 	__u32	length;
 	int	transmit;
 };

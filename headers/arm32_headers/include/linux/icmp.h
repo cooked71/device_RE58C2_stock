@@ -15,8 +15,8 @@
  *		as published by the Free Software Foundation; either version
  *		2 of the License, or (at your option) any later version.
  */
-#ifndef _LINUX_ICMP_H
-#define _LINUX_ICMP_H
+#ifndef _UAPI_LINUX_ICMP_H
+#define _UAPI_LINUX_ICMP_H
 
 #include <linux/types.h>
 
@@ -96,4 +96,4 @@ struct icmp_filter {
 };
 
 
-#endif /* _LINUX_ICMP_H */
+#endif /* _UAPI_LINUX_ICMP_H */

@@ -5,8 +5,8 @@
  * See Documentation/usb/raw-gadget.rst for more details.
  */
 
-#ifndef __LINUX_USB_RAW_GADGET_H
-#define __LINUX_USB_RAW_GADGET_H
+#ifndef _UAPI__LINUX_USB_RAW_GADGET_H
+#define _UAPI__LINUX_USB_RAW_GADGET_H
 
 #include <asm/ioctl.h>
 #include <linux/types.h>
@@ -66,12 +66,12 @@ struct usb_raw_event {
 #define USB_RAW_IO_FLAGS_ZERO	0x0001
 #define USB_RAW_IO_FLAGS_MASK	0x0001
 
-static __inline__ int usb_raw_io_flags_valid(__u16 flags)
+static inline int usb_raw_io_flags_valid(__u16 flags)
 {
 	return (flags & ~USB_RAW_IO_FLAGS_MASK) == 0;
 }
 
-static __inline__ int usb_raw_io_flags_zero(__u16 flags)
+static inline int usb_raw_io_flags_zero(__u16 flags)
 {
 	return (flags & USB_RAW_IO_FLAGS_ZERO);
 }
@@ -246,4 +246,4 @@ struct usb_raw_eps_info {
 #define USB_RAW_IOCTL_EP_CLEAR_HALT	_IOW('U', 14, __u32)
 #define USB_RAW_IOCTL_EP_SET_WEDGE	_IOW('U', 15, __u32)
 
-#endif /* __LINUX_USB_RAW_GADGET_H */
+#endif /* _UAPI__LINUX_USB_RAW_GADGET_H */

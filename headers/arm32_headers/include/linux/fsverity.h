@@ -7,8 +7,8 @@
  *
  * Copyright 2019 Google LLC
  */
-#ifndef _LINUX_FSVERITY_H
-#define _LINUX_FSVERITY_H
+#ifndef _UAPI_LINUX_FSVERITY_H
+#define _UAPI_LINUX_FSVERITY_H
 
 #include <linux/ioctl.h>
 #include <linux/types.h>
@@ -49,11 +49,18 @@ struct fsverity_descriptor {
 	__u8 hash_algorithm;	/* Merkle tree hash algorithm */
 	__u8 log_blocksize;	/* log2 of size of data and tree blocks */
 	__u8 salt_size;		/* size of salt in bytes; 0 if none */
+#ifdef __KERNEL__
+	__le32 sig_size;
+#else
 	__le32 __reserved_0x04;	/* must be 0 */
+#endif
 	__le64 data_size;	/* size of file the Merkle tree is built over */
 	__u8 root_hash[64];	/* Merkle tree root hash */
 	__u8 salt[32];		/* salt prepended to each hashed block */
 	__u8 __reserved[144];	/* must be 0's */
+#ifdef __KERNEL__
+	__u8 signature[];
+#endif
 };
 
 /*
@@ -93,4 +100,4 @@ struct fsverity_read_metadata_arg {
 #define FS_IOC_READ_VERITY_METADATA \
 	_IOWR('f', 135, struct fsverity_read_metadata_arg)
 
-#endif /* _LINUX_FSVERITY_H */
+#endif /* _UAPI_LINUX_FSVERITY_H */

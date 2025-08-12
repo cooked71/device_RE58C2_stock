@@ -7,8 +7,8 @@
  * Copyright (C) 1995 Olaf Kirch <okir@monad.swb.de>
  */
 
-#ifndef LINUX_NFSD_DEBUG_H
-#define LINUX_NFSD_DEBUG_H
+#ifndef _UAPILINUX_NFSD_DEBUG_H
+#define _UAPILINUX_NFSD_DEBUG_H
 
 #include <linux/sunrpc/debug.h>
 
@@ -31,4 +31,4 @@
 
 
 
-#endif /* LINUX_NFSD_DEBUG_H */
+#endif /* _UAPILINUX_NFSD_DEBUG_H */

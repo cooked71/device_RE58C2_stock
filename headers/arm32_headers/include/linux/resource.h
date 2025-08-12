@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_RESOURCE_H
-#define _LINUX_RESOURCE_H
+#ifndef _UAPI_LINUX_RESOURCE_H
+#define _UAPI_LINUX_RESOURCE_H
 
 #include <linux/time.h>
 #include <linux/types.h>
@@ -78,4 +78,4 @@ struct rlimit64 {
 #include <asm/resource.h>
 
 
-#endif /* _LINUX_RESOURCE_H */
+#endif /* _UAPI_LINUX_RESOURCE_H */

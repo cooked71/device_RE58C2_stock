@@ -13,8 +13,8 @@
    Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.  
 */
 
-#ifndef _MD_U_H
-#define _MD_U_H
+#ifndef _UAPI_MD_U_H
+#define _UAPI_MD_U_H
 
 /*
  * Different major versions are not compatible.
@@ -153,4 +153,4 @@ typedef struct mdu_param_s
 	int			max_fault;	/* unused for now */
 } mdu_param_t;
 
-#endif /* _MD_U_H */
+#endif /* _UAPI_MD_U_H */

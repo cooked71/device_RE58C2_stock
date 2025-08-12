@@ -9,10 +9,10 @@
 #include <linux/types.h>
 
 #define BITMASK(name, type, field, offset, size)		\
-static __inline__ __u64 name(const type *k)				\
+static inline __u64 name(const type *k)				\
 { return (k->field >> offset) & ~(~0ULL << size); }		\
 								\
-static __inline__ void SET_##name(type *k, __u64 v)			\
+static inline void SET_##name(type *k, __u64 v)			\
 {								\
 	k->field &= ~(~(~0ULL << size) << offset);		\
 	k->field |= (v & ~(~0ULL << size)) << offset;		\
@@ -30,10 +30,10 @@ struct bkey {
 	BITMASK(name, struct bkey, field, offset, size)
 
 #define PTR_FIELD(name, offset, size)					\
-static __inline__ __u64 name(const struct bkey *k, unsigned int i)		\
+static inline __u64 name(const struct bkey *k, unsigned int i)		\
 { return (k->ptr[i] >> offset) & ~(~0ULL << size); }			\
 									\
-static __inline__ void SET_##name(struct bkey *k, unsigned int i, __u64 v)	\
+static inline void SET_##name(struct bkey *k, unsigned int i, __u64 v)	\
 {									\
 	k->ptr[i] &= ~(~(~0ULL << size) << offset);			\
 	k->ptr[i] |= (v & ~(~0ULL << size)) << offset;			\
@@ -53,12 +53,12 @@ KEY_FIELD(KEY_INODE,	high, 0,  20)
 
 /* Next time I change the on disk format, KEY_OFFSET() won't be 64 bits */
 
-static __inline__ __u64 KEY_OFFSET(const struct bkey *k)
+static inline __u64 KEY_OFFSET(const struct bkey *k)
 {
 	return k->low;
 }
 
-static __inline__ void SET_KEY_OFFSET(struct bkey *k, __u64 v)
+static inline void SET_KEY_OFFSET(struct bkey *k, __u64 v)
 {
 	k->low = v;
 }
@@ -96,32 +96,32 @@ PTR_FIELD(PTR_GEN,			0,  8)
 
 /* Bkey utility code */
 
-static __inline__ unsigned long bkey_u64s(const struct bkey *k)
+static inline unsigned long bkey_u64s(const struct bkey *k)
 {
 	return (sizeof(struct bkey) / sizeof(__u64)) + KEY_PTRS(k);
 }
 
-static __inline__ unsigned long bkey_bytes(const struct bkey *k)
+static inline unsigned long bkey_bytes(const struct bkey *k)
 {
 	return bkey_u64s(k) * sizeof(__u64);
 }
 
 #define bkey_copy(_dest, _src)	memcpy(_dest, _src, bkey_bytes(_src))
 
-static __inline__ void bkey_copy_key(struct bkey *dest, const struct bkey *src)
+static inline void bkey_copy_key(struct bkey *dest, const struct bkey *src)
 {
 	SET_KEY_INODE(dest, KEY_INODE(src));
 	SET_KEY_OFFSET(dest, KEY_OFFSET(src));
 }
 
-static __inline__ struct bkey *bkey_next(const struct bkey *k)
+static inline struct bkey *bkey_next(const struct bkey *k)
 {
 	__u64 *d = (void *) k;
 
 	return (struct bkey *) (d + bkey_u64s(k));
 }
 
-static __inline__ struct bkey *bkey_idx(const struct bkey *k, unsigned int nr_keys)
+static inline struct bkey *bkey_idx(const struct bkey *k, unsigned int nr_keys)
 {
 	__u64 *d = (void *) k;
 
@@ -207,7 +207,7 @@ struct cache_sb {
 	__u64			d[SB_JOURNAL_BUCKETS];	/* journal buckets */
 };
 
-static __inline__ _Bool SB_IS_BDEV(const struct cache_sb *sb)
+static inline _Bool SB_IS_BDEV(const struct cache_sb *sb)
 {
 	return sb->version == BCACHE_SB_VERSION_BDEV
 		|| sb->version == BCACHE_SB_VERSION_BDEV_WITH_OFFSET;
@@ -242,17 +242,17 @@ BITMASK(BDEV_STATE,			struct cache_sb, flags, 61, 2);
 #define PSET_MAGIC			0x6750e15f87337f91ULL
 #define BSET_MAGIC			0x90135c78b99e07f5ULL
 
-static __inline__ __u64 jset_magic(struct cache_sb *sb)
+static inline __u64 jset_magic(struct cache_sb *sb)
 {
 	return sb->set_magic ^ JSET_MAGIC;
 }
 
-static __inline__ __u64 pset_magic(struct cache_sb *sb)
+static inline __u64 pset_magic(struct cache_sb *sb)
 {
 	return sb->set_magic ^ PSET_MAGIC;
 }
 
-static __inline__ __u64 bset_magic(struct cache_sb *sb)
+static inline __u64 bset_magic(struct cache_sb *sb)
 {
 	return sb->set_magic ^ BSET_MAGIC;
 }

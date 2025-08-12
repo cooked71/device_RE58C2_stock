@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _RDMA_NETLINK_H
-#define _RDMA_NETLINK_H
+#ifndef _UAPI_RDMA_NETLINK_H
+#define _UAPI_RDMA_NETLINK_H
 
 #include <linux/types.h>
 
@@ -562,4 +562,4 @@ enum rdma_nl_counter_mode {
 enum rdma_nl_counter_mask {
 	RDMA_COUNTER_MASK_QP_TYPE = 1,
 };
-#endif /* _RDMA_NETLINK_H */
+#endif /* _UAPI_RDMA_NETLINK_H */

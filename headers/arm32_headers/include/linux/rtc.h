@@ -9,8 +9,8 @@
  * Copyright (C) 1999 Hewlett-Packard Co.
  * Copyright (C) 1999 Stephane Eranian <eranian@hpl.hp.com>
  */
-#ifndef _LINUX_RTC_H_
-#define _LINUX_RTC_H_
+#ifndef _UAPI_LINUX_RTC_H_
+#define _UAPI_LINUX_RTC_H_
 
 /*
  * The struct used to pass data via the following ioctl. Similar to the
@@ -105,4 +105,4 @@ struct rtc_pll_info {
 #define RTC_MAX_FREQ	8192
 
 
-#endif /* _LINUX_RTC_H_ */
+#endif /* _UAPI_LINUX_RTC_H_ */

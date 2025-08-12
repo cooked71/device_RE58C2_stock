@@ -11,8 +11,8 @@
  * GNU General Public License for more details.
  */
 
-#ifndef _LINUX_RPMB_H_
-#define _LINUX_RPMB_H_
+#ifndef _UAPI_LINUX_RPMB_H_
+#define _UAPI_LINUX_RPMB_H_
 
 #include <linux/types.h>
 
@@ -150,4 +150,4 @@ struct rpmb_ioc_seq_cmd {
 #define RPMB_IOC_REQ_CMD _IOWR(0xB5, 0, struct rpmb_ioc_req_cmd)
 #define RPMB_IOC_SEQ_CMD _IOWR(0xB5, 1, struct rpmb_ioc_seq_cmd)
 
-#endif /* _LINUX_RPMB_H_ */
+#endif /* _UAPI_LINUX_RPMB_H_ */

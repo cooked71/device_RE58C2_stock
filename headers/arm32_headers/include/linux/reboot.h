@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_REBOOT_H
-#define _LINUX_REBOOT_H
+#ifndef _UAPI_LINUX_REBOOT_H
+#define _UAPI_LINUX_REBOOT_H
 
 /*
  * Magic values required to use _reboot() system call.
@@ -37,4 +37,4 @@
 
 
 
-#endif /* _LINUX_REBOOT_H */
+#endif /* _UAPI_LINUX_REBOOT_H */

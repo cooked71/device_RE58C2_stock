@@ -8,8 +8,8 @@
  * Public License (GPL)
  */
 
-#ifndef _LINUX_SERIAL_H
-#define _LINUX_SERIAL_H
+#ifndef _UAPI_LINUX_SERIAL_H
+#define _UAPI_LINUX_SERIAL_H
 
 #include <linux/types.h>
 
@@ -149,4 +149,4 @@ struct serial_iso7816 {
 	__u32	reserved[5];
 };
 
-#endif /* _LINUX_SERIAL_H */
+#endif /* _UAPI_LINUX_SERIAL_H */

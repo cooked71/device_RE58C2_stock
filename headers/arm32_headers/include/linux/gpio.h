@@ -8,8 +8,8 @@
  * under the terms of the GNU General Public License version 2 as published by
  * the Free Software Foundation.
  */
-#ifndef _GPIO_H_
-#define _GPIO_H_
+#ifndef _UAPI_GPIO_H_
+#define _UAPI_GPIO_H_
 
 #include <linux/ioctl.h>
 #include <linux/types.h>
@@ -155,4 +155,4 @@ struct gpioevent_data {
 #define GPIO_GET_LINEHANDLE_IOCTL _IOWR(0xB4, 0x03, struct gpiohandle_request)
 #define GPIO_GET_LINEEVENT_IOCTL _IOWR(0xB4, 0x04, struct gpioevent_request)
 
-#endif /* _GPIO_H_ */
+#endif /* _UAPI_GPIO_H_ */

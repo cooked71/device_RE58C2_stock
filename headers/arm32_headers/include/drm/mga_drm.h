@@ -417,7 +417,7 @@ typedef struct _drm_mga_blit {
 
 typedef struct drm_mga_getparam {
 	int param;
-	void *value;
+	void __user *value;
 } drm_mga_getparam_t;
 
 #if defined(__cplusplus)

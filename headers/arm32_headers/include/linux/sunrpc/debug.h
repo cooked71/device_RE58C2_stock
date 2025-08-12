@@ -7,8 +7,8 @@
  * Copyright (C) 1996, Olaf Kirch <okir@monad.swb.de>
  */
 
-#ifndef _LINUX_SUNRPC_DEBUG_H_
-#define _LINUX_SUNRPC_DEBUG_H_
+#ifndef _UAPI_LINUX_SUNRPC_DEBUG_H_
+#define _UAPI_LINUX_SUNRPC_DEBUG_H_
 
 /*
  * RPC debug facilities
@@ -46,4 +46,4 @@ enum {
 	CTL_MAX_RESVPORT,
 };
 
-#endif /* _LINUX_SUNRPC_DEBUG_H_ */
+#endif /* _UAPI_LINUX_SUNRPC_DEBUG_H_ */

@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_TIME_TYPES_H
-#define _LINUX_TIME_TYPES_H
+#ifndef _UAPI_LINUX_TIME_TYPES_H
+#define _UAPI_LINUX_TIME_TYPES_H
 
 #include <linux/types.h>
 
@@ -33,4 +33,4 @@ struct __kernel_sock_timeval {
 	__s64 tv_usec;
 };
 
-#endif /* _LINUX_TIME_TYPES_H */
+#endif /* _UAPI_LINUX_TIME_TYPES_H */

@@ -3,8 +3,8 @@
  * Copyright (C) 2020 Unisoc Inc.
  */
 
-#ifndef _VIDEO_GSP_CFG_H
-#define _VIDEO_GSP_CFG_H
+#ifndef _UAPI_VIDEO_GSP_CFG_H
+#define _UAPI_VIDEO_GSP_CFG_H
 
 #include <linux/types.h>
 #include <asm/ioctl.h>

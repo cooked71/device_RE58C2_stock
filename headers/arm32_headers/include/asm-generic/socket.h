@@ -119,6 +119,7 @@
 
 #define SO_DETACH_REUSEPORT_BPF 68
 
+#if !defined(__KERNEL__)
 
 #if __BITS_PER_LONG == 64 || (defined(__x86_64__) && defined(__ILP32__))
 /* on 64-bit and x32, avoid the ?: operator */
@@ -141,5 +142,6 @@
 #define SCM_TIMESTAMPNS         SO_TIMESTAMPNS
 #define SCM_TIMESTAMPING        SO_TIMESTAMPING
 
+#endif
 
 #endif /* __ASM_GENERIC_SOCKET_H */

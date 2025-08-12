@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _X_TABLES_H
-#define _X_TABLES_H
+#ifndef _UAPI_X_TABLES_H
+#define _UAPI_X_TABLES_H
 #include <linux/const.h>
 #include <linux/types.h>
 
@@ -124,6 +124,7 @@ struct xt_counters_info {
 
 #define XT_INV_PROTO		0x40	/* Invert the sense of PROTO. */
 
+#ifndef __KERNEL__
 /* fn returns 0 to continue iteration */
 #define XT_MATCH_ITERATE(type, e, fn, args...)			\
 ({								\
@@ -167,6 +168,7 @@ struct xt_counters_info {
 #define XT_ENTRY_ITERATE(type, entries, size, fn, args...) \
 	XT_ENTRY_ITERATE_CONTINUE(type, entries, size, 0, fn, args)
 
+#endif /* !__KERNEL__ */
 
 /* pos is normally a struct ipt_entry/ip6t_entry/etc. */
 #define xt_entry_foreach(pos, ehead, esize) \
@@ -183,4 +185,4 @@ struct xt_counters_info {
 	             (pos)->u.match_size))
 
 
-#endif /* _X_TABLES_H */
+#endif /* _UAPI_X_TABLES_H */

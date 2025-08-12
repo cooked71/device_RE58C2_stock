@@ -8,8 +8,8 @@
  * 2 of the License, or (at your option) any later version.
  */
 
-#ifndef _MISC_CXL_H
-#define _MISC_CXL_H
+#ifndef _UAPI_MISC_CXL_H
+#define _UAPI_MISC_CXL_H
 
 #include <linux/types.h>
 #include <linux/ioctl.h>
@@ -153,4 +153,4 @@ struct cxl_event {
 	};
 };
 
-#endif /* _MISC_CXL_H */
+#endif /* _UAPI_MISC_CXL_H */

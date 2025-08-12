@@ -140,6 +140,7 @@ struct ca_descr {
 #define CA_SEND_MSG       _IOW('o', 133, struct ca_msg)
 #define CA_SET_DESCR      _IOW('o', 134, struct ca_descr)
 
+#if !defined(__KERNEL__)
 
 /* This is needed for legacy userspace support */
 typedef struct ca_slot_info ca_slot_info_t;
@@ -148,6 +149,7 @@ typedef struct ca_caps  ca_caps_t;
 typedef struct ca_msg ca_msg_t;
 typedef struct ca_descr ca_descr_t;
 
+#endif
 
 
 #endif

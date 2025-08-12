@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _NFNETLINK_H
-#define _NFNETLINK_H
+#ifndef _UAPI_NFNETLINK_H
+#define _UAPI_NFNETLINK_H
 #include <linux/types.h>
 #include <linux/netfilter/nfnetlink_compat.h>
 
@@ -78,4 +78,4 @@ enum nfnl_batch_attributes {
 };
 #define NFNL_BATCH_MAX			(__NFNL_BATCH_MAX - 1)
 
-#endif /* _NFNETLINK_H */
+#endif /* _UAPI_NFNETLINK_H */

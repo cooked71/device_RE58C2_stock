@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_MSDOS_FS_H
-#define _LINUX_MSDOS_FS_H
+#ifndef _UAPI_LINUX_MSDOS_FS_H
+#define _UAPI_LINUX_MSDOS_FS_H
 
 #include <linux/types.h>
 #include <linux/magic.h>
@@ -194,4 +194,4 @@ struct msdos_dir_slot {
 	__u8    name11_12[4];	/* last 2 characters in name */
 };
 
-#endif /* _LINUX_MSDOS_FS_H */
+#endif /* _UAPI_LINUX_MSDOS_FS_H */

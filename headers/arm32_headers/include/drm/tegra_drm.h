@@ -20,8 +20,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef _TEGRA_DRM_H_
-#define _TEGRA_DRM_H_
+#ifndef _UAPI_TEGRA_DRM_H_
+#define _UAPI_TEGRA_DRM_H_
 
 #include "drm.h"
 

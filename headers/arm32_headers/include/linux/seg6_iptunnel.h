@@ -12,8 +12,8 @@
  *      2 of the License, or (at your option) any later version.
  */
 
-#ifndef _LINUX_SEG6_IPTUNNEL_H
-#define _LINUX_SEG6_IPTUNNEL_H
+#ifndef _UAPI_LINUX_SEG6_IPTUNNEL_H
+#define _UAPI_LINUX_SEG6_IPTUNNEL_H
 
 #include <linux/seg6.h>		/* For struct ipv6_sr_hdr. */
 
@@ -37,5 +37,25 @@ enum {
 	SEG6_IPTUN_MODE_L2ENCAP,
 };
 
+#ifdef __KERNEL__
+
+static inline size_t seg6_lwt_headroom(struct seg6_iptunnel_encap *tuninfo)
+{
+	int head = 0;
+
+	switch (tuninfo->mode) {
+	case SEG6_IPTUN_MODE_INLINE:
+		break;
+	case SEG6_IPTUN_MODE_ENCAP:
+		head = sizeof(struct ipv6hdr);
+		break;
+	case SEG6_IPTUN_MODE_L2ENCAP:
+		return 0;
+	}
+
+	return ((tuninfo->srh->hdrlen + 1) << 3) + head;
+}
+
+#endif
 
 #endif

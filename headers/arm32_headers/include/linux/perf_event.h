@@ -12,8 +12,8 @@
  *
  * For licencing details see kernel-base/COPYING
  */
-#ifndef _LINUX_PERF_EVENT_H
-#define _LINUX_PERF_EVENT_H
+#ifndef _UAPI_LINUX_PERF_EVENT_H
+#define _UAPI_LINUX_PERF_EVENT_H
 
 #include <linux/types.h>
 #include <linux/ioctl.h>
@@ -1180,4 +1180,4 @@ struct perf_branch_entry {
 		reserved:40;
 };
 
-#endif /* _LINUX_PERF_EVENT_H */
+#endif /* _UAPI_LINUX_PERF_EVENT_H */

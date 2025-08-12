@@ -16,8 +16,8 @@
  *		as published by the Free Software Foundation; either version
  *		2 of the License, or (at your option) any later version.
  */
-#ifndef _LINUX_NET_H
-#define _LINUX_NET_H
+#ifndef _UAPI_LINUX_NET_H
+#define _UAPI_LINUX_NET_H
 
 #include <linux/socket.h>
 #include <asm/socket.h>
@@ -55,4 +55,4 @@ typedef enum {
 
 #define __SO_ACCEPTCON	(1 << 16)	/* performed a listen		*/
 
-#endif /* _LINUX_NET_H */
+#endif /* _UAPI_LINUX_NET_H */

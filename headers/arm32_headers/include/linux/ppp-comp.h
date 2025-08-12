@@ -8,8 +8,8 @@
  *  modify it under the terms of the GNU General Public License
  *  version 2 as published by the Free Software Foundation.
  */
-#ifndef _NET_PPP_COMP_H
-#define _NET_PPP_COMP_H
+#ifndef _UAPI_NET_PPP_COMP_H
+#define _UAPI_NET_PPP_COMP_H
 
 
 /*
@@ -91,4 +91,4 @@
 #define CILEN_PREDICTOR_2	2	/* length of its config option */
 
 
-#endif /* _NET_PPP_COMP_H */
+#endif /* _UAPI_NET_PPP_COMP_H */

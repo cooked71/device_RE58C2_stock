@@ -23,8 +23,8 @@
  * e-mail - mail your message to <vojtech@ucw.cz>, or by paper mail:
  * Vojtech Pavlik, Simunkova 1594, Prague 8, 182 00 Czech Republic
  */
-#ifndef __HID_H
-#define __HID_H
+#ifndef _UAPI__HID_H
+#define _UAPI__HID_H
 
 
 
@@ -64,4 +64,4 @@
 #define HID_MAX_DESCRIPTOR_SIZE		4096
 
 
-#endif /* __HID_H */
+#endif /* _UAPI__HID_H */

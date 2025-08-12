@@ -64,7 +64,7 @@ struct ib_uverbs_attr {
 	} attr_data;
 	union {
 		/*
-		 * ptr to command, __inline__ data, idr/fd or
+		 * ptr to command, inline data, idr/fd or
 		 * ptr to __u32 array of IDRs
 		 */
 		__aligned_u64 data;

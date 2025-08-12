@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_ELF_H
-#define _LINUX_ELF_H
+#ifndef _UAPI_LINUX_ELF_H
+#define _UAPI_LINUX_ELF_H
 
 #include <linux/types.h>
 #include <linux/elf-em.h>
@@ -443,4 +443,4 @@ typedef struct elf64_note {
   Elf64_Word n_type;	/* Content type */
 } Elf64_Nhdr;
 
-#endif /* _LINUX_ELF_H */
+#endif /* _UAPI_LINUX_ELF_H */

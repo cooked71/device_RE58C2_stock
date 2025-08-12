@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_MMAN_H
-#define _LINUX_MMAN_H
+#ifndef _UAPI_LINUX_MMAN_H
+#define _UAPI_LINUX_MMAN_H
 
 #include <asm/mman.h>
 #include <asm-generic/hugetlb_encode.h>
@@ -40,4 +40,4 @@
 #define MAP_HUGE_2GB	HUGETLB_FLAG_ENCODE_2GB
 #define MAP_HUGE_16GB	HUGETLB_FLAG_ENCODE_16GB
 
-#endif /* _LINUX_MMAN_H */
+#endif /* _UAPI_LINUX_MMAN_H */

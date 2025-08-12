@@ -7,8 +7,8 @@
  * under the terms of the GNU General Public License version 2 as published by
  * the Free Software Foundation.
  */
-#ifndef _IIO_EVENTS_H_
-#define _IIO_EVENTS_H_
+#ifndef _UAPI_IIO_EVENTS_H_
+#define _UAPI_IIO_EVENTS_H_
 
 #include <linux/ioctl.h>
 #include <linux/types.h>
@@ -40,4 +40,4 @@ struct iio_event_data {
 #define IIO_EVENT_CODE_EXTRACT_MODIFIER(mask) ((mask >> 40) & 0xFF)
 #define IIO_EVENT_CODE_EXTRACT_DIFF(mask) (((mask) >> 55) & 0x1)
 
-#endif /* _IIO_EVENTS_H_ */
+#endif /* _UAPI_IIO_EVENTS_H_ */

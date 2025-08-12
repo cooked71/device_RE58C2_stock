@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_PERSONALITY_H
-#define _LINUX_PERSONALITY_H
+#ifndef _UAPI_LINUX_PERSONALITY_H
+#define _UAPI_LINUX_PERSONALITY_H
 
 
 /*
@@ -67,4 +67,4 @@ enum {
 };
 
 
-#endif /* _LINUX_PERSONALITY_H */
+#endif /* _UAPI_LINUX_PERSONALITY_H */

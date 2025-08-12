@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef __LINUX_KEYBOARD_H
-#define __LINUX_KEYBOARD_H
+#ifndef _UAPI__LINUX_KEYBOARD_H
+#define _UAPI__LINUX_KEYBOARD_H
 
 #include <linux/wait.h>
 
@@ -462,4 +462,4 @@
 #define NR_BRL		11
 
 #define MAX_DIACR	256
-#endif /* __LINUX_KEYBOARD_H */
+#endif /* _UAPI__LINUX_KEYBOARD_H */

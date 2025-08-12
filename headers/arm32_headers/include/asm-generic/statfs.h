@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _GENERIC_STATFS_H
-#define _GENERIC_STATFS_H
+#ifndef _UAPI_GENERIC_STATFS_H
+#define _UAPI_GENERIC_STATFS_H
 
 #include <linux/types.h>
 
@@ -81,4 +81,4 @@ struct compat_statfs64 {
 	__u32 f_spare[4];
 } ARCH_PACK_COMPAT_STATFS64;
 
-#endif /* _GENERIC_STATFS_H */
+#endif /* _UAPI_GENERIC_STATFS_H */

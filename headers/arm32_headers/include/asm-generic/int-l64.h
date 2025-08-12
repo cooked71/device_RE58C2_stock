@@ -6,8 +6,8 @@
  * for 64-bit types.
  */
 
-#ifndef _ASM_GENERIC_INT_L64_H
-#define _ASM_GENERIC_INT_L64_H
+#ifndef _UAPI_ASM_GENERIC_INT_L64_H
+#define _UAPI_ASM_GENERIC_INT_L64_H
 
 #include <asm/bitsperlong.h>
 
@@ -32,4 +32,4 @@ typedef unsigned long __u64;
 #endif /* __ASSEMBLY__ */
 
 
-#endif /* _ASM_GENERIC_INT_L64_H */
+#endif /* _UAPI_ASM_GENERIC_INT_L64_H */

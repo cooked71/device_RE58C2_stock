@@ -4,8 +4,8 @@
  * Copyright (c) 2011-2014, Intel Corporation.
  */
 
-#ifndef _LINUX_NVME_IOCTL_H
-#define _LINUX_NVME_IOCTL_H
+#ifndef _UAPI_LINUX_NVME_IOCTL_H
+#define _UAPI_LINUX_NVME_IOCTL_H
 
 #include <linux/types.h>
 
@@ -79,4 +79,4 @@ struct nvme_passthru_cmd64 {
 #define NVME_IOCTL_ADMIN64_CMD	_IOWR('N', 0x47, struct nvme_passthru_cmd64)
 #define NVME_IOCTL_IO64_CMD	_IOWR('N', 0x48, struct nvme_passthru_cmd64)
 
-#endif /* _LINUX_NVME_IOCTL_H */
+#endif /* _UAPI_LINUX_NVME_IOCTL_H */

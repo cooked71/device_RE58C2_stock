@@ -7,8 +7,8 @@
  *  OS-specific nfs filesystem definitions and declarations
  */
 
-#ifndef _LINUX_NFS_FS_H
-#define _LINUX_NFS_FS_H
+#ifndef _UAPI_LINUX_NFS_FS_H
+#define _UAPI_LINUX_NFS_FS_H
 
 #include <linux/magic.h>
 
@@ -59,4 +59,4 @@
 #define NFSDBG_ALL		0xFFFF
 
 
-#endif /* _LINUX_NFS_FS_H */
+#endif /* _UAPI_LINUX_NFS_FS_H */

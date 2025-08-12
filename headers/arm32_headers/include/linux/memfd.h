@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_MEMFD_H
-#define _LINUX_MEMFD_H
+#ifndef _UAPI_LINUX_MEMFD_H
+#define _UAPI_LINUX_MEMFD_H
 
 #include <asm-generic/hugetlb_encode.h>
 
@@ -32,4 +32,4 @@
 #define MFD_HUGE_2GB	HUGETLB_FLAG_ENCODE_2GB
 #define MFD_HUGE_16GB	HUGETLB_FLAG_ENCODE_16GB
 
-#endif /* _LINUX_MEMFD_H */
+#endif /* _UAPI_LINUX_MEMFD_H */

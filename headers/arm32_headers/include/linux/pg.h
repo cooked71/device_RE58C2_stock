@@ -35,8 +35,8 @@
 
 */
 
-#ifndef _LINUX_PG_H
-#define _LINUX_PG_H
+#ifndef _UAPI_LINUX_PG_H
+#define _UAPI_LINUX_PG_H
 
 #define PG_MAGIC	'P'
 #define PG_RESET	'Z'
@@ -64,4 +64,4 @@ struct pg_read_hdr {
 
 };
 
-#endif /* _LINUX_PG_H */
+#endif /* _UAPI_LINUX_PG_H */

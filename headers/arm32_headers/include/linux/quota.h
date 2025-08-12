@@ -30,8 +30,8 @@
  * SUCH DAMAGE.
  */
 
-#ifndef _LINUX_QUOTA_
-#define _LINUX_QUOTA_
+#ifndef _UAPI_LINUX_QUOTA_
+#define _UAPI_LINUX_QUOTA_
 
 #include <linux/types.h>
 
@@ -196,4 +196,4 @@ enum {
 #define QUOTA_NL_A_MAX (__QUOTA_NL_A_MAX - 1)
 
 
-#endif /* _LINUX_QUOTA_ */
+#endif /* _UAPI_LINUX_QUOTA_ */

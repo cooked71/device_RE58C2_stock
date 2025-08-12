@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: ((GPL-2.0 WITH Linux-syscall-note) OR BSD-3-Clause) */
 
-#ifndef _LINUX_VIRTIO_FS_H
-#define _LINUX_VIRTIO_FS_H
+#ifndef _UAPI_LINUX_VIRTIO_FS_H
+#define _UAPI_LINUX_VIRTIO_FS_H
 
 #include <linux/types.h>
 #include <linux/virtio_ids.h>
@@ -16,4 +16,4 @@ struct virtio_fs_config {
 	__u32 num_request_queues;
 } __attribute__((packed));
 
-#endif /* _LINUX_VIRTIO_FS_H */
+#endif /* _UAPI_LINUX_VIRTIO_FS_H */

@@ -34,8 +34,8 @@
  *
  */
 
-#ifndef _SONYPI_H_
-#define _SONYPI_H_
+#ifndef _UAPI_SONYPI_H_
+#define _UAPI_SONYPI_H_
 
 #include <linux/types.h>
 
@@ -144,4 +144,4 @@
 #define SONYPI_IOCGTEMP		_IOR('v', 12, __u8)
 
 
-#endif /* _SONYPI_H_ */
+#endif /* _UAPI_SONYPI_H_ */

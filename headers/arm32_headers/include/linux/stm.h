@@ -7,8 +7,8 @@
  * as defined in MIPI STPv2 specification.
  */
 
-#ifndef _LINUX_STM_H
-#define _LINUX_STM_H
+#ifndef _UAPI_LINUX_STM_H
+#define _UAPI_LINUX_STM_H
 
 #include <linux/types.h>
 
@@ -43,4 +43,4 @@ struct stp_policy_id {
 #define STP_POLICY_ID_GET	_IOR('%', 1, struct stp_policy_id)
 #define STP_SET_OPTIONS		_IOW('%', 2, __u64)
 
-#endif /* _LINUX_STM_H */
+#endif /* _UAPI_LINUX_STM_H */

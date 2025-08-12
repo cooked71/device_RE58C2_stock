@@ -2,13 +2,14 @@
 /* IPv4-specific defines for netfilter. 
  * (C)1998 Rusty Russell -- This code is GPL.
  */
-#ifndef __LINUX_IP_NETFILTER_H
-#define __LINUX_IP_NETFILTER_H
+#ifndef _UAPI__LINUX_IP_NETFILTER_H
+#define _UAPI__LINUX_IP_NETFILTER_H
 
 
 #include <linux/netfilter.h>
 
 /* only for userspace compatibility */
+#ifndef __KERNEL__
 
 #include <limits.h> /* for INT_MIN, INT_MAX */
 
@@ -24,6 +25,7 @@
 /* Packets about to hit the wire. */
 #define NF_IP_POST_ROUTING	4
 #define NF_IP_NUMHOOKS		5
+#endif /* ! __KERNEL__ */
 
 enum nf_ip_hook_priorities {
 	NF_IP_PRI_FIRST = INT_MIN,
@@ -50,4 +52,4 @@ enum nf_ip_hook_priorities {
 #define SO_ORIGINAL_DST 80
 
 
-#endif /* __LINUX_IP_NETFILTER_H */
+#endif /* _UAPI__LINUX_IP_NETFILTER_H */

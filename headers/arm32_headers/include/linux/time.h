@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_TIME_H
-#define _LINUX_TIME_H
+#ifndef _UAPI_LINUX_TIME_H
+#define _UAPI_LINUX_TIME_H
 
 #include <linux/types.h>
 #include <linux/time_types.h>
@@ -70,4 +70,4 @@ struct itimerval {
  */
 #define TIMER_ABSTIME			0x01
 
-#endif /* _LINUX_TIME_H */
+#endif /* _UAPI_LINUX_TIME_H */

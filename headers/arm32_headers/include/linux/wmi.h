@@ -4,8 +4,8 @@
  *
  *  Copyright (C) 2017 Dell, Inc.
  */
-#ifndef _LINUX_WMI_H
-#define _LINUX_WMI_H
+#ifndef _UAPI_LINUX_WMI_H
+#define _UAPI_LINUX_WMI_H
 
 #include <linux/ioctl.h>
 #include <linux/types.h>
@@ -27,21 +27,21 @@ struct wmi_ioctl_buffer {
 struct calling_interface_buffer {
 	__u16 cmd_class;
 	__u16 cmd_select;
-	__volatile__ __u32 input[4];
-	__volatile__ __u32 output[4];
-} __attribute__((packed));
+	volatile __u32 input[4];
+	volatile __u32 output[4];
+} __packed;
 
 struct dell_wmi_extensions {
 	__u32 argattrib;
 	__u32 blength;
 	__u8 data[];
-} __attribute__((packed));
+} __packed;
 
 struct dell_wmi_smbios_buffer {
 	__u64 length;
 	struct calling_interface_buffer std;
 	struct dell_wmi_extensions	ext;
-} __attribute__((packed));
+} __packed;
 
 /* Whitelisted smbios class/select commands */
 #define CLASS_TOKEN_READ	0

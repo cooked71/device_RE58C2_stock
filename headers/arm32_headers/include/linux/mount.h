@@ -1,5 +1,5 @@
-#ifndef _LINUX_MOUNT_H
-#define _LINUX_MOUNT_H
+#ifndef _UAPI_LINUX_MOUNT_H
+#define _UAPI_LINUX_MOUNT_H
 
 /*
  * These are the fs-independent mount-flags: up to 32 flags are supported
@@ -117,4 +117,4 @@ enum fsconfig_command {
 #define MOUNT_ATTR_STRICTATIME	0x00000020 /* - Always perform atime updates */
 #define MOUNT_ATTR_NODIRATIME	0x00000080 /* Do not update directory access times */
 
-#endif /* _LINUX_MOUNT_H */
+#endif /* _UAPI_LINUX_MOUNT_H */

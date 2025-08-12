@@ -21,8 +21,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
-#ifndef SOUNDCARD_H
-#define SOUNDCARD_H
+#ifndef _UAPISOUNDCARD_H
+#define _UAPISOUNDCARD_H
 
 
 /*
@@ -40,7 +40,9 @@
 #include <linux/ioctl.h>
 
 /* Endian macros. */
+#ifndef __KERNEL__
 #  include <endian.h>
+#endif
 
 /*
  *	Supported card ID numbers (Should be somewhere else?)
@@ -186,6 +188,7 @@ typedef struct seq_event_rec {
 #include <linux/patchkey.h>
 #undef _LINUX_PATCHKEY_H_INDIRECT
 
+#if !defined(__KERNEL__)
 # if defined(__BYTE_ORDER)
 #  if __BYTE_ORDER == __BIG_ENDIAN
 #    define AFMT_S16_NE AFMT_S16_BE
@@ -195,6 +198,7 @@ typedef struct seq_event_rec {
 #    error "could not determine byte order"
 #  endif
 # endif
+#endif
 
 /*
  *	Sample loading mechanism for internal synthesizers (/dev/sequencer)
@@ -1033,6 +1037,7 @@ typedef struct mixer_vol_table {
  */
 #define LOCL_STARTAUDIO		1
 
+#if !defined(__KERNEL__) || defined(USE_SEQ_MACROS)
 /*
  *	Some convenience macros to simplify programming of the
  *	/dev/sequencer interface
@@ -1273,4 +1278,5 @@ void seqbuf_dump(void);	/* This function must be provided by programs */
 #define SEQ_WRPATCH2(patchx, len) \
 		(SEQ_DUMPBUF(), write(seqfd, (char*)(patchx), len))
 
-#endif /* SOUNDCARD_H */
+#endif
+#endif /* _UAPISOUNDCARD_H */

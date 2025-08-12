@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_FCNTL_H
-#define _LINUX_FCNTL_H
+#ifndef _UAPI_LINUX_FCNTL_H
+#define _UAPI_LINUX_FCNTL_H
 
 #include <asm/fcntl.h>
 
@@ -94,4 +94,4 @@
 #define AT_RECURSIVE		0x8000	/* Apply to the entire subtree */
 
 
-#endif /* _LINUX_FCNTL_H */
+#endif /* _UAPI_LINUX_FCNTL_H */

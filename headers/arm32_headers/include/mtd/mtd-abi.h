@@ -36,7 +36,7 @@ struct erase_info_user64 {
 struct mtd_oob_buf {
 	__u32 start;
 	__u32 length;
-	unsigned char *ptr;
+	unsigned char __user *ptr;
 };
 
 struct mtd_oob_buf64 {
@@ -277,7 +277,7 @@ enum mtd_file_modes {
 	MTD_FILE_MODE_RAW,
 };
 
-static __inline__ int mtd_type_is_nand_user(const struct mtd_info_user *mtd)
+static inline int mtd_type_is_nand_user(const struct mtd_info_user *mtd)
 {
 	return mtd->type == MTD_NANDFLASH || mtd->type == MTD_MLCNANDFLASH;
 }

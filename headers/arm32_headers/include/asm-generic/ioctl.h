@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _ASM_GENERIC_IOCTL_H
-#define _ASM_GENERIC_IOCTL_H
+#ifndef _UAPI_ASM_GENERIC_IOCTL_H
+#define _UAPI_ASM_GENERIC_IOCTL_H
 
 /* ioctl command encoding: 32 bits total, command in lower 16 bits,
  * size of the parameter structure in the lower 14 bits of the
@@ -72,7 +72,9 @@
 	 ((nr)   << _IOC_NRSHIFT) | \
 	 ((size) << _IOC_SIZESHIFT))
 
+#ifndef __KERNEL__
 #define _IOC_TYPECHECK(t) (sizeof(t))
+#endif
 
 /*
  * Used to create numbers.
@@ -102,4 +104,4 @@
 #define IOCSIZE_MASK	(_IOC_SIZEMASK << _IOC_SIZESHIFT)
 #define IOCSIZE_SHIFT	(_IOC_SIZESHIFT)
 
-#endif /* _ASM_GENERIC_IOCTL_H */
+#endif /* _UAPI_ASM_GENERIC_IOCTL_H */

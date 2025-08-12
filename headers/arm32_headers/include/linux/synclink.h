@@ -10,8 +10,8 @@
  * the terms of the GNU Public License (GPL)
  */
 
-#ifndef _SYNCLINK_H_
-#define _SYNCLINK_H_
+#ifndef _UAPI_SYNCLINK_H_
+#define _UAPI_SYNCLINK_H_
 #define SYNCLINK_H_VERSION 3.6
 
 #include <linux/types.h>
@@ -298,4 +298,4 @@ struct gpio_desc {
 #define MGSL_IOCGXCTRL		_IO(MGSL_MAGIC_IOC, 22)
 
 
-#endif /* _SYNCLINK_H_ */
+#endif /* _UAPI_SYNCLINK_H_ */

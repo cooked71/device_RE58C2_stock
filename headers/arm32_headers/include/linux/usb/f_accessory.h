@@ -15,8 +15,8 @@
  *
  */
 
-#ifndef _LINUX_USB_F_ACCESSORY_H
-#define _LINUX_USB_F_ACCESSORY_H
+#ifndef _UAPI_LINUX_USB_F_ACCESSORY_H
+#define _UAPI_LINUX_USB_F_ACCESSORY_H
 
 /* Use Google Vendor ID when in accessory mode */
 #define USB_ACCESSORY_VENDOR_ID 0x18D1
@@ -143,4 +143,4 @@
 /* returns audio mode (set via the ACCESSORY_SET_AUDIO_MODE control request) */
 #define ACCESSORY_GET_AUDIO_MODE            _IO('M', 8)
 
-#endif /* _LINUX_USB_F_ACCESSORY_H */
+#endif /* _UAPI_LINUX_USB_F_ACCESSORY_H */

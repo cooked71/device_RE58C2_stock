@@ -50,8 +50,8 @@
  * 2004-08-12    Christoph Lameter
  *      Reworked time interpolation logic
  */
-#ifndef _LINUX_TIMEX_H
-#define _LINUX_TIMEX_H
+#ifndef _UAPI_LINUX_TIMEX_H
+#define _UAPI_LINUX_TIMEX_H
 
 #include <linux/time.h>
 
@@ -146,8 +146,10 @@ struct __kernel_timex {
 #define ADJ_NANO		0x2000	/* select nanosecond resolution */
 #define ADJ_TICK		0x4000	/* tick value */
 
+#ifndef __KERNEL__
 #define ADJ_OFFSET_SINGLESHOT	0x8001	/* old-fashioned adjtime */
 #define ADJ_OFFSET_SS_READ	0xa001	/* read-only adjtime */
+#endif
 
 /* NTP userland likes the MOD_ prefix better */
 #define MOD_OFFSET	ADJ_OFFSET
@@ -200,4 +202,4 @@ struct __kernel_timex {
 #define TIME_BAD	TIME_ERROR /* bw compat */
 
 
-#endif /* _LINUX_TIMEX_H */
+#endif /* _UAPI_LINUX_TIMEX_H */

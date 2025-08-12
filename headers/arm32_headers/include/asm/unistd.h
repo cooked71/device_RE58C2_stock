@@ -11,8 +11,8 @@
  * Please forward _all_ changes to this file to rmk@arm.linux.org.uk,
  * no matter what the change is.  Thanks!
  */
-#ifndef __ASM_ARM_UNISTD_H
-#define __ASM_ARM_UNISTD_H
+#ifndef _UAPI__ASM_ARM_UNISTD_H
+#define _UAPI__ASM_ARM_UNISTD_H
 
 #define __NR_OABI_SYSCALL_BASE	0x900000
 
@@ -38,4 +38,4 @@
 #define __ARM_NR_set_tls		(__ARM_NR_BASE+5)
 #define __ARM_NR_get_tls		(__ARM_NR_BASE+6)
 
-#endif /* __ASM_ARM_UNISTD_H */
+#endif /* _UAPI__ASM_ARM_UNISTD_H */

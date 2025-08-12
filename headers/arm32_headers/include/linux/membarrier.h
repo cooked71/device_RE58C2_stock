@@ -1,5 +1,5 @@
-#ifndef _LINUX_MEMBARRIER_H
-#define _LINUX_MEMBARRIER_H
+#ifndef _UAPI_LINUX_MEMBARRIER_H
+#define _UAPI_LINUX_MEMBARRIER_H
 
 /*
  * linux/membarrier.h
@@ -136,4 +136,4 @@ enum membarrier_cmd {
 	MEMBARRIER_CMD_SHARED			= MEMBARRIER_CMD_GLOBAL,
 };
 
-#endif /* _LINUX_MEMBARRIER_H */
+#endif /* _UAPI_LINUX_MEMBARRIER_H */

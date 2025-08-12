@@ -81,9 +81,11 @@ struct drm_sarea {
 	drm_context_t dummy_context;
 };
 
+#ifndef __KERNEL__
 typedef struct drm_sarea_drawable drm_sarea_drawable_t;
 typedef struct drm_sarea_frame drm_sarea_frame_t;
 typedef struct drm_sarea drm_sarea_t;
+#endif
 
 #if defined(__cplusplus)
 }

@@ -14,8 +14,8 @@
  * more details.
  */
 
-#ifndef _VM_SOCKETS_H
-#define _VM_SOCKETS_H
+#ifndef _UAPI_VM_SOCKETS_H
+#define _UAPI_VM_SOCKETS_H
 
 #include <linux/socket.h>
 
@@ -154,4 +154,4 @@ struct sockaddr_vm {
 
 #define IOCTL_VM_SOCKETS_GET_LOCAL_CID		_IO(7, 0xb9)
 
-#endif /* _VM_SOCKETS_H */
+#endif /* _UAPI_VM_SOCKETS_H */

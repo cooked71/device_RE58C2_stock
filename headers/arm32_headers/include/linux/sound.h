@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_SOUND_H
-#define _LINUX_SOUND_H
+#ifndef _UAPI_LINUX_SOUND_H
+#define _UAPI_LINUX_SOUND_H
 
 /*
  * Minor numbers for the sound driver.
@@ -29,4 +29,4 @@
 #define SND_DEV_ADMMIDI		14	/* Like /dev/dmmidi (onsolete) */
 
 
-#endif /* _LINUX_SOUND_H */
+#endif /* _UAPI_LINUX_SOUND_H */

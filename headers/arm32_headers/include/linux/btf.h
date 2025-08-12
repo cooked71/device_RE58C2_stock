@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
 /* Copyright (c) 2018 Facebook */
-#ifndef __LINUX_BTF_H__
-#define __LINUX_BTF_H__
+#ifndef _UAPI__LINUX_BTF_H__
+#define _UAPI__LINUX_BTF_H__
 
 #include <linux/types.h>
 
@@ -162,4 +162,4 @@ struct btf_var_secinfo {
 	__u32	size;
 };
 
-#endif /* __LINUX_BTF_H__ */
+#endif /* _UAPI__LINUX_BTF_H__ */

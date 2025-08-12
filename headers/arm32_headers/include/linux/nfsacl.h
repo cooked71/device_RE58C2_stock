@@ -4,8 +4,8 @@
  *
  * (C) 2003 Andreas Gruenbacher <agruen@suse.de>
  */
-#ifndef __LINUX_NFSACL_H
-#define __LINUX_NFSACL_H
+#ifndef _UAPI__LINUX_NFSACL_H
+#define _UAPI__LINUX_NFSACL_H
 
 #define NFS_ACL_PROGRAM	100227
 
@@ -28,4 +28,4 @@
 /* Flag for Default ACL entries */
 #define NFS_ACL_DEFAULT		0x1000
 
-#endif /* __LINUX_NFSACL_H */
+#endif /* _UAPI__LINUX_NFSACL_H */

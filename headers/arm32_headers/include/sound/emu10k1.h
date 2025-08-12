@@ -20,8 +20,8 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
  *
  */
-#ifndef __SOUND_EMU10K1_H
-#define __SOUND_EMU10K1_H
+#ifndef _UAPI__SOUND_EMU10K1_H
+#define _UAPI__SOUND_EMU10K1_H
 
 #include <linux/types.h>
 #include <sound/asound.h>
@@ -259,11 +259,13 @@
 #define EMU10K1_DBG_SINGLE_STEP_ADDR	0x000001ff	/* single step address */
 
 /* tank memory address line */
+#ifndef __KERNEL__
 #define TANKMEMADDRREG_ADDR_MASK 0x000fffff	/* 20 bit tank address field			*/
 #define TANKMEMADDRREG_CLEAR	 0x00800000	/* Clear tank memory				*/
 #define TANKMEMADDRREG_ALIGN	 0x00400000	/* Align read or write relative to tank access	*/
 #define TANKMEMADDRREG_WRITE	 0x00200000	/* Write to tank memory				*/
 #define TANKMEMADDRREG_READ	 0x00100000	/* Read from tank memory			*/
+#endif
 
 struct snd_emu10k1_fx8010_info {
 	unsigned int internal_tram_size;	/* in samples */
@@ -308,24 +310,24 @@ struct snd_emu10k1_fx8010_code {
 	char name[128];
 
 	__EMU10K1_DECLARE_BITMAP(gpr_valid, 0x200); /* bitmask of valid initializers */
-	__u32 *gpr_map;		/* initializers */
+	__u32 __user *gpr_map;		/* initializers */
 
 	unsigned int gpr_add_control_count; /* count of GPR controls to add/replace */
-	struct snd_emu10k1_fx8010_control_gpr *gpr_add_controls; /* GPR controls to add/replace */
+	struct snd_emu10k1_fx8010_control_gpr __user *gpr_add_controls; /* GPR controls to add/replace */
 
 	unsigned int gpr_del_control_count; /* count of GPR controls to remove */
-	struct snd_ctl_elem_id *gpr_del_controls; /* IDs of GPR controls to remove */
+	struct snd_ctl_elem_id __user *gpr_del_controls; /* IDs of GPR controls to remove */
 
 	unsigned int gpr_list_control_count; /* count of GPR controls to list */
 	unsigned int gpr_list_control_total; /* total count of GPR controls */
-	struct snd_emu10k1_fx8010_control_gpr *gpr_list_controls; /* listed GPR controls */
+	struct snd_emu10k1_fx8010_control_gpr __user *gpr_list_controls; /* listed GPR controls */
 
 	__EMU10K1_DECLARE_BITMAP(tram_valid, 0x100); /* bitmask of valid initializers */
-	__u32 *tram_data_map;	  /* data initializers */
-	__u32 *tram_addr_map;	  /* map initializers */
+	__u32 __user *tram_data_map;	  /* data initializers */
+	__u32 __user *tram_addr_map;	  /* map initializers */
 
 	__EMU10K1_DECLARE_BITMAP(code_valid, 1024); /* bitmask of valid instructions */
-	__u32 *code;		  /* one instruction - 64 bits */
+	__u32 __user *code;		  /* one instruction - 64 bits */
 };
 
 struct snd_emu10k1_fx8010_tram {
@@ -376,4 +378,4 @@ typedef struct snd_emu10k1_fx8010_code emu10k1_fx8010_code_t;
 typedef struct snd_emu10k1_fx8010_tram emu10k1_fx8010_tram_t;
 typedef struct snd_emu10k1_fx8010_pcm_rec emu10k1_fx8010_pcm_t;
 
-#endif /* __SOUND_EMU10K1_H */
+#endif /* _UAPI__SOUND_EMU10K1_H */

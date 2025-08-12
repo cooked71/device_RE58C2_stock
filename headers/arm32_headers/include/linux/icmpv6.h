@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_ICMPV6_H
-#define _LINUX_ICMPV6_H
+#ifndef _UAPI_LINUX_ICMPV6_H
+#define _UAPI_LINUX_ICMPV6_H
 
 #include <linux/types.h>
 #include <asm/byteorder.h>
@@ -171,4 +171,4 @@ struct icmp6_filter {
 #define MLD2_ALL_MCR_INIT { { { 0xff,0x02,0,0,0,0,0,0,0,0,0,0,0,0,0,0x16 } } }
 
 
-#endif /* _LINUX_ICMPV6_H */
+#endif /* _UAPI_LINUX_ICMPV6_H */

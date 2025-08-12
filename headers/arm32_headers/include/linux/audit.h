@@ -22,8 +22,8 @@
  *
  */
 
-#ifndef _LINUX_AUDIT_H_
-#define _LINUX_AUDIT_H_
+#ifndef _UAPI_LINUX_AUDIT_H_
+#define _UAPI_LINUX_AUDIT_H_
 
 #include <linux/types.h>
 #include <linux/elf-em.h>
@@ -505,4 +505,4 @@ struct audit_rule_data {
 	char		buf[0];	/* string fields buffer */
 };
 
-#endif /* _LINUX_AUDIT_H_ */
+#endif /* _UAPI_LINUX_AUDIT_H_ */

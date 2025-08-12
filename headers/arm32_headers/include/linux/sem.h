@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_SEM_H
-#define _LINUX_SEM_H
+#ifndef _UAPI_LINUX_SEM_H
+#define _UAPI_LINUX_SEM_H
 
 #include <linux/ipc.h>
 
@@ -46,10 +46,10 @@ struct sembuf {
 /* arg for semctl system calls. */
 union semun {
 	int val;			/* value for SETVAL */
-	struct semid_ds *buf;	/* buffer for IPC_STAT & IPC_SET */
-	unsigned short *array;	/* array for GETALL & SETALL */
-	struct seminfo *__buf;	/* buffer for IPC_INFO */
-	void *__pad;
+	struct semid_ds __user *buf;	/* buffer for IPC_STAT & IPC_SET */
+	unsigned short __user *array;	/* array for GETALL & SETALL */
+	struct seminfo __user *__buf;	/* buffer for IPC_INFO */
+	void __user *__pad;
 };
 
 struct  seminfo {
@@ -91,4 +91,4 @@ struct  seminfo {
 #define SEMUSZ  20		/* sizeof struct sem_undo */
 
 
-#endif /* _LINUX_SEM_H */
+#endif /* _UAPI_LINUX_SEM_H */

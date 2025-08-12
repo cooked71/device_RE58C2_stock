@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _ASM_GENERIC_RESOURCE_H
-#define _ASM_GENERIC_RESOURCE_H
+#ifndef _UAPI_ASM_GENERIC_RESOURCE_H
+#define _UAPI_ASM_GENERIC_RESOURCE_H
 
 /*
  * Resource limit IDs
@@ -59,4 +59,4 @@
 #endif
 
 
-#endif /* _ASM_GENERIC_RESOURCE_H */
+#endif /* _UAPI_ASM_GENERIC_RESOURCE_H */

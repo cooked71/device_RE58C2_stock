@@ -12,8 +12,8 @@
  *
  */
 
-#ifndef _LINUX_EVENTPOLL_H
-#define _LINUX_EVENTPOLL_H
+#ifndef _UAPI_LINUX_EVENTPOLL_H
+#define _UAPI_LINUX_EVENTPOLL_H
 
 /* For O_CLOEXEC */
 #include <linux/fcntl.h>
@@ -28,21 +28,21 @@
 #define EPOLL_CTL_MOD 3
 
 /* Epoll event masks */
-#define EPOLLIN		(__poll_t)0x00000001
-#define EPOLLPRI	(__poll_t)0x00000002
-#define EPOLLOUT	(__poll_t)0x00000004
-#define EPOLLERR	(__poll_t)0x00000008
-#define EPOLLHUP	(__poll_t)0x00000010
-#define EPOLLNVAL	(__poll_t)0x00000020
-#define EPOLLRDNORM	(__poll_t)0x00000040
-#define EPOLLRDBAND	(__poll_t)0x00000080
-#define EPOLLWRNORM	(__poll_t)0x00000100
-#define EPOLLWRBAND	(__poll_t)0x00000200
-#define EPOLLMSG	(__poll_t)0x00000400
-#define EPOLLRDHUP	(__poll_t)0x00002000
+#define EPOLLIN		(__force __poll_t)0x00000001
+#define EPOLLPRI	(__force __poll_t)0x00000002
+#define EPOLLOUT	(__force __poll_t)0x00000004
+#define EPOLLERR	(__force __poll_t)0x00000008
+#define EPOLLHUP	(__force __poll_t)0x00000010
+#define EPOLLNVAL	(__force __poll_t)0x00000020
+#define EPOLLRDNORM	(__force __poll_t)0x00000040
+#define EPOLLRDBAND	(__force __poll_t)0x00000080
+#define EPOLLWRNORM	(__force __poll_t)0x00000100
+#define EPOLLWRBAND	(__force __poll_t)0x00000200
+#define EPOLLMSG	(__force __poll_t)0x00000400
+#define EPOLLRDHUP	(__force __poll_t)0x00002000
 
 /* Set exclusive wakeup mode for the target file descriptor */
-#define EPOLLEXCLUSIVE	((__poll_t)(1U << 28))
+#define EPOLLEXCLUSIVE	((__force __poll_t)(1U << 28))
 
 /*
  * Request the handling of system wakeup events so as to prevent system suspends
@@ -54,13 +54,13 @@
  *
  * Requires CAP_BLOCK_SUSPEND
  */
-#define EPOLLWAKEUP	((__poll_t)(1U << 29))
+#define EPOLLWAKEUP	((__force __poll_t)(1U << 29))
 
 /* Set the One Shot behaviour for the target file descriptor */
-#define EPOLLONESHOT	((__poll_t)(1U << 30))
+#define EPOLLONESHOT	((__force __poll_t)(1U << 30))
 
 /* Set the Edge Triggered behaviour for the target file descriptor */
-#define EPOLLET		((__poll_t)(1U << 31))
+#define EPOLLET		((__force __poll_t)(1U << 31))
 
 /* 
  * On x86-64 make the 64bit structure have the same alignment as the
@@ -80,15 +80,15 @@ struct epoll_event {
 } EPOLL_PACKED;
 
 #ifdef CONFIG_PM_SLEEP
-static __inline__ void ep_take_care_of_epollwakeup(struct epoll_event *epev)
+static inline void ep_take_care_of_epollwakeup(struct epoll_event *epev)
 {
 	if ((epev->events & EPOLLWAKEUP) && !capable(CAP_BLOCK_SUSPEND))
 		epev->events &= ~EPOLLWAKEUP;
 }
 #else
-static __inline__ void ep_take_care_of_epollwakeup(struct epoll_event *epev)
+static inline void ep_take_care_of_epollwakeup(struct epoll_event *epev)
 {
 	epev->events &= ~EPOLLWAKEUP;
 }
 #endif
-#endif /* _LINUX_EVENTPOLL_H */
+#endif /* _UAPI_LINUX_EVENTPOLL_H */

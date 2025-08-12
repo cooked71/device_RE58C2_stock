@@ -14,8 +14,8 @@
  *	2 of the License, or (at your option) any later version.
  */
 
-#ifndef _LINUX_IGMP_H
-#define _LINUX_IGMP_H
+#ifndef _UAPI_LINUX_IGMP_H
+#define _UAPI_LINUX_IGMP_H
 
 #include <linux/types.h>
 #include <asm/byteorder.h>
@@ -127,4 +127,4 @@ struct igmpv3_query {
  * struct for keeping the multicast list in
  */
 
-#endif /* _LINUX_IGMP_H */
+#endif /* _UAPI_LINUX_IGMP_H */

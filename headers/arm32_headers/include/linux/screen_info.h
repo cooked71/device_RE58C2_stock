@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _SCREEN_INFO_H
-#define _SCREEN_INFO_H
+#ifndef _UAPI_SCREEN_INFO_H
+#define _UAPI_SCREEN_INFO_H
 
 #include <linux/types.h>
 
@@ -73,4 +73,4 @@ struct screen_info {
 #define VIDEO_CAPABILITY_SKIP_QUIRKS	(1 << 0)
 #define VIDEO_CAPABILITY_64BIT_BASE	(1 << 1)	/* Frame buffer base is 64-bit */
 
-#endif /* _SCREEN_INFO_H */
+#endif /* _UAPI_SCREEN_INFO_H */

@@ -21,7 +21,7 @@ struct ccw_io_region {
 #define IRB_AREA_SIZE 96
 	__u8	irb_area[IRB_AREA_SIZE];
 	__u32	ret_code;
-} __attribute__((packed));
+} __packed;
 
 /*
  * used for processing commands that trigger asynchronous actions
@@ -32,6 +32,6 @@ struct ccw_io_region {
 struct ccw_cmd_region {
 	__u32 command;
 	__u32 ret_code;
-} __attribute__((packed));
+} __packed;
 
 #endif

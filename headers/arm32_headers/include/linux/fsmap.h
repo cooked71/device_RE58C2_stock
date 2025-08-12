@@ -69,7 +69,7 @@ struct fsmap_head {
 };
 
 /* Size of an fsmap_head with room for nr records. */
-static __inline__ size_t
+static inline size_t
 fsmap_sizeof(
 	unsigned int	nr)
 {
@@ -77,7 +77,7 @@ fsmap_sizeof(
 }
 
 /* Start the next fsmap query at the end of the current query results. */
-static __inline__ void
+static inline void
 fsmap_advance(
 	struct fsmap_head	*head)
 {

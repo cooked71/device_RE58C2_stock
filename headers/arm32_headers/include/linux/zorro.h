@@ -9,8 +9,8 @@
  *  for more details.
  */
 
-#ifndef _LINUX_ZORRO_H
-#define _LINUX_ZORRO_H
+#ifndef _UAPI_LINUX_ZORRO_H
+#define _UAPI_LINUX_ZORRO_H
 
 #include <linux/types.h>
 
@@ -69,7 +69,7 @@ struct Node {
 	__u8   ln_Type;
 	__s8   ln_Pri;		/* Priority, for sorting */
 	__be32 ln_Name;		/* ID string, null terminated */
-} __attribute__((packed));
+} __packed;
 
 struct ExpansionRom {
 	/* -First 16 bytes of the expansion ROM */
@@ -84,7 +84,7 @@ struct ExpansionRom {
 	__u8   er_Reserved0d;
 	__u8   er_Reserved0e;
 	__u8   er_Reserved0f;
-} __attribute__((packed));
+} __packed;
 
 /* er_Type board type bits */
 #define ERT_TYPEMASK	0xc0
@@ -107,8 +107,8 @@ struct ConfigDev {
 	__be32		cd_Driver;	/* pointer to node of driver */
 	__be32		cd_NextCD;	/* linked list of drivers to config */
 	__be32		cd_Unused[4];	/* for whatever the driver wants */
-} __attribute__((packed));
+} __packed;
 
 #define ZORRO_NUM_AUTO		16
 
-#endif /* _LINUX_ZORRO_H */
+#endif /* _UAPI_LINUX_ZORRO_H */

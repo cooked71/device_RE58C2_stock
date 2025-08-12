@@ -7,8 +7,8 @@
  * Copyright 1993 by Theodore Ts'o.  Redistribution of this file is
  * permitted under the GNU General Public License.
  */
-#ifndef _LINUX_LOOP_H
-#define _LINUX_LOOP_H
+#ifndef _UAPI_LINUX_LOOP_H
+#define _UAPI_LINUX_LOOP_H
 
 
 #define LO_NAME_SIZE	64
@@ -122,4 +122,4 @@ struct loop_config {
 #define LOOP_CTL_ADD		0x4C80
 #define LOOP_CTL_REMOVE		0x4C81
 #define LOOP_CTL_GET_FREE	0x4C82
-#endif /* _LINUX_LOOP_H */
+#endif /* _UAPI_LINUX_LOOP_H */

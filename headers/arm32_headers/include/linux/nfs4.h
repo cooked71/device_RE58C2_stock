@@ -11,8 +11,8 @@
  *  Andy Adamson   <andros@umich.edu>
  */
 
-#ifndef _LINUX_NFS4_H
-#define _LINUX_NFS4_H
+#ifndef _UAPI_LINUX_NFS4_H
+#define _UAPI_LINUX_NFS4_H
 
 #include <linux/types.h>
 
@@ -174,7 +174,7 @@
  */
 #define NFS4_MAX_BACK_CHANNEL_OPS 2
 
-#endif /* _LINUX_NFS4_H */
+#endif /* _UAPI_LINUX_NFS4_H */
 
 /*
  * Local variables:

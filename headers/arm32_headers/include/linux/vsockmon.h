@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _VSOCKMON_H
-#define _VSOCKMON_H
+#ifndef _UAPI_VSOCKMON_H
+#define _UAPI_VSOCKMON_H
 
 #include <linux/virtio_vsock.h>
 

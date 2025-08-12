@@ -10,8 +10,8 @@
   NetBSD/OpenBSD header file, by Allen Briggs.  We figured out the
   rest of them on our own. */
 
-#ifndef LINUX_NUBUS_H
-#define LINUX_NUBUS_H
+#ifndef _UAPILINUX_NUBUS_H
+#define _UAPILINUX_NUBUS_H
 
 #include <linux/types.h>
 
@@ -221,4 +221,4 @@ enum nubus_display_res_id {
 	NUBUS_RESID_SIXTHMODE   = 0x0085
 };
 
-#endif /* LINUX_NUBUS_H */
+#endif /* _UAPILINUX_NUBUS_H */

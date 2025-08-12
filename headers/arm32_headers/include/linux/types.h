@@ -1,10 +1,15 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_TYPES_H
-#define _LINUX_TYPES_H
+#ifndef _UAPI_LINUX_TYPES_H
+#define _UAPI_LINUX_TYPES_H
 
 #include <asm/types.h>
 
 #ifndef __ASSEMBLY__
+#ifndef	__KERNEL__
+#ifndef __EXPORTED_HEADERS__
+#warning "Attempt to use kernel headers from user space, see http://kernelnewbies.org/KernelHeaders"
+#endif /* __EXPORTED_HEADERS__ */
+#endif
 
 #include <linux/posix_types.h>
 
@@ -47,4 +52,4 @@ typedef __u32 __bitwise __wsum;
 typedef unsigned __bitwise __poll_t;
 
 #endif /*  __ASSEMBLY__ */
-#endif /* _LINUX_TYPES_H */
+#endif /* _UAPI_LINUX_TYPES_H */

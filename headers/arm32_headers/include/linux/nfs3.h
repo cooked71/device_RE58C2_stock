@@ -2,8 +2,8 @@
 /*
  * NFSv3 protocol definitions
  */
-#ifndef _LINUX_NFS3_H
-#define _LINUX_NFS3_H
+#ifndef _UAPI_LINUX_NFS3_H
+#define _UAPI_LINUX_NFS3_H
 
 #define NFS3_PORT		2049
 #define NFS3_MAXDATA		32768
@@ -95,4 +95,4 @@ struct nfs3_fh {
 #define NFS_MNT3_VERSION	3
  
 
-#endif /* _LINUX_NFS3_H */
+#endif /* _UAPI_LINUX_NFS3_H */

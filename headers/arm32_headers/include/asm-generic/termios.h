@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _ASM_GENERIC_TERMIOS_H
-#define _ASM_GENERIC_TERMIOS_H
+#ifndef _UAPI_ASM_GENERIC_TERMIOS_H
+#define _UAPI_ASM_GENERIC_TERMIOS_H
 /*
  * Most architectures have straight copies of the x86 code, with
  * varying levels of bug fixes on top. Usually it's a good idea
@@ -48,4 +48,4 @@ struct termio {
 /* ioctl (fd, TIOCSERGETLSR, &result) where result may be as below */
 
 
-#endif /* _ASM_GENERIC_TERMIOS_H */
+#endif /* _UAPI_ASM_GENERIC_TERMIOS_H */

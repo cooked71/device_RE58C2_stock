@@ -18,8 +18,8 @@
  * 02110-1301, USA
  */
 
-#ifndef __LINUX_OPENVSWITCH_H
-#define __LINUX_OPENVSWITCH_H 1
+#ifndef _UAPI__LINUX_OPENVSWITCH_H
+#define _UAPI__LINUX_OPENVSWITCH_H 1
 
 #include <linux/types.h>
 #include <linux/if_ether.h>
@@ -341,6 +341,9 @@ enum ovs_key_attr {
 	OVS_KEY_ATTR_CT_ORIG_TUPLE_IPV6,   /* struct ovs_key_ct_tuple_ipv6 */
 	OVS_KEY_ATTR_NSH,       /* Nested set of ovs_nsh_key_* */
 
+#ifdef __KERNEL__
+	OVS_KEY_ATTR_TUNNEL_INFO,  /* struct ip_tunnel_info */
+#endif
 	__OVS_KEY_ATTR_MAX
 };
 
@@ -610,10 +613,23 @@ enum ovs_sample_attr {
 	OVS_SAMPLE_ATTR_ACTIONS,     /* Nested OVS_ACTION_ATTR_* attributes. */
 	__OVS_SAMPLE_ATTR_MAX,
 
+#ifdef __KERNEL__
+	OVS_SAMPLE_ATTR_ARG          /* struct sample_arg  */
+#endif
 };
 
 #define OVS_SAMPLE_ATTR_MAX (__OVS_SAMPLE_ATTR_MAX - 1)
 
+#ifdef __KERNEL__
+struct sample_arg {
+	bool exec;                   /* When true, actions in sample will not
+				      * change flow keys. False otherwise.
+				      */
+	u32  probability;            /* Same value as
+				      * 'OVS_SAMPLE_ATTR_PROBABILITY'.
+				      */
+};
+#endif
 
 /**
  * enum ovs_userspace_attr - Attributes for %OVS_ACTION_ATTR_USERSPACE action.
@@ -807,10 +823,25 @@ enum ovs_check_pkt_len_attr {
 	OVS_CHECK_PKT_LEN_ATTR_ACTIONS_IF_LESS_EQUAL,
 	__OVS_CHECK_PKT_LEN_ATTR_MAX,
 
+#ifdef __KERNEL__
+	OVS_CHECK_PKT_LEN_ATTR_ARG          /* struct check_pkt_len_arg  */
+#endif
 };
 
 #define OVS_CHECK_PKT_LEN_ATTR_MAX (__OVS_CHECK_PKT_LEN_ATTR_MAX - 1)
 
+#ifdef __KERNEL__
+struct check_pkt_len_arg {
+	u16 pkt_len;	/* Same value as OVS_CHECK_PKT_LEN_ATTR_PKT_LEN'. */
+	bool exec_for_greater;	/* When true, actions in IF_GREATER will
+				 * not change flow keys. False otherwise.
+				 */
+	bool exec_for_lesser_equal; /* When true, actions in IF_LESS_EQUAL
+				     * will not change flow keys. False
+				     * otherwise.
+				     */
+};
+#endif
 
 /**
  * enum ovs_action_attr - Action types.
@@ -898,6 +929,11 @@ enum ovs_action_attr {
 	__OVS_ACTION_ATTR_MAX,	      /* Nothing past this will be accepted
 				       * from userspace. */
 
+#ifdef __KERNEL__
+	OVS_ACTION_ATTR_SET_TO_MASKED, /* Kernel module internal masked
+					* set action converted from
+					* OVS_ACTION_ATTR_SET. */
+#endif
 };
 
 #define OVS_ACTION_ATTR_MAX (__OVS_ACTION_ATTR_MAX - 1)

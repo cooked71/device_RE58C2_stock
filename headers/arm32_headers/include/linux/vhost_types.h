@@ -12,7 +12,7 @@
  */
 
 #include <linux/types.h>
-
+#include <linux/compiler.h>
 #include <linux/virtio_config.h>
 #include <linux/virtio_ring.h>
 

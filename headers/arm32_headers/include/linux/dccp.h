@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_DCCP_H
-#define _LINUX_DCCP_H
+#ifndef _UAPI_LINUX_DCCP_H
+#define _UAPI_LINUX_DCCP_H
 
 #include <linux/types.h>
 #include <asm/byteorder.h>
@@ -115,7 +115,7 @@ enum dccp_pkt_type {
 
 #define DCCP_NR_PKT_TYPES DCCP_PKT_INVALID
 
-static __inline__ unsigned int dccp_packet_hdr_len(const __u8 type)
+static inline unsigned int dccp_packet_hdr_len(const __u8 type)
 {
 	if (type == DCCP_PKT_DATA)
 		return 0;
@@ -235,4 +235,4 @@ enum dccp_packet_dequeueing_policy {
 #define DCCP_SERVICE_LIST_MAX_LEN      32
 
 
-#endif /* _LINUX_DCCP_H */
+#endif /* _UAPI_LINUX_DCCP_H */

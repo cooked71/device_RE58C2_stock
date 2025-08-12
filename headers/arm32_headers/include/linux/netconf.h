@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_NETCONF_H_
-#define _LINUX_NETCONF_H_
+#ifndef _UAPI_LINUX_NETCONF_H_
+#define _UAPI_LINUX_NETCONF_H_
 
 #include <linux/types.h>
 #include <linux/netlink.h>
@@ -27,4 +27,4 @@ enum {
 #define NETCONFA_IFINDEX_ALL		-1
 #define NETCONFA_IFINDEX_DEFAULT	-2
 
-#endif /* _LINUX_NETCONF_H_ */
+#endif /* _UAPI_LINUX_NETCONF_H_ */

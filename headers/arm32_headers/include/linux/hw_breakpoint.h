@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_HW_BREAKPOINT_H
-#define _LINUX_HW_BREAKPOINT_H
+#ifndef _UAPI_LINUX_HW_BREAKPOINT_H
+#define _UAPI_LINUX_HW_BREAKPOINT_H
 
 enum {
 	HW_BREAKPOINT_LEN_1 = 1,
@@ -32,4 +32,4 @@ enum bp_type_idx {
 	TYPE_MAX
 };
 
-#endif /* _LINUX_HW_BREAKPOINT_H */
+#endif /* _UAPI_LINUX_HW_BREAKPOINT_H */

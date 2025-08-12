@@ -35,7 +35,11 @@
  *	the virtio device.
  */
 struct mic_copy_desc {
+#ifdef __KERNEL__
+	struct iovec __user *iov;
+#else
 	struct iovec *iov;
+#endif
 	__u32 iovcnt;
 	__u8 vr_idx;
 	__u8 update_used;

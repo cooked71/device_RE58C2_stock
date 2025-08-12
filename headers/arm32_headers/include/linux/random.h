@@ -5,8 +5,8 @@
  * Include file for the random number generator.
  */
 
-#ifndef _LINUX_RANDOM_H
-#define _LINUX_RANDOM_H
+#ifndef _UAPI_LINUX_RANDOM_H
+#define _UAPI_LINUX_RANDOM_H
 
 #include <linux/types.h>
 #include <linux/ioctl.h>
@@ -55,4 +55,4 @@ struct rand_pool_info {
 #define GRND_RANDOM	0x0002
 #define GRND_INSECURE	0x0004
 
-#endif /* _LINUX_RANDOM_H */
+#endif /* _UAPI_LINUX_RANDOM_H */

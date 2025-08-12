@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_BINFMTS_H
-#define _LINUX_BINFMTS_H
+#ifndef _UAPI_LINUX_BINFMTS_H
+#define _UAPI_LINUX_BINFMTS_H
 
 #include <linux/capability.h>
 
@@ -18,4 +18,4 @@ struct pt_regs;
 /* sizeof(linux_binprm->buf) */
 #define BINPRM_BUF_SIZE 256
 
-#endif /* _LINUX_BINFMTS_H */
+#endif /* _UAPI_LINUX_BINFMTS_H */

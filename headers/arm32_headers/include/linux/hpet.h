@@ -1,8 +1,8 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef __HPET__
-#define __HPET__
+#ifndef _UAPI__HPET__
+#define _UAPI__HPET__
 
-
+#include <linux/compiler.h>
 
 
 struct hpet_info {
@@ -23,4 +23,4 @@ struct hpet_info {
 
 #define MAX_HPET_TBS	8		/* maximum hpet timer blocks */
 
-#endif /* __HPET__ */
+#endif /* _UAPI__HPET__ */

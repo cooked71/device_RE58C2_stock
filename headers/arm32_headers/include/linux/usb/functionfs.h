@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef __LINUX_FUNCTIONFS_H__
-#define __LINUX_FUNCTIONFS_H__
+#ifndef _UAPI__LINUX_FUNCTIONFS_H__
+#define _UAPI__LINUX_FUNCTIONFS_H__
 
 
 #include <linux/types.h>
@@ -84,6 +84,7 @@ struct usb_ext_prop_desc {
 	__le16	wPropertyNameLength;
 } __attribute__((packed));
 
+#ifndef __KERNEL__
 
 /*
  * Descriptors format:
@@ -207,6 +208,7 @@ struct usb_functionfs_strings_head {
  * UTF-8.
  */
 
+#endif
 
 
 /*
@@ -288,4 +290,4 @@ struct usb_functionfs_event {
 
 
 
-#endif /* __LINUX_FUNCTIONFS_H__ */
+#endif /* _UAPI__LINUX_FUNCTIONFS_H__ */

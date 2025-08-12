@@ -1,8 +1,8 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_SECCOMP_H
-#define _LINUX_SECCOMP_H
+#ifndef _UAPI_LINUX_SECCOMP_H
+#define _UAPI_LINUX_SECCOMP_H
 
-
+#include <linux/compiler.h>
 #include <linux/types.h>
 
 
@@ -124,4 +124,4 @@ struct seccomp_notif_resp {
 						struct seccomp_notif_resp)
 #define SECCOMP_IOCTL_NOTIF_ID_VALID	SECCOMP_IOW(2, __u64)
 
-#endif /* _LINUX_SECCOMP_H */
+#endif /* _UAPI_LINUX_SECCOMP_H */

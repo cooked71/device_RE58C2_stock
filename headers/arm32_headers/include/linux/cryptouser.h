@@ -19,8 +19,8 @@
  * 51 Franklin St - Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _LINUX_CRYPTOUSER_H
-#define _LINUX_CRYPTOUSER_H
+#ifndef _UAPI_LINUX_CRYPTOUSER_H
+#define _UAPI_LINUX_CRYPTOUSER_H
 
 #include <linux/types.h>
 
@@ -202,4 +202,4 @@ struct crypto_report_acomp {
 #define CRYPTO_REPORT_MAXSIZE (sizeof(struct crypto_user_alg) + \
 			       sizeof(struct crypto_report_blkcipher))
 
-#endif /* _LINUX_CRYPTOUSER_H */
+#endif /* _UAPI_LINUX_CRYPTOUSER_H */

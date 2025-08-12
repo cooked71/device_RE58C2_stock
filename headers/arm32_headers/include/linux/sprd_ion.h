@@ -3,8 +3,8 @@
  * Copyright (C) 2020 Unisoc Inc.
  */
 
-#ifndef _SPRD_ION_H
-#define _SPRD_ION_H
+#ifndef _UAPI_SPRD_ION_H
+#define _UAPI_SPRD_ION_H
 #include <linux/ion.h>
 #include <linux/sprd_ion.h>
 
@@ -29,4 +29,4 @@ enum sprd_ion_heap_ids {
 
 #define ION_IOC_PHY           _IOWR(ION_IOC_MAGIC, 11, \
 					struct ion_phy_data)
-#endif /* _SPRD_ION_H */
+#endif /* _UAPI_SPRD_ION_H */

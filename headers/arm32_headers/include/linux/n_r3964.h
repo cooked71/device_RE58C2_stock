@@ -45,8 +45,8 @@
  *
  */
 
-#ifndef __LINUX_N_R3964_H__
-#define __LINUX_N_R3964_H__
+#ifndef _UAPI__LINUX_N_R3964_H__
+#define _UAPI__LINUX_N_R3964_H__
 
 /* line disciplines for r3964 protocol */
 
@@ -96,4 +96,4 @@ struct r3964_client_message {
 
 
 
-#endif /* __LINUX_N_R3964_H__ */
+#endif /* _UAPI__LINUX_N_R3964_H__ */

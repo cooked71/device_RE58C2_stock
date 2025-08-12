@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_THERMAL_H
-#define _LINUX_THERMAL_H
+#ifndef _UAPI_LINUX_THERMAL_H
+#define _UAPI_LINUX_THERMAL_H
 
 #define THERMAL_NAME_LENGTH	20
 
@@ -33,4 +33,4 @@ enum {
 };
 #define THERMAL_GENL_CMD_MAX (__THERMAL_GENL_CMD_MAX - 1)
 
-#endif /* _LINUX_THERMAL_H */
+#endif /* _UAPI_LINUX_THERMAL_H */

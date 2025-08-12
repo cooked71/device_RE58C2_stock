@@ -15,7 +15,9 @@
 
 #include <linux/types.h>
 #include <linux/ioctl.h>
+#ifndef __KERNEL__
 #include <linux/kernelcapi.h>
+#endif
 
 /*
  * CAPI_REGISTER
@@ -76,7 +78,7 @@ typedef struct capi_profile {
 
 typedef struct capi_manufacturer_cmd {
 	unsigned long cmd;
-	void *data;
+	void __user *data;
 } capi_manufacturer_cmd;
 
 /*

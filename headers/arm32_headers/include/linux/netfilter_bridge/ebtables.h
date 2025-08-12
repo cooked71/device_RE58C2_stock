@@ -11,8 +11,8 @@
  *  Copyright (C) 1999 Paul `Rusty' Russell & Michael J. Neuling
  */
 
-#ifndef __LINUX_BRIDGE_EFF_H
-#define __LINUX_BRIDGE_EFF_H
+#ifndef _UAPI__LINUX_BRIDGE_EFF_H
+#define _UAPI__LINUX_BRIDGE_EFF_H
 #include <linux/types.h>
 #include <linux/if.h>
 #include <linux/netfilter_bridge.h>
@@ -49,12 +49,12 @@ struct ebt_replace {
 	/* total size of the entries */
 	unsigned int entries_size;
 	/* start of the chains */
-	struct ebt_entries *hook_entry[NF_BR_NUMHOOKS];
+	struct ebt_entries __user *hook_entry[NF_BR_NUMHOOKS];
 	/* nr of counters userspace expects back */
 	unsigned int num_counters;
 	/* where the kernel will put the old counters */
-	struct ebt_counter *counters;
-	char *entries;
+	struct ebt_counter __user *counters;
+	char __user *entries;
 };
 
 struct ebt_replace_kernel {
@@ -282,4 +282,4 @@ ebt_get_target(struct ebt_entry *e)
 	__ret;                                              \
 })
 
-#endif /* __LINUX_BRIDGE_EFF_H */
+#endif /* _UAPI__LINUX_BRIDGE_EFF_H */

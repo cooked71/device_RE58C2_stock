@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _XT_HASHLIMIT_H
-#define _XT_HASHLIMIT_H
+#ifndef _UAPI_XT_HASHLIMIT_H
+#define _UAPI_XT_HASHLIMIT_H
 
 #include <linux/types.h>
 #include <linux/limits.h>
@@ -120,4 +120,4 @@ struct xt_hashlimit_mtinfo3 {
 	struct xt_hashlimit_htable *hinfo __attribute__((aligned(8)));
 };
 
-#endif /* _XT_HASHLIMIT_H */
+#endif /* _UAPI_XT_HASHLIMIT_H */

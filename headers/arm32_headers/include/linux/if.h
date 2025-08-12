@@ -23,9 +23,11 @@
 #include <linux/libc-compat.h>          /* for compatibility with glibc */
 #include <linux/types.h>		/* for "__kernel_caddr_t" et al	*/
 #include <linux/socket.h>		/* for "struct sockaddr" et al	*/
-		/* for "__user" et al           */
+#include <linux/compiler.h>		/* for "__user" et al           */
 
+#ifndef __KERNEL__
 #include <sys/socket.h>			/* for struct sockaddr.		*/
+#endif
 
 #if __UAPI_DEF_IF_IFNAMSIZ
 #define	IFNAMSIZ	16
@@ -48,7 +50,7 @@
  * are annotated below, note that only a few flags can be toggled and some
  * other flags are always preserved from the original net_device flags
  * even if you try to set them via sysfs. Flags which are always preserved
- * are kept under the flag grouping @IFF_VOLATILE. Flags which are __volatile__
+ * are kept under the flag grouping @IFF_VOLATILE. Flags which are volatile
  * are annotated below as such.
  *
  * You should have a pretty good reason to be extending these flags.
@@ -80,26 +82,26 @@ enum net_device_flags {
 /* for compatibility with glibc net/if.h */
 #if __UAPI_DEF_IF_NET_DEVICE_FLAGS
 	IFF_UP				= 1<<0,  /* sysfs */
-	IFF_BROADCAST			= 1<<1,  /* __volatile__ */
+	IFF_BROADCAST			= 1<<1,  /* volatile */
 	IFF_DEBUG			= 1<<2,  /* sysfs */
-	IFF_LOOPBACK			= 1<<3,  /* __volatile__ */
-	IFF_POINTOPOINT			= 1<<4,  /* __volatile__ */
+	IFF_LOOPBACK			= 1<<3,  /* volatile */
+	IFF_POINTOPOINT			= 1<<4,  /* volatile */
 	IFF_NOTRAILERS			= 1<<5,  /* sysfs */
-	IFF_RUNNING			= 1<<6,  /* __volatile__ */
+	IFF_RUNNING			= 1<<6,  /* volatile */
 	IFF_NOARP			= 1<<7,  /* sysfs */
 	IFF_PROMISC			= 1<<8,  /* sysfs */
 	IFF_ALLMULTI			= 1<<9,  /* sysfs */
-	IFF_MASTER			= 1<<10, /* __volatile__ */
-	IFF_SLAVE			= 1<<11, /* __volatile__ */
+	IFF_MASTER			= 1<<10, /* volatile */
+	IFF_SLAVE			= 1<<11, /* volatile */
 	IFF_MULTICAST			= 1<<12, /* sysfs */
 	IFF_PORTSEL			= 1<<13, /* sysfs */
 	IFF_AUTOMEDIA			= 1<<14, /* sysfs */
 	IFF_DYNAMIC			= 1<<15, /* sysfs */
 #endif /* __UAPI_DEF_IF_NET_DEVICE_FLAGS */
 #if __UAPI_DEF_IF_NET_DEVICE_FLAGS_LOWER_UP_DORMANT_ECHO
-	IFF_LOWER_UP			= 1<<16, /* __volatile__ */
-	IFF_DORMANT			= 1<<17, /* __volatile__ */
-	IFF_ECHO			= 1<<18, /* __volatile__ */
+	IFF_LOWER_UP			= 1<<16, /* volatile */
+	IFF_DORMANT			= 1<<17, /* volatile */
+	IFF_ECHO			= 1<<18, /* volatile */
 #endif /* __UAPI_DEF_IF_NET_DEVICE_FLAGS_LOWER_UP_DORMANT_ECHO */
 };
 #endif /* __UAPI_DEF_IF_NET_DEVICE_FLAGS_LOWER_UP_DORMANT_ECHO != 0 || __UAPI_DEF_IF_NET_DEVICE_FLAGS != 0 */
@@ -205,15 +207,15 @@ struct if_settings {
 	unsigned int size;	/* Size of the data allocated by the caller */
 	union {
 		/* {atm/eth/dsl}_settings anyone ? */
-		raw_hdlc_proto		*raw_hdlc;
-		cisco_proto		*cisco;
-		fr_proto		*fr;
-		fr_proto_pvc		*fr_pvc;
-		fr_proto_pvc_info	*fr_pvc_info;
+		raw_hdlc_proto		__user *raw_hdlc;
+		cisco_proto		__user *cisco;
+		fr_proto		__user *fr;
+		fr_proto_pvc		__user *fr_pvc;
+		fr_proto_pvc_info	__user *fr_pvc_info;
 
 		/* interface settings */
-		sync_serial_settings	*sync;
-		te1_settings		*te1;
+		sync_serial_settings	__user *sync;
+		te1_settings		__user *te1;
 	} ifs_ifsu;
 };
 
@@ -245,7 +247,7 @@ struct ifreq {
 		struct  ifmap ifru_map;
 		char	ifru_slave[IFNAMSIZ];	/* Just fits the size */
 		char	ifru_newname[IFNAMSIZ];
-		void *	ifru_data;
+		void __user *	ifru_data;
 		struct	if_settings ifru_settings;
 	} ifr_ifru;
 };
@@ -281,8 +283,8 @@ struct ifreq {
 struct ifconf  {
 	int	ifc_len;			/* size of buffer	*/
 	union {
-		char *ifcu_buf;
-		struct ifreq *ifcu_req;
+		char __user *ifcu_buf;
+		struct ifreq __user *ifcu_req;
 	} ifc_ifcu;
 };
 #endif /* __UAPI_DEF_IF_IFCONF */

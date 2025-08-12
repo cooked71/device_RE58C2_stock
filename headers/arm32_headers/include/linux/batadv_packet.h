@@ -4,8 +4,8 @@
  * Marek Lindner, Simon Wunderlich
  */
 
-#ifndef _LINUX_BATADV_PACKET_H_
-#define _LINUX_BATADV_PACKET_H_
+#ifndef _UAPI_LINUX_BATADV_PACKET_H_
+#define _UAPI_LINUX_BATADV_PACKET_H_
 
 #include <asm/byteorder.h>
 #include <linux/if_ether.h>
@@ -628,4 +628,4 @@ struct batadv_tvlv_mcast_data {
 
 #pragma pack()
 
-#endif /* _LINUX_BATADV_PACKET_H_ */
+#endif /* _UAPI_LINUX_BATADV_PACKET_H_ */

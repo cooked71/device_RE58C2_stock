@@ -13,8 +13,8 @@
  *
  */
 
-#ifndef __LINUX_IF_PPPOL2TP_H
-#define __LINUX_IF_PPPOL2TP_H
+#ifndef _UAPI__LINUX_IF_PPPOL2TP_H
+#define _UAPI__LINUX_IF_PPPOL2TP_H
 
 #include <linux/types.h>
 #include <linux/in.h>
@@ -102,4 +102,4 @@ enum {
 
 
 
-#endif /* __LINUX_IF_PPPOL2TP_H */
+#endif /* _UAPI__LINUX_IF_PPPOL2TP_H */

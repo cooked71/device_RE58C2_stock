@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _ASM_TYPES_H
-#define _ASM_TYPES_H
+#ifndef _UAPI_ASM_TYPES_H
+#define _UAPI_ASM_TYPES_H
 
 #include <asm-generic/int-ll64.h>
 
@@ -38,4 +38,4 @@
 #define __UINTPTR_TYPE__	unsigned long
 #endif
 
-#endif /* _ASM_TYPES_H */
+#endif /* _UAPI_ASM_TYPES_H */

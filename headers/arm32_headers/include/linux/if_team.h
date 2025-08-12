@@ -9,8 +9,8 @@
  * (at your option) any later version.
  */
 
-#ifndef _LINUX_IF_TEAM_H_
-#define _LINUX_IF_TEAM_H_
+#ifndef _UAPI_LINUX_IF_TEAM_H_
+#define _UAPI_LINUX_IF_TEAM_H_
 
 
 #define TEAM_STRING_MAX_LEN 32
@@ -105,4 +105,4 @@ enum {
 #define TEAM_GENL_VERSION 0x1
 #define TEAM_GENL_CHANGE_EVENT_MC_GRP_NAME "change_event"
 
-#endif /* _LINUX_IF_TEAM_H_ */
+#endif /* _UAPI_LINUX_IF_TEAM_H_ */

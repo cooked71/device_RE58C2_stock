@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef __ASM_GENERIC_SIGNAL_H
-#define __ASM_GENERIC_SIGNAL_H
+#ifndef _UAPI__ASM_GENERIC_SIGNAL_H
+#define _UAPI__ASM_GENERIC_SIGNAL_H
 
 #include <linux/types.h>
 
@@ -100,6 +100,7 @@ typedef unsigned long old_sigset_t;
 #define __ARCH_HAS_SA_RESTORER
 #endif
 
+#ifndef __KERNEL__
 struct sigaction {
 	__sighandler_t sa_handler;
 	unsigned long sa_flags;
@@ -108,13 +109,14 @@ struct sigaction {
 #endif
 	sigset_t sa_mask;		/* mask last for extensibility */
 };
+#endif
 
 typedef struct sigaltstack {
-	void *ss_sp;
+	void __user *ss_sp;
 	int ss_flags;
 	size_t ss_size;
 } stack_t;
 
 #endif /* __ASSEMBLY__ */
 
-#endif /* __ASM_GENERIC_SIGNAL_H */
+#endif /* _UAPI__ASM_GENERIC_SIGNAL_H */

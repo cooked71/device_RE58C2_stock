@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef __CRAMFS_H
-#define __CRAMFS_H
+#ifndef _UAPI__CRAMFS_H
+#define _UAPI__CRAMFS_H
 
 #include <linux/types.h>
 #include <linux/magic.h>
@@ -110,4 +110,4 @@ struct cramfs_super {
  */
 #define CRAMFS_BLK_DIRECT_PTR_SHIFT	2
 
-#endif /* __CRAMFS_H */
+#endif /* _UAPI__CRAMFS_H */

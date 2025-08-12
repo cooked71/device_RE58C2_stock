@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef __LINUX_MROUTE6_H
-#define __LINUX_MROUTE6_H
+#ifndef _UAPI__LINUX_MROUTE6_H
+#define _UAPI__LINUX_MROUTE6_H
 
 #include <linux/const.h>
 #include <linux/types.h>
@@ -153,4 +153,4 @@ enum {
 };
 #define IP6MRA_CREPORT_MAX (__IP6MRA_CREPORT_MAX - 1)
 
-#endif /* __LINUX_MROUTE6_H */
+#endif /* _UAPI__LINUX_MROUTE6_H */

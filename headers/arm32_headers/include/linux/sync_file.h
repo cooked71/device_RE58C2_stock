@@ -9,8 +9,8 @@
  *
  */
 
-#ifndef _LINUX_SYNC_H
-#define _LINUX_SYNC_H
+#ifndef _UAPI_LINUX_SYNC_H
+#define _UAPI_LINUX_SYNC_H
 
 #include <linux/ioctl.h>
 #include <linux/types.h>
@@ -95,4 +95,4 @@ struct sync_file_info {
  */
 #define SYNC_IOC_FILE_INFO	_IOWR(SYNC_IOC_MAGIC, 4, struct sync_file_info)
 
-#endif /* _LINUX_SYNC_H */
+#endif /* _UAPI_LINUX_SYNC_H */

@@ -356,7 +356,7 @@ struct gfs2_leaf {
  * This works in a similar way to dirents. There is a fixed size header
  * followed by a variable length section made up of the name and the
  * associated data. In the case of a "stuffed" entry, the value is
- * __inline__ directly after the name, the ea_num_ptrs entry will be
+ * inline directly after the name, the ea_num_ptrs entry will be
  * zero in that case. For non-"stuffed" entries, there will be
  * a set of pointers (aligned to 8 byte boundary) to the block(s)
  * containing the value.

@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef BLKTRACE_H
-#define BLKTRACE_H
+#ifndef _UAPIBLKTRACE_H
+#define _UAPIBLKTRACE_H
 
 #include <linux/types.h>
 
@@ -143,4 +143,4 @@ struct blk_user_trace_setup {
 	__u32 pid;
 };
 
-#endif /* BLKTRACE_H */
+#endif /* _UAPIBLKTRACE_H */

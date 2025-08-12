@@ -19,8 +19,8 @@
  * this standard or common for newer versions.
  */
 
-#ifndef __LINUX_USB_AUDIO_H
-#define __LINUX_USB_AUDIO_H
+#ifndef _UAPI__LINUX_USB_AUDIO_H
+#define _UAPI__LINUX_USB_AUDIO_H
 
 #include <linux/types.h>
 
@@ -264,12 +264,12 @@ struct uac_mixer_unit_descriptor {
 	__u8 baSourceID[];
 } __attribute__ ((packed));
 
-static __inline__ __u8 uac_mixer_unit_bNrChannels(struct uac_mixer_unit_descriptor *desc)
+static inline __u8 uac_mixer_unit_bNrChannels(struct uac_mixer_unit_descriptor *desc)
 {
 	return desc->baSourceID[desc->bNrInPins];
 }
 
-static __inline__ __u32 uac_mixer_unit_wChannelConfig(struct uac_mixer_unit_descriptor *desc,
+static inline __u32 uac_mixer_unit_wChannelConfig(struct uac_mixer_unit_descriptor *desc,
 						  int protocol)
 {
 	if (protocol == UAC_VERSION_1)
@@ -282,7 +282,7 @@ static __inline__ __u32 uac_mixer_unit_wChannelConfig(struct uac_mixer_unit_desc
 			(desc->baSourceID[desc->bNrInPins + 1]);
 }
 
-static __inline__ __u8 uac_mixer_unit_iChannelNames(struct uac_mixer_unit_descriptor *desc,
+static inline __u8 uac_mixer_unit_iChannelNames(struct uac_mixer_unit_descriptor *desc,
 						int protocol)
 {
 	return (protocol == UAC_VERSION_1) ?
@@ -290,7 +290,7 @@ static __inline__ __u8 uac_mixer_unit_iChannelNames(struct uac_mixer_unit_descri
 		desc->baSourceID[desc->bNrInPins + 5];
 }
 
-static __inline__ __u8 *uac_mixer_unit_bmControls(struct uac_mixer_unit_descriptor *desc,
+static inline __u8 *uac_mixer_unit_bmControls(struct uac_mixer_unit_descriptor *desc,
 					      int protocol)
 {
 	switch (protocol) {
@@ -305,13 +305,13 @@ static __inline__ __u8 *uac_mixer_unit_bmControls(struct uac_mixer_unit_descript
 	}
 }
 
-static __inline__ __u16 uac3_mixer_unit_wClusterDescrID(struct uac_mixer_unit_descriptor *desc)
+static inline __u16 uac3_mixer_unit_wClusterDescrID(struct uac_mixer_unit_descriptor *desc)
 {
 	return (desc->baSourceID[desc->bNrInPins + 1] << 8) |
 		desc->baSourceID[desc->bNrInPins];
 }
 
-static __inline__ __u8 uac_mixer_unit_iMixer(struct uac_mixer_unit_descriptor *desc)
+static inline __u8 uac_mixer_unit_iMixer(struct uac_mixer_unit_descriptor *desc)
 {
 	__u8 *raw = (__u8 *) desc;
 	return raw[desc->bLength - 1];
@@ -327,7 +327,7 @@ struct uac_selector_unit_descriptor {
 	__u8 baSourceID[];
 } __attribute__ ((packed));
 
-static __inline__ __u8 uac_selector_unit_iSelector(struct uac_selector_unit_descriptor *desc)
+static inline __u8 uac_selector_unit_iSelector(struct uac_selector_unit_descriptor *desc)
 {
 	__u8 *raw = (__u8 *) desc;
 	return raw[desc->bLength - 1];
@@ -344,7 +344,7 @@ struct uac_feature_unit_descriptor {
 	__u8 bmaControls[0]; /* variable length */
 } __attribute__((packed));
 
-static __inline__ __u8 uac_feature_unit_iFeature(struct uac_feature_unit_descriptor *desc)
+static inline __u8 uac_feature_unit_iFeature(struct uac_feature_unit_descriptor *desc)
 {
 	__u8 *raw = (__u8 *) desc;
 	return raw[desc->bLength - 1];
@@ -361,12 +361,12 @@ struct uac_processing_unit_descriptor {
 	__u8 baSourceID[];
 } __attribute__ ((packed));
 
-static __inline__ __u8 uac_processing_unit_bNrChannels(struct uac_processing_unit_descriptor *desc)
+static inline __u8 uac_processing_unit_bNrChannels(struct uac_processing_unit_descriptor *desc)
 {
 	return desc->baSourceID[desc->bNrInPins];
 }
 
-static __inline__ __u32 uac_processing_unit_wChannelConfig(struct uac_processing_unit_descriptor *desc,
+static inline __u32 uac_processing_unit_wChannelConfig(struct uac_processing_unit_descriptor *desc,
 						       int protocol)
 {
 	if (protocol == UAC_VERSION_1)
@@ -379,7 +379,7 @@ static __inline__ __u32 uac_processing_unit_wChannelConfig(struct uac_processing
 			(desc->baSourceID[desc->bNrInPins + 1]);
 }
 
-static __inline__ __u8 uac_processing_unit_iChannelNames(struct uac_processing_unit_descriptor *desc,
+static inline __u8 uac_processing_unit_iChannelNames(struct uac_processing_unit_descriptor *desc,
 						     int protocol)
 {
 	return (protocol == UAC_VERSION_1) ?
@@ -387,7 +387,7 @@ static __inline__ __u8 uac_processing_unit_iChannelNames(struct uac_processing_u
 		desc->baSourceID[desc->bNrInPins + 5];
 }
 
-static __inline__ __u8 uac_processing_unit_bControlSize(struct uac_processing_unit_descriptor *desc,
+static inline __u8 uac_processing_unit_bControlSize(struct uac_processing_unit_descriptor *desc,
 						    int protocol)
 {
 	switch (protocol) {
@@ -402,7 +402,7 @@ static __inline__ __u8 uac_processing_unit_bControlSize(struct uac_processing_un
 	}
 }
 
-static __inline__ __u8 *uac_processing_unit_bmControls(struct uac_processing_unit_descriptor *desc,
+static inline __u8 *uac_processing_unit_bmControls(struct uac_processing_unit_descriptor *desc,
 						   int protocol)
 {
 	switch (protocol) {
@@ -417,7 +417,7 @@ static __inline__ __u8 *uac_processing_unit_bmControls(struct uac_processing_uni
 	}
 }
 
-static __inline__ __u8 uac_processing_unit_iProcessing(struct uac_processing_unit_descriptor *desc,
+static inline __u8 uac_processing_unit_iProcessing(struct uac_processing_unit_descriptor *desc,
 						   int protocol)
 {
 	__u8 control_size = uac_processing_unit_bControlSize(desc, protocol);
@@ -433,7 +433,7 @@ static __inline__ __u8 uac_processing_unit_iProcessing(struct uac_processing_uni
 	}
 }
 
-static __inline__ __u8 *uac_processing_unit_specific(struct uac_processing_unit_descriptor *desc,
+static inline __u8 *uac_processing_unit_specific(struct uac_processing_unit_descriptor *desc,
 						 int protocol)
 {
 	__u8 control_size = uac_processing_unit_bControlSize(desc, protocol);
@@ -456,7 +456,7 @@ static __inline__ __u8 *uac_processing_unit_specific(struct uac_processing_unit_
  * XU while 2 bytes for PU.  The last iExtension field is a one-byte index as
  * well as iProcessing field of PU.
  */
-static __inline__ __u8 uac_extension_unit_bControlSize(struct uac_processing_unit_descriptor *desc,
+static inline __u8 uac_extension_unit_bControlSize(struct uac_processing_unit_descriptor *desc,
 						   int protocol)
 {
 	switch (protocol) {
@@ -471,7 +471,7 @@ static __inline__ __u8 uac_extension_unit_bControlSize(struct uac_processing_uni
 	}
 }
 
-static __inline__ __u8 uac_extension_unit_iExtension(struct uac_processing_unit_descriptor *desc,
+static inline __u8 uac_extension_unit_iExtension(struct uac_processing_unit_descriptor *desc,
 						 int protocol)
 {
 	__u8 control_size = uac_extension_unit_bControlSize(desc, protocol);
@@ -635,4 +635,4 @@ struct uac1_status_word {
 } __attribute__((packed));
 
 
-#endif /* __LINUX_USB_AUDIO_H */
+#endif /* _UAPI__LINUX_USB_AUDIO_H */

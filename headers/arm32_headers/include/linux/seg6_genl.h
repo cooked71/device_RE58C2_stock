@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_SEG6_GENL_H
-#define _LINUX_SEG6_GENL_H
+#ifndef _UAPI_LINUX_SEG6_GENL_H
+#define _UAPI_LINUX_SEG6_GENL_H
 
 #define SEG6_GENL_NAME		"SEG6"
 #define SEG6_GENL_VERSION	0x1

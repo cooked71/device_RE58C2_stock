@@ -7,9 +7,9 @@
  * option, any later version, incorporated herein by reference.
  */
 
-#ifndef _LINUX_AUTO_FS4_H
-#define _LINUX_AUTO_FS4_H
+#ifndef _UAPI_LINUX_AUTO_FS4_H
+#define _UAPI_LINUX_AUTO_FS4_H
 
 #include <linux/auto_fs.h>
 
-#endif /* _LINUX_AUTO_FS4_H */
+#endif /* _UAPI_LINUX_AUTO_FS4_H */

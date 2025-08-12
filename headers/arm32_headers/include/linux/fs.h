@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_FS_H
-#define _LINUX_FS_H
+#ifndef _UAPI_LINUX_FS_H
+#define _UAPI_LINUX_FS_H
 
 /*
  * This file has definitions for some important file table structures
@@ -13,10 +13,14 @@
 #include <linux/limits.h>
 #include <linux/ioctl.h>
 #include <linux/types.h>
+#ifndef __KERNEL__
 #include <linux/fscrypt.h>
+#endif
 
 /* Use of MS_* flags within the kernel is restricted to core mount(2) code. */
+#if !defined(__KERNEL__)
 #include <linux/mount.h>
+#endif
 
 /*
  * It's silly to have NR_OPEN bigger than NR_FILE, but you can change
@@ -281,22 +285,22 @@ struct fsxattr {
 typedef int __bitwise __kernel_rwf_t;
 
 /* high priority request, poll if possible */
-#define RWF_HIPRI	((__kernel_rwf_t)0x00000001)
+#define RWF_HIPRI	((__force __kernel_rwf_t)0x00000001)
 
 /* per-IO O_DSYNC */
-#define RWF_DSYNC	((__kernel_rwf_t)0x00000002)
+#define RWF_DSYNC	((__force __kernel_rwf_t)0x00000002)
 
 /* per-IO O_SYNC */
-#define RWF_SYNC	((__kernel_rwf_t)0x00000004)
+#define RWF_SYNC	((__force __kernel_rwf_t)0x00000004)
 
 /* per-IO, return -EAGAIN if operation would block */
-#define RWF_NOWAIT	((__kernel_rwf_t)0x00000008)
+#define RWF_NOWAIT	((__force __kernel_rwf_t)0x00000008)
 
 /* per-IO O_APPEND */
-#define RWF_APPEND	((__kernel_rwf_t)0x00000010)
+#define RWF_APPEND	((__force __kernel_rwf_t)0x00000010)
 
 /* mask of flags supported by the kernel */
 #define RWF_SUPPORTED	(RWF_HIPRI | RWF_DSYNC | RWF_SYNC | RWF_NOWAIT |\
 			 RWF_APPEND)
 
-#endif /* _LINUX_FS_H */
+#endif /* _UAPI_LINUX_FS_H */

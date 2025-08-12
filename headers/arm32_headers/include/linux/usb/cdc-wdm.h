@@ -7,8 +7,8 @@
  * version 2 as published by the Free Software Foundation.
  */
 
-#ifndef __LINUX_USB_CDC_WDM_H
-#define __LINUX_USB_CDC_WDM_H
+#ifndef _UAPI__LINUX_USB_CDC_WDM_H
+#define _UAPI__LINUX_USB_CDC_WDM_H
 
 #include <linux/types.h>
 
@@ -21,4 +21,4 @@
  */
 #define IOCTL_WDM_MAX_COMMAND _IOR('H', 0xA0, __u16)
 
-#endif /* __LINUX_USB_CDC_WDM_H */
+#endif /* _UAPI__LINUX_USB_CDC_WDM_H */

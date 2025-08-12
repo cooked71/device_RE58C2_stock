@@ -22,8 +22,8 @@
  * 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef __LINUX_OMAPFB_H__
-#define __LINUX_OMAPFB_H__
+#ifndef _UAPI__LINUX_OMAPFB_H__
+#define _UAPI__LINUX_OMAPFB_H__
 
 #include <linux/fb.h>
 #include <linux/ioctl.h>
@@ -183,7 +183,7 @@ struct omapfb_memory_read {
 	__u16 w;
 	__u16 h;
 	size_t buffer_size;
-	void *buffer;
+	void __user *buffer;
 };
 
 struct omapfb_ovl_colormode {
@@ -220,4 +220,4 @@ struct omapfb_display_info {
 };
 
 
-#endif /* __LINUX_OMAPFB_H__ */
+#endif /* _UAPI__LINUX_OMAPFB_H__ */

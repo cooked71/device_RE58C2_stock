@@ -8,8 +8,8 @@
  * Copyright (C) 1995-1997 Olaf Kirch <okir@monad.swb.de>
  */
 
-#ifndef NFSD_EXPORT_H
-#define NFSD_EXPORT_H
+#ifndef _UAPINFSD_EXPORT_H
+#define _UAPINFSD_EXPORT_H
 
 # include <linux/types.h>
 
@@ -63,4 +63,4 @@
 					| NFSEXP_INSECURE_PORT)
 
 
-#endif /* NFSD_EXPORT_H */
+#endif /* _UAPINFSD_EXPORT_H */

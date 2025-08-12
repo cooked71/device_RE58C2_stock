@@ -4,8 +4,8 @@
  *
  * Copyright (C) 2019 Arm Ltd.
  */
-#ifndef _LINUX_VIRTIO_IOMMU_H
-#define _LINUX_VIRTIO_IOMMU_H
+#ifndef _UAPI_LINUX_VIRTIO_IOMMU_H
+#define _UAPI_LINUX_VIRTIO_IOMMU_H
 
 #include <linux/types.h>
 

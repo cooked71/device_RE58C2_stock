@@ -20,7 +20,9 @@
 #ifndef __LINUX_MEDIA_H
 #define __LINUX_MEDIA_H
 
+#ifndef __KERNEL__
 #include <stdint.h>
+#endif
 #include <linux/ioctl.h>
 #include <linux/types.h>
 
@@ -165,6 +167,7 @@ struct media_entity_desc {
 			__u32 minor;
 		} dev;
 
+#if !defined(__KERNEL__)
 		/*
 		 * TODO: this shouldn't have been added without
 		 * actual drivers that use this. When the first real driver
@@ -196,6 +199,7 @@ struct media_entity_desc {
 			__u32 minor;
 		} fb;
 		int dvb;
+#endif
 
 		/* Sub-device specifications */
 		/* Nothing needed yet */
@@ -232,9 +236,9 @@ struct media_link_desc {
 struct media_links_enum {
 	__u32 entity;
 	/* Should have enough room for pads elements */
-	struct media_pad_desc *pads;
+	struct media_pad_desc __user *pads;
 	/* Should have enough room for links elements */
-	struct media_link_desc *links;
+	struct media_link_desc __user *links;
 	__u32 reserved[4];
 };
 
@@ -263,6 +267,21 @@ struct media_links_enum {
 #define MEDIA_INTF_T_ALSA_PCM_PLAYBACK		(MEDIA_INTF_T_ALSA_BASE + 1)
 #define MEDIA_INTF_T_ALSA_CONTROL		(MEDIA_INTF_T_ALSA_BASE + 2)
 
+#if defined(__KERNEL__)
+
+/*
+ * Connector functions
+ *
+ * For now these should not be used in userspace, as some definitions may
+ * change.
+ *
+ * It is the responsibility of the entity drivers to add connectors and links.
+ */
+#define MEDIA_ENT_F_CONN_RF			(MEDIA_ENT_F_BASE + 0x30001)
+#define MEDIA_ENT_F_CONN_SVIDEO			(MEDIA_ENT_F_BASE + 0x30002)
+#define MEDIA_ENT_F_CONN_COMPOSITE		(MEDIA_ENT_F_BASE + 0x30003)
+
+#endif
 
 /*
  * MC next gen API definitions
@@ -364,6 +383,7 @@ struct media_v2_topology {
 #define MEDIA_REQUEST_IOC_QUEUE		_IO('|',  0x80)
 #define MEDIA_REQUEST_IOC_REINIT	_IO('|',  0x81)
 
+#ifndef __KERNEL__
 
 /*
  * Legacy symbols used to avoid userspace compilation breakages.
@@ -415,5 +435,6 @@ struct media_v2_topology {
 /* Obsolete symbol for media_version, no longer used in the kernel */
 #define MEDIA_API_VERSION			((0 << 16) | (1 << 8) | 0)
 
+#endif
 
 #endif /* __LINUX_MEDIA_H */

@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _NF_CONNTRACK_SCTP_H
-#define _NF_CONNTRACK_SCTP_H
+#ifndef _UAPI_NF_CONNTRACK_SCTP_H
+#define _UAPI_NF_CONNTRACK_SCTP_H
 /* SCTP tracking. */
 
 #include <linux/netfilter/nf_conntrack_tuple_common.h>
@@ -19,4 +19,4 @@ enum sctp_conntrack {
 	SCTP_CONNTRACK_MAX
 };
 
-#endif /* _NF_CONNTRACK_SCTP_H */
+#endif /* _UAPI_NF_CONNTRACK_SCTP_H */

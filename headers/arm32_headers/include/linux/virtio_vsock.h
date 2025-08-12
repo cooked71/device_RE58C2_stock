@@ -31,8 +31,8 @@
  * Copyright (C) Stefan Hajnoczi <stefanha@redhat.com>, 2015
  */
 
-#ifndef _LINUX_VIRTIO_VSOCK_H
-#define _LINUX_VIRTIO_VSOCK_H
+#ifndef _UAPI_LINUX_VIRTIO_VSOCK_H
+#define _UAPI_LINUX_VIRTIO_VSOCK_H
 
 #include <linux/types.h>
 #include <linux/virtio_ids.h>
@@ -91,4 +91,4 @@ enum virtio_vsock_shutdown {
 	VIRTIO_VSOCK_SHUTDOWN_SEND = 2,
 };
 
-#endif /* _LINUX_VIRTIO_VSOCK_H */
+#endif /* _UAPI_LINUX_VIRTIO_VSOCK_H */

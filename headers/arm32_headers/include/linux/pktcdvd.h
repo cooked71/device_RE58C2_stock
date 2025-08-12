@@ -10,8 +10,8 @@
  * DVD-RW devices.
  *
  */
-#ifndef __PKTCDVD_H
-#define __PKTCDVD_H
+#ifndef _UAPI__PKTCDVD_H
+#define _UAPI__PKTCDVD_H
 
 #include <linux/types.h>
 
@@ -109,4 +109,4 @@ struct pkt_ctrl_command {
 #define PACKET_CTRL_CMD		_IOWR(PACKET_IOCTL_MAGIC, 1, struct pkt_ctrl_command)
 
 
-#endif /* __PKTCDVD_H */
+#endif /* _UAPI__PKTCDVD_H */

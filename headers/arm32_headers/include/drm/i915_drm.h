@@ -24,8 +24,8 @@
  *
  */
 
-#ifndef _I915_DRM_H_
-#define _I915_DRM_H_
+#ifndef _UAPI_I915_DRM_H_
+#define _UAPI_I915_DRM_H_
 
 #include "drm.h"
 
@@ -75,7 +75,7 @@ extern "C" {
  * redefine the interface more easily than an ever growing struct of
  * increasing complexity, and for large parts of that interface to be
  * entirely optional. The downside is more pointer chasing; chasing across
- * the boundary with pointers encapsulated inside u64.
+ * the __user boundary with pointers encapsulated inside u64.
  */
 struct i915_user_extension {
 	__u64 next_extension;
@@ -431,25 +431,25 @@ typedef struct drm_i915_batchbuffer {
 	int DR1;		/* hw flags for GFX_OP_DRAWRECT_INFO */
 	int DR4;		/* window origin for GFX_OP_DRAWRECT_INFO */
 	int num_cliprects;	/* mulitpass with multiple cliprects? */
-	struct drm_clip_rect *cliprects;	/* pointer to userspace cliprects */
+	struct drm_clip_rect __user *cliprects;	/* pointer to userspace cliprects */
 } drm_i915_batchbuffer_t;
 
 /* As above, but pass a pointer to userspace buffer which can be
  * validated by the kernel prior to sending to hardware.
  */
 typedef struct _drm_i915_cmdbuffer {
-	char *buf;	/* pointer to userspace command buffer */
+	char __user *buf;	/* pointer to userspace command buffer */
 	int sz;			/* nr bytes in buf */
 	int DR1;		/* hw flags for GFX_OP_DRAWRECT_INFO */
 	int DR4;		/* window origin for GFX_OP_DRAWRECT_INFO */
 	int num_cliprects;	/* mulitpass with multiple cliprects? */
-	struct drm_clip_rect *cliprects;	/* pointer to userspace cliprects */
+	struct drm_clip_rect __user *cliprects;	/* pointer to userspace cliprects */
 } drm_i915_cmdbuffer_t;
 
 /* Userspace can request & wait on irq's:
  */
 typedef struct drm_i915_irq_emit {
-	int *irq_seq;
+	int __user *irq_seq;
 } drm_i915_irq_emit_t;
 
 typedef struct drm_i915_irq_wait {
@@ -619,7 +619,7 @@ typedef struct drm_i915_getparam {
 	 * WARNING: Using pointers instead of fixed-size u64 means we need to write
 	 * compat32 code. Don't repeat this mistake.
 	 */
-	int *value;
+	int __user *value;
 } drm_i915_getparam_t;
 
 /* Ioctl to set kernel params:
@@ -643,7 +643,7 @@ typedef struct drm_i915_mem_alloc {
 	int region;
 	int alignment;
 	int size;
-	int *region_offset;	/* offset from start of fb or agp */
+	int __user *region_offset;	/* offset from start of fb or agp */
 } drm_i915_mem_alloc_t;
 
 typedef struct drm_i915_mem_free {
@@ -2127,4 +2127,4 @@ struct drm_i915_query_engine_info {
 }
 #endif
 
-#endif /* _I915_DRM_H_ */
+#endif /* _UAPI_I915_DRM_H_ */

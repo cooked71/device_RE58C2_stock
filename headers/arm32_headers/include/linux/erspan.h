@@ -10,8 +10,8 @@
  *
  * Userspace API for metadata mode ERSPAN tunnel
  */
-#ifndef _ERSPAN_H
-#define _ERSPAN_H
+#ifndef _UAPI_ERSPAN_H
+#define _UAPI_ERSPAN_H
 
 #include <linux/types.h>	/* For __beXX in userspace */
 #include <asm/byteorder.h>
@@ -49,4 +49,4 @@ struct erspan_metadata {
 	} u;
 };
 
-#endif /* _ERSPAN_H */
+#endif /* _UAPI_ERSPAN_H */

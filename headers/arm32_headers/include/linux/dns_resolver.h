@@ -10,8 +10,8 @@
  * 2 of the Licence, or (at your option) any later version.
  */
 
-#ifndef _LINUX_DNS_RESOLVER_H
-#define _LINUX_DNS_RESOLVER_H
+#ifndef _UAPI_LINUX_DNS_RESOLVER_H
+#define _UAPI_LINUX_DNS_RESOLVER_H
 
 #include <linux/types.h>
 
@@ -74,7 +74,7 @@ struct dns_payload_header {
 	__u8		zero;		/* Zero byte: marks this as not being text */
 	__u8		content;	/* enum dns_payload_content_type */
 	__u8		version;	/* Encoding version */
-} __attribute__((packed));
+} __packed;
 
 /*
  * Header at the beginning of a V1 server list.  This is followed directly by
@@ -86,7 +86,7 @@ struct dns_server_list_v1_header {
 	__u8		source;		/* enum dns_record_source */
 	__u8		status;		/* enum dns_lookup_status */
 	__u8		nr_servers;	/* Number of server records following this */
-} __attribute__((packed));
+} __packed;
 
 /*
  * Header at the beginning of each V1 server record.  This is followed by the
@@ -103,7 +103,7 @@ struct dns_server_list_v1_server {
 	__u8		status;		/* enum dns_lookup_status */
 	__u8		protocol;	/* enum dns_payload_protocol_type */
 	__u8		nr_addrs;
-} __attribute__((packed));
+} __packed;
 
 /*
  * Header at the beginning of each V1 address record.  This is followed by the
@@ -111,6 +111,6 @@ struct dns_server_list_v1_server {
  */
 struct dns_server_list_v1_address {
 	__u8		address_type;	/* enum dns_payload_address_type */
-} __attribute__((packed));
+} __packed;
 
-#endif /* _LINUX_DNS_RESOLVER_H */
+#endif /* _UAPI_LINUX_DNS_RESOLVER_H */

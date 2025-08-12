@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef _LINUX_SIGNALFD_H
-#define _LINUX_SIGNALFD_H
+#ifndef _UAPI_LINUX_SIGNALFD_H
+#define _UAPI_LINUX_SIGNALFD_H
 
 #include <linux/types.h>
 /* For O_CLOEXEC and O_NONBLOCK */
@@ -54,4 +54,4 @@ struct signalfd_siginfo {
 
 
 
-#endif /* _LINUX_SIGNALFD_H */
+#endif /* _UAPI_LINUX_SIGNALFD_H */

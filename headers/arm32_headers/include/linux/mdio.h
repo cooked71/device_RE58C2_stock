@@ -8,8 +8,8 @@
  * by the Free Software Foundation, incorporated herein by reference.
  */
 
-#ifndef __LINUX_MDIO_H__
-#define __LINUX_MDIO_H__
+#ifndef _UAPI__LINUX_MDIO_H__
+#define _UAPI__LINUX_MDIO_H__
 
 #include <linux/types.h>
 #include <linux/mii.h>
@@ -319,9 +319,9 @@
 #define MDIO_PHY_ID_C45_MASK						\
 	(MDIO_PHY_ID_C45 | MDIO_PHY_ID_PRTAD | MDIO_PHY_ID_DEVAD)
 
-static __inline__ __u16 mdio_phy_id_c45(int prtad, int devad)
+static inline __u16 mdio_phy_id_c45(int prtad, int devad)
 {
 	return MDIO_PHY_ID_C45 | (prtad << 5) | devad;
 }
 
-#endif /* __LINUX_MDIO_H__ */
+#endif /* _UAPI__LINUX_MDIO_H__ */

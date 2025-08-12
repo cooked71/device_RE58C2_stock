@@ -15,12 +15,15 @@
 #error "patchkey.h included directly"
 #endif
 
-#ifndef _LINUX_PATCHKEY_H
-#define _LINUX_PATCHKEY_H
+#ifndef _UAPI_LINUX_PATCHKEY_H
+#define _UAPI_LINUX_PATCHKEY_H
 
 /* Endian macros. */
+#ifndef __KERNEL__
 #  include <endian.h>
+#endif
 
+#if !defined(__KERNEL__)
 #if defined(__BYTE_ORDER)
 #  if __BYTE_ORDER == __BIG_ENDIAN
 #    define _PATCHKEY(id) (0xfd00|id)
@@ -30,5 +33,6 @@
 #    error "could not determine byte order"
 #  endif
 #endif
+#endif
 
-#endif /* _LINUX_PATCHKEY_H */
+#endif /* _UAPI_LINUX_PATCHKEY_H */

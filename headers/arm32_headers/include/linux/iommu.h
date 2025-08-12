@@ -3,8 +3,8 @@
  * IOMMU user API definitions
  */
 
-#ifndef _IOMMU_H
-#define _IOMMU_H
+#ifndef _UAPI_IOMMU_H
+#define _UAPI_IOMMU_H
 
 #include <linux/types.h>
 
@@ -152,4 +152,4 @@ struct iommu_page_response {
 	__u32	code;
 };
 
-#endif /* _IOMMU_H */
+#endif /* _UAPI_IOMMU_H */

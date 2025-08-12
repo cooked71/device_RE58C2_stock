@@ -17,8 +17,8 @@
  * Boston, MA 021110-1307, USA.
  */
 
-#ifndef _LINUX_BTRFS_H
-#define _LINUX_BTRFS_H
+#ifndef _UAPI_LINUX_BTRFS_H
+#define _UAPI_LINUX_BTRFS_H
 #include <linux/types.h>
 #include <linux/ioctl.h>
 
@@ -114,7 +114,7 @@ struct btrfs_ioctl_vol_args_v2 {
 	union {
 		struct {
 			__u64 size;
-			struct btrfs_qgroup_inherit *qgroup_inherit;
+			struct btrfs_qgroup_inherit __user *qgroup_inherit;
 		};
 		__u64 unused[4];
 	};
@@ -741,7 +741,7 @@ struct btrfs_ioctl_received_subvol_args {
 struct btrfs_ioctl_send_args {
 	__s64 send_fd;			/* in */
 	__u64 clone_sources_count;	/* in */
-	__u64 *clone_sources;	/* in */
+	__u64 __user *clone_sources;	/* in */
 	__u64 parent_root;		/* in */
 	__u64 flags;			/* in */
 	__u64 reserved[4];		/* in */
@@ -948,4 +948,4 @@ enum btrfs_err_code {
 #define BTRFS_IOC_INO_LOOKUP_USER _IOWR(BTRFS_IOCTL_MAGIC, 62, \
 				struct btrfs_ioctl_ino_lookup_user_args)
 
-#endif /* _LINUX_BTRFS_H */
+#endif /* _UAPI_LINUX_BTRFS_H */

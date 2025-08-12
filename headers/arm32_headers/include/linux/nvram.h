@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_NVRAM_H
-#define _LINUX_NVRAM_H
+#ifndef _UAPI_LINUX_NVRAM_H
+#define _UAPI_LINUX_NVRAM_H
 
 #include <linux/ioctl.h>
 
@@ -14,4 +14,4 @@
 #define NVRAM_OFFSET(x)   ((x)-NVRAM_FIRST_BYTE)
 
 
-#endif /* _LINUX_NVRAM_H */
+#endif /* _UAPI_LINUX_NVRAM_H */

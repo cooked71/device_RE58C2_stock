@@ -6,8 +6,8 @@
  * under the terms of the GNU General Public License version 2 as published by
  * the Free Software Foundation.
  */
-#ifndef _GAMEPORT_H
-#define _GAMEPORT_H
+#ifndef _UAPI_GAMEPORT_H
+#define _UAPI_GAMEPORT_H
 
 
 
@@ -26,4 +26,4 @@
 #define GAMEPORT_ID_VENDOR_GRAVIS	0x0009
 #define GAMEPORT_ID_VENDOR_GUILLEMOT	0x000a
 
-#endif /* _GAMEPORT_H */
+#endif /* _UAPI_GAMEPORT_H */

@@ -51,8 +51,8 @@
  * be incorporated into the next SCTP release.
  */
 
-#ifndef _SCTP_H
-#define _SCTP_H
+#ifndef _UAPI_SCTP_H
+#define _UAPI_SCTP_H
 
 #include <linux/types.h>
 #include <linux/socket.h>
@@ -811,6 +811,7 @@ struct sctp_authchunk {
  * This option gets or sets the list of HMAC algorithms that the local
  * endpoint requires the peer to use.
  */
+#ifndef __KERNEL__
 /* This here is only used by user space as is. It might not be a good idea
  * to export/reveal the whole structure with reserved fields etc.
  */
@@ -818,6 +819,7 @@ enum {
 	SCTP_AUTH_HMAC_ID_SHA1 = 1,
 	SCTP_AUTH_HMAC_ID_SHA256 = 3,
 };
+#endif
 
 struct sctp_hmacalgo {
 	__u32		shmac_num_idents;
@@ -995,7 +997,11 @@ struct sctp_assoc_ids {
 struct sctp_getaddrs_old {
 	sctp_assoc_t            assoc_id;
 	int			addr_num;
+#ifdef __KERNEL__
+	struct sockaddr		__user *addrs;
+#else
 	struct sockaddr		*addrs;
+#endif
 };
 
 struct sctp_getaddrs {
@@ -1171,4 +1177,4 @@ enum sctp_sched_type {
 	SCTP_SS_MAX = SCTP_SS_RR
 };
 
-#endif /* _SCTP_H */
+#endif /* _UAPI_SCTP_H */

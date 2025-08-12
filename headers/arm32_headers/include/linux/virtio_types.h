@@ -1,5 +1,5 @@
-#ifndef _LINUX_VIRTIO_TYPES_H
-#define _LINUX_VIRTIO_TYPES_H
+#ifndef _UAPI_LINUX_VIRTIO_TYPES_H
+#define _UAPI_LINUX_VIRTIO_TYPES_H
 /* Type definitions for virtio implementations.
  *
  * This header is BSD licensed so anyone can use the definitions to implement
@@ -43,4 +43,4 @@ typedef __u16 __bitwise __virtio16;
 typedef __u32 __bitwise __virtio32;
 typedef __u64 __bitwise __virtio64;
 
-#endif /* _LINUX_VIRTIO_TYPES_H */
+#endif /* _UAPI_LINUX_VIRTIO_TYPES_H */

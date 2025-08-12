@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_IPC_H
-#define _LINUX_IPC_H
+#ifndef _UAPI_LINUX_IPC_H
+#define _UAPI_LINUX_IPC_H
 
 #include <linux/types.h>
 
@@ -56,7 +56,7 @@ struct ipc_perm
  * See architecture code for ugly details..
  */
 struct ipc_kludge {
-	struct msgbuf *msgp;
+	struct msgbuf __user *msgp;
 	long msgtyp;
 };
 
@@ -79,4 +79,4 @@ struct ipc_kludge {
 #define IPCCALL(version,op)	((version)<<16 | (op))
 
 
-#endif /* _LINUX_IPC_H */
+#endif /* _UAPI_LINUX_IPC_H */

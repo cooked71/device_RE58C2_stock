@@ -13,16 +13,17 @@
  * 	Port numbers are stored in HOST byte order.
  */
 
-#ifndef _IP6_TABLES_H
-#define _IP6_TABLES_H
+#ifndef _UAPI_IP6_TABLES_H
+#define _UAPI_IP6_TABLES_H
 
 #include <linux/types.h>
-
+#include <linux/compiler.h>
 #include <linux/if.h>
 #include <linux/netfilter_ipv6.h>
 
 #include <linux/netfilter/x_tables.h>
 
+#ifndef __KERNEL__
 #define IP6T_FUNCTION_MAXNAMELEN XT_FUNCTION_MAXNAMELEN
 #define IP6T_TABLE_MAXNAMELEN XT_TABLE_MAXNAMELEN
 #define ip6t_match xt_match
@@ -57,6 +58,7 @@
 	XT_MATCH_ITERATE(struct ip6t_entry, e, fn, ## args)
 #define IP6T_ENTRY_ITERATE(entries, size, fn, args...) \
 	XT_ENTRY_ITERATE(struct ip6t_entry, entries, size, fn, ## args)
+#endif
 
 /* Yes, Virginia, you have to zero the padding. */
 struct ip6t_ip6 {
@@ -238,7 +240,7 @@ struct ip6t_replace {
 	/* Number of counters (must be equal to current number of entries). */
 	unsigned int num_counters;
 	/* The old entries' counters. */
-	struct xt_counters *counters;
+	struct xt_counters __user *counters;
 
 	/* The entries (hang off end: not really an array). */
 	struct ip6t_entry entries[0];
@@ -267,4 +269,4 @@ ip6t_get_target(struct ip6t_entry *e)
  *	Main firewall chains definitions and global var's definitions.
  */
 
-#endif /* _IP6_TABLES_H */
+#endif /* _UAPI_IP6_TABLES_H */

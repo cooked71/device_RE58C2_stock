@@ -9,8 +9,8 @@
  * Author: Anup Patel <anup.patel@linaro.org>
  */
 
-#ifndef _LINUX_PSCI_H
-#define _LINUX_PSCI_H
+#ifndef _UAPI_LINUX_PSCI_H
+#define _UAPI_LINUX_PSCI_H
 
 /*
  * PSCI v0.1 interface
@@ -116,4 +116,4 @@
 #define PSCI_RET_DISABLED			-8
 #define PSCI_RET_INVALID_ADDRESS		-9
 
-#endif /* _LINUX_PSCI_H */
+#endif /* _UAPI_LINUX_PSCI_H */

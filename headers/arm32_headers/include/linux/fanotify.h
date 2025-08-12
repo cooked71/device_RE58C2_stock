@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_FANOTIFY_H
-#define _LINUX_FANOTIFY_H
+#ifndef _UAPI_LINUX_FANOTIFY_H
+#define _UAPI_LINUX_FANOTIFY_H
 
 #include <linux/types.h>
 
@@ -159,4 +159,4 @@ struct fanotify_response {
 				(long)(meta)->event_len >= (long)FAN_EVENT_METADATA_LEN && \
 				(long)(meta)->event_len <= (long)(len))
 
-#endif /* _LINUX_FANOTIFY_H */
+#endif /* _UAPI_LINUX_FANOTIFY_H */

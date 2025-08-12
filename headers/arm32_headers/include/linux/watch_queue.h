@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_WATCH_QUEUE_H
-#define _LINUX_WATCH_QUEUE_H
+#ifndef _UAPI_LINUX_WATCH_QUEUE_H
+#define _UAPI_LINUX_WATCH_QUEUE_H
 
 #include <linux/types.h>
 
@@ -52,4 +52,4 @@ struct watch_notification_removal {
 	__u64	id;		/* Type-dependent identifier */
 };
 
-#endif /* _LINUX_WATCH_QUEUE_H */
+#endif /* _UAPI_LINUX_WATCH_QUEUE_H */

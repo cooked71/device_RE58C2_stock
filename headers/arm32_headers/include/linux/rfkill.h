@@ -15,8 +15,8 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-#ifndef __RFKILL_H
-#define __RFKILL_H
+#ifndef _UAPI__RFKILL_H
+#define _UAPI__RFKILL_H
 
 
 #include <linux/types.h>
@@ -108,4 +108,4 @@ struct rfkill_event {
 
 /* and that's all userspace gets */
 
-#endif /* __RFKILL_H */
+#endif /* _UAPI__RFKILL_H */

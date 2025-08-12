@@ -13,8 +13,8 @@
  * License version 2. This program is licensed "as is" without any
  * warranty of any kind, whether express or implied.
  */
-#ifndef _BLKZONED_H
-#define _BLKZONED_H
+#ifndef _UAPI_BLKZONED_H
+#define _UAPI_BLKZONED_H
 
 #include <linux/types.h>
 #include <linux/ioctl.h>
@@ -167,4 +167,4 @@ struct blk_zone_range {
 #define BLKCLOSEZONE	_IOW(0x12, 135, struct blk_zone_range)
 #define BLKFINISHZONE	_IOW(0x12, 136, struct blk_zone_range)
 
-#endif /* _BLKZONED_H */
+#endif /* _UAPI_BLKZONED_H */

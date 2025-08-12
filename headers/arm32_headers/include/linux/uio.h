@@ -7,16 +7,16 @@
  *		as published by the Free Software Foundation; either version
  *		2 of the License, or (at your option) any later version.
  */
-#ifndef __LINUX_UIO_H
-#define __LINUX_UIO_H
+#ifndef _UAPI__LINUX_UIO_H
+#define _UAPI__LINUX_UIO_H
 
-
+#include <linux/compiler.h>
 #include <linux/types.h>
 
 
 struct iovec
 {
-	void *iov_base;	/* BSD uses caddr_t (1003.1g requires void *) */
+	void __user *iov_base;	/* BSD uses caddr_t (1003.1g requires void *) */
 	__kernel_size_t iov_len; /* Must be size_t (1003.1g) */
 };
 
@@ -28,4 +28,4 @@ struct iovec
 #define UIO_MAXIOV	1024
 
 
-#endif /* __LINUX_UIO_H */
+#endif /* _UAPI__LINUX_UIO_H */

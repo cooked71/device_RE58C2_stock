@@ -25,8 +25,8 @@
 /* With some changes from Kyösti Mälkki <kmalkki@cc.hut.fi> and
    Frodo Looijaard <frodol@dds.nl> */
 
-#ifndef _LINUX_I2C_H
-#define _LINUX_I2C_H
+#ifndef _UAPI_LINUX_I2C_H
+#define _UAPI_LINUX_I2C_H
 
 #include <linux/types.h>
 
@@ -155,4 +155,4 @@ union i2c_smbus_data {
 #define I2C_SMBUS_BLOCK_PROC_CALL   7		/* SMBus 2.0 */
 #define I2C_SMBUS_I2C_BLOCK_DATA    8
 
-#endif /* _LINUX_I2C_H */
+#endif /* _UAPI_LINUX_I2C_H */

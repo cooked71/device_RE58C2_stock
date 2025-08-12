@@ -15,8 +15,8 @@
  *	PCI System Design Guide
  */
 
-#ifndef LINUX_PCI_H
-#define LINUX_PCI_H
+#ifndef _UAPILINUX_PCI_H
+#define _UAPILINUX_PCI_H
 
 #include <linux/pci_regs.h>	/* The pci register defines */
 
@@ -39,4 +39,4 @@
 #define PCIIOC_MMAP_IS_MEM	(PCIIOC_BASE | 0x02)	/* Set mmap state to MEM space. */
 #define PCIIOC_WRITE_COMBINE	(PCIIOC_BASE | 0x03)	/* Enable/disable write-combining. */
 
-#endif /* LINUX_PCI_H */
+#endif /* _UAPILINUX_PCI_H */

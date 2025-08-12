@@ -2,8 +2,8 @@
 /*
  * Definitions for ADB (Apple Desktop Bus) support.
  */
-#ifndef __ADB_H
-#define __ADB_H
+#ifndef _UAPI__ADB_H
+#define _UAPI__ADB_H
 
 /* ADB commands */
 #define ADB_BUSRESET		0
@@ -42,4 +42,4 @@
 #define ADB_QUERY_GETDEVINFO	1
 
 
-#endif /* __ADB_H */
+#endif /* _UAPI__ADB_H */

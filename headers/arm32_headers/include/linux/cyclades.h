@@ -65,8 +65,8 @@
  *
  */
 
-#ifndef _LINUX_CYCLADES_H
-#define _LINUX_CYCLADES_H
+#ifndef _UAPI_LINUX_CYCLADES_H
+#define _UAPI_LINUX_CYCLADES_H
 
 #include <linux/types.h>
 
@@ -491,4 +491,4 @@ struct ZFW_CTRL {
 /****************** ****************** *******************/
 #endif
 
-#endif /* _LINUX_CYCLADES_H */
+#endif /* _UAPI_LINUX_CYCLADES_H */

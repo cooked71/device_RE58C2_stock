@@ -18,8 +18,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
-#ifndef LINUX_SERIAL_CORE_H
-#define LINUX_SERIAL_CORE_H
+#ifndef _UAPILINUX_SERIAL_CORE_H
+#define _UAPILINUX_SERIAL_CORE_H
 
 #include <linux/serial.h>
 
@@ -293,4 +293,4 @@
 /* Freescale Linflex UART */
 #define PORT_LINFLEXUART	122
 
-#endif /* LINUX_SERIAL_CORE_H */
+#endif /* _UAPILINUX_SERIAL_CORE_H */

@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _MPLS_H
-#define _MPLS_H
+#ifndef _UAPI_MPLS_H
+#define _UAPI_MPLS_H
 
 #include <linux/types.h>
 #include <asm/byteorder.h>
@@ -74,4 +74,4 @@ struct mpls_link_stats {
 	__u64	rx_noroute;		/* no route for packet dest	*/
 };
 
-#endif /* _MPLS_H */
+#endif /* _UAPI_MPLS_H */

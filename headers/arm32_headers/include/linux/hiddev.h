@@ -23,8 +23,8 @@
  * e-mail - mail your message to <vojtech@suse.cz>, or by paper mail:
  * Vojtech Pavlik, Ucitelska 1576, Prague 8, 182 00 Czech Republic
  */
-#ifndef _HIDDEV_H
-#define _HIDDEV_H
+#ifndef _UAPI_HIDDEV_H
+#define _UAPI_HIDDEV_H
 
 
 
@@ -210,4 +210,4 @@ struct hiddev_usage_ref_multi {
  */
 
 
-#endif /* _HIDDEV_H */
+#endif /* _UAPI_HIDDEV_H */

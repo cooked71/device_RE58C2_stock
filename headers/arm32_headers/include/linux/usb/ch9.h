@@ -31,8 +31,8 @@
  *     particular descriptor type.
  */
 
-#ifndef __LINUX_USB_CH9_H
-#define __LINUX_USB_CH9_H
+#ifndef _UAPI__LINUX_USB_CH9_H
+#define _UAPI__LINUX_USB_CH9_H
 
 #include <linux/types.h>	/* __u8 etc */
 #include <asm/byteorder.h>	/* le16_to_cpu */
@@ -462,7 +462,7 @@ struct usb_endpoint_descriptor {
  *
  * Returns @epd's number: 0 to 15.
  */
-static __inline__ int usb_endpoint_num(const struct usb_endpoint_descriptor *epd)
+static inline int usb_endpoint_num(const struct usb_endpoint_descriptor *epd)
 {
 	return epd->bEndpointAddress & USB_ENDPOINT_NUMBER_MASK;
 }
@@ -474,7 +474,7 @@ static __inline__ int usb_endpoint_num(const struct usb_endpoint_descriptor *epd
  * Returns one of USB_ENDPOINT_XFER_{CONTROL, ISOC, BULK, INT} according
  * to @epd's transfer type.
  */
-static __inline__ int usb_endpoint_type(const struct usb_endpoint_descriptor *epd)
+static inline int usb_endpoint_type(const struct usb_endpoint_descriptor *epd)
 {
 	return epd->bmAttributes & USB_ENDPOINT_XFERTYPE_MASK;
 }
@@ -485,7 +485,7 @@ static __inline__ int usb_endpoint_type(const struct usb_endpoint_descriptor *ep
  *
  * Returns true if the endpoint is of type IN, otherwise it returns false.
  */
-static __inline__ int usb_endpoint_dir_in(const struct usb_endpoint_descriptor *epd)
+static inline int usb_endpoint_dir_in(const struct usb_endpoint_descriptor *epd)
 {
 	return ((epd->bEndpointAddress & USB_ENDPOINT_DIR_MASK) == USB_DIR_IN);
 }
@@ -496,7 +496,7 @@ static __inline__ int usb_endpoint_dir_in(const struct usb_endpoint_descriptor *
  *
  * Returns true if the endpoint is of type OUT, otherwise it returns false.
  */
-static __inline__ int usb_endpoint_dir_out(
+static inline int usb_endpoint_dir_out(
 				const struct usb_endpoint_descriptor *epd)
 {
 	return ((epd->bEndpointAddress & USB_ENDPOINT_DIR_MASK) == USB_DIR_OUT);
@@ -508,7 +508,7 @@ static __inline__ int usb_endpoint_dir_out(
  *
  * Returns true if the endpoint is of type bulk, otherwise it returns false.
  */
-static __inline__ int usb_endpoint_xfer_bulk(
+static inline int usb_endpoint_xfer_bulk(
 				const struct usb_endpoint_descriptor *epd)
 {
 	return ((epd->bmAttributes & USB_ENDPOINT_XFERTYPE_MASK) ==
@@ -521,7 +521,7 @@ static __inline__ int usb_endpoint_xfer_bulk(
  *
  * Returns true if the endpoint is of type control, otherwise it returns false.
  */
-static __inline__ int usb_endpoint_xfer_control(
+static inline int usb_endpoint_xfer_control(
 				const struct usb_endpoint_descriptor *epd)
 {
 	return ((epd->bmAttributes & USB_ENDPOINT_XFERTYPE_MASK) ==
@@ -535,7 +535,7 @@ static __inline__ int usb_endpoint_xfer_control(
  * Returns true if the endpoint is of type interrupt, otherwise it returns
  * false.
  */
-static __inline__ int usb_endpoint_xfer_int(
+static inline int usb_endpoint_xfer_int(
 				const struct usb_endpoint_descriptor *epd)
 {
 	return ((epd->bmAttributes & USB_ENDPOINT_XFERTYPE_MASK) ==
@@ -549,7 +549,7 @@ static __inline__ int usb_endpoint_xfer_int(
  * Returns true if the endpoint is of type isochronous, otherwise it returns
  * false.
  */
-static __inline__ int usb_endpoint_xfer_isoc(
+static inline int usb_endpoint_xfer_isoc(
 				const struct usb_endpoint_descriptor *epd)
 {
 	return ((epd->bmAttributes & USB_ENDPOINT_XFERTYPE_MASK) ==
@@ -563,7 +563,7 @@ static __inline__ int usb_endpoint_xfer_isoc(
  * Returns true if the endpoint has bulk transfer type and IN direction,
  * otherwise it returns false.
  */
-static __inline__ int usb_endpoint_is_bulk_in(
+static inline int usb_endpoint_is_bulk_in(
 				const struct usb_endpoint_descriptor *epd)
 {
 	return usb_endpoint_xfer_bulk(epd) && usb_endpoint_dir_in(epd);
@@ -576,7 +576,7 @@ static __inline__ int usb_endpoint_is_bulk_in(
  * Returns true if the endpoint has bulk transfer type and OUT direction,
  * otherwise it returns false.
  */
-static __inline__ int usb_endpoint_is_bulk_out(
+static inline int usb_endpoint_is_bulk_out(
 				const struct usb_endpoint_descriptor *epd)
 {
 	return usb_endpoint_xfer_bulk(epd) && usb_endpoint_dir_out(epd);
@@ -589,7 +589,7 @@ static __inline__ int usb_endpoint_is_bulk_out(
  * Returns true if the endpoint has interrupt transfer type and IN direction,
  * otherwise it returns false.
  */
-static __inline__ int usb_endpoint_is_int_in(
+static inline int usb_endpoint_is_int_in(
 				const struct usb_endpoint_descriptor *epd)
 {
 	return usb_endpoint_xfer_int(epd) && usb_endpoint_dir_in(epd);
@@ -602,7 +602,7 @@ static __inline__ int usb_endpoint_is_int_in(
  * Returns true if the endpoint has interrupt transfer type and OUT direction,
  * otherwise it returns false.
  */
-static __inline__ int usb_endpoint_is_int_out(
+static inline int usb_endpoint_is_int_out(
 				const struct usb_endpoint_descriptor *epd)
 {
 	return usb_endpoint_xfer_int(epd) && usb_endpoint_dir_out(epd);
@@ -615,7 +615,7 @@ static __inline__ int usb_endpoint_is_int_out(
  * Returns true if the endpoint has isochronous transfer type and IN direction,
  * otherwise it returns false.
  */
-static __inline__ int usb_endpoint_is_isoc_in(
+static inline int usb_endpoint_is_isoc_in(
 				const struct usb_endpoint_descriptor *epd)
 {
 	return usb_endpoint_xfer_isoc(epd) && usb_endpoint_dir_in(epd);
@@ -628,7 +628,7 @@ static __inline__ int usb_endpoint_is_isoc_in(
  * Returns true if the endpoint has isochronous transfer type and OUT direction,
  * otherwise it returns false.
  */
-static __inline__ int usb_endpoint_is_isoc_out(
+static inline int usb_endpoint_is_isoc_out(
 				const struct usb_endpoint_descriptor *epd)
 {
 	return usb_endpoint_xfer_isoc(epd) && usb_endpoint_dir_out(epd);
@@ -640,7 +640,7 @@ static __inline__ int usb_endpoint_is_isoc_out(
  *
  * Returns @epd's max packet bits [10:0]
  */
-static __inline__ int usb_endpoint_maxp(const struct usb_endpoint_descriptor *epd)
+static inline int usb_endpoint_maxp(const struct usb_endpoint_descriptor *epd)
 {
 	return __le16_to_cpu(epd->wMaxPacketSize) & USB_ENDPOINT_MAXP_MASK;
 }
@@ -651,7 +651,7 @@ static __inline__ int usb_endpoint_maxp(const struct usb_endpoint_descriptor *ep
  *
  * Return @epd's wMaxPacketSize[12:11] + 1
  */
-static __inline__ int
+static inline int
 usb_endpoint_maxp_mult(const struct usb_endpoint_descriptor *epd)
 {
 	int maxp = __le16_to_cpu(epd->wMaxPacketSize);
@@ -659,7 +659,7 @@ usb_endpoint_maxp_mult(const struct usb_endpoint_descriptor *epd)
 	return USB_EP_MAXP_MULT(maxp) + 1;
 }
 
-static __inline__ int usb_endpoint_interrupt_type(
+static inline int usb_endpoint_interrupt_type(
 		const struct usb_endpoint_descriptor *epd)
 {
 	return epd->bmAttributes & USB_ENDPOINT_INTRTYPE;
@@ -694,7 +694,7 @@ struct usb_ss_ep_comp_descriptor {
 #define USB_DT_SS_EP_COMP_SIZE		6
 
 /* Bits 4:0 of bmAttributes if this is a bulk endpoint */
-static __inline__ int
+static inline int
 usb_ss_max_streams(const struct usb_ss_ep_comp_descriptor *comp)
 {
 	int		max_streams;
@@ -1229,4 +1229,4 @@ struct usb_set_sel_req {
  */
 #define USB_SELF_POWER_VBUS_MAX_DRAW		100
 
-#endif /* __LINUX_USB_CH9_H */
+#endif /* _UAPI__LINUX_USB_CH9_H */

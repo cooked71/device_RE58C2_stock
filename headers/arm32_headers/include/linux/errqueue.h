@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_ERRQUEUE_H
-#define _LINUX_ERRQUEUE_H
+#ifndef _UAPI_LINUX_ERRQUEUE_H
+#define _UAPI_LINUX_ERRQUEUE_H
 
 #include <linux/types.h>
 #include <linux/time_types.h>
@@ -56,4 +56,4 @@ enum {
 	SCM_TSTAMP_ACK,		/* data acknowledged by peer */
 };
 
-#endif /* _LINUX_ERRQUEUE_H */
+#endif /* _UAPI_LINUX_ERRQUEUE_H */

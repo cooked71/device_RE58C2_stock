@@ -19,8 +19,8 @@
  *
  */
 
-#ifndef _LINUX_TOSHIBA_H
-#define _LINUX_TOSHIBA_H
+#ifndef _UAPI_LINUX_TOSHIBA_H
+#define _UAPI_LINUX_TOSHIBA_H
 
 /*
  * Toshiba modules paths
@@ -61,4 +61,4 @@ typedef struct {
 #define TOSHIBA_ACPI_SCI	_IOWR('t', 0x91, SMMRegisters)
 
 
-#endif /* _LINUX_TOSHIBA_H */
+#endif /* _UAPI_LINUX_TOSHIBA_H */

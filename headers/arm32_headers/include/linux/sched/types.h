@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-#ifndef _LINUX_SCHED_TYPES_H
-#define _LINUX_SCHED_TYPES_H
+#ifndef _UAPI_LINUX_SCHED_TYPES_H
+#define _UAPI_LINUX_SCHED_TYPES_H
 
 #include <linux/types.h>
 
@@ -120,4 +120,4 @@ struct sched_attr {
 
 };
 
-#endif /* _LINUX_SCHED_TYPES_H */
+#endif /* _UAPI_LINUX_SCHED_TYPES_H */
