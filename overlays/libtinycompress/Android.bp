@@ -1,11 +1,11 @@
 cc_library {
-    name: "libtinycompress",
+    name: "libtinycompress-override",
     target: {
         android_arm: {
             cflags: ["-DNO_128BIT"],
             include_dirs: [
                 "bionic/libc/kernel/uapi/asm-arm",
-                "$(BOARD_32BIT_KERNEL_HEADERS)"
+                "device/realme/RE58C2/headers/arm32_headers/include",
             ],
         },
     },
