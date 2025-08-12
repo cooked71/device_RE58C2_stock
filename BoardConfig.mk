@@ -4,9 +4,9 @@
 
 DEVICE_PATH := device/realme/RE58C2
 
-# =========================
-# Build System Configuration
-# =========================
+# =====================
+# Build System Settings
+# =====================
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
@@ -38,6 +38,52 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 TARGET_2ND_CFLAGS += -mfloat-abi=softfp -mfpu=neon -march=armv7-a
 
 # =====================
+# Kernel Header Setup
+# =====================
+BOARD_32BIT_KERNEL_HEADERS := $(DEVICE_PATH)/headers/arm32_headers/include
+
+# Auto-detect header location
+ifneq ($(wildcard $(BOARD_32BIT_KERNEL_HEADERS)/asm-arm/sigcontext.h),)
+  ARM_HEADER_PATH := asm-arm
+else ifneq ($(wildcard $(BOARD_32BIT_KERNEL_HEADERS)/asm/sigcontext.h),)
+  ARM_HEADER_PATH := asm
+else
+  $(error No valid 32-bit kernel headers found in $(BOARD_32BIT_KERNEL_HEADERS))
+endif
+
+# Header configuration
+TARGET_KERNEL_HEADERS := $(BOARD_32BIT_KERNEL_HEADERS)
+ifneq ($(TARGET_ARCH),arm64)
+  LOCAL_HEADER_LIBS := $(BOARD_32BIT_KERNEL_HEADERS)
+  LOCAL_C_INCLUDES += $(BOARD_32BIT_KERNEL_HEADERS)/$(ARM_HEADER_PATH)
+endif
+
+# =====================
+# Kernel Configuration
+# =====================
+# Prebuilt Kernel Settings
+TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
+TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilts/dtbo.img
+TARGET_KERNEL_HEADERS_GEN := false
+
+# Toolchain Configuration
+KERNEL_TOOLCHAIN := prebuilts/clang/host/linux-x86/clang-r416183b
+TARGET_KERNEL_CLANG_PATH := $(KERNEL_TOOLCHAIN)/bin
+TARGET_KERNEL_CLANG_VERSION := r416183b
+
+# Kernel Parameters
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 buildvariant=user
+BOARD_VENDOR_CMDLINE := console=ttyS1,115200n8
+BOARD_MKBOOTIMG_ARGS += --header_version 4
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x05400000
+BOARD_DTB_OFFSET := 0x01f00000
+
+# =====================
 # Partition Configuration
 # =====================
 AB_OTA_UPDATER := true
@@ -52,7 +98,7 @@ AB_OTA_PARTITIONS += \
 BOARD_HAS_DYNAMIC_PARTITIONS := true
 BOARD_SUPER_PARTITION_SIZE := 8388608000
 BOARD_SUPER_PARTITION_GROUPS := realme_dynamic_partitions
-BOARD_REALME_DYNAMIC_PARTITIONS_SIZE := 8356268032  # Reserve 32MB
+BOARD_REALME_DYNAMIC_PARTITIONS_SIZE := 8356268032
 BOARD_REALME_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     product \
@@ -86,37 +132,6 @@ TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 TARGET_COPY_OUT_ODM := odm
 
-# ===================
-# Kernel Configuration
-# ===================
-# Prebuilt Kernel Settings
-TARGET_FORCE_PREBUILT_KERNEL := true
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
-TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilts/dtbo.img
-TARGET_KERNEL_HEADERS_GEN := false
-
-# Toolchain Configuration
-KERNEL_TOOLCHAIN := prebuilts/clang/kernel/linux-x86/clang-r416183b
-TARGET_KERNEL_CLANG_PATH := $(KERNEL_TOOLCHAIN)/bin
-TARGET_KERNEL_CLANG_VERSION := r416183b
-
-# 32-bit Header Handling
-BOARD_32BIT_KERNEL_HEADERS := $(DEVICE_PATH)/headers/arm32_headers/include
-ifneq ($(TARGET_ARCH),arm64)
-  LOCAL_HEADER_LIBS := $(BOARD_32BIT_KERNEL_HEADERS)
-endif
-
-# Kernel Parameters
-BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 buildvariant=user
-BOARD_VENDOR_CMDLINE := console=ttyS1,115200n8
-BOARD_MKBOOTIMG_ARGS += --header_version 4
-BOARD_KERNEL_OFFSET := 0x00008000
-BOARD_RAMDISK_OFFSET := 0x05400000
-BOARD_DTB_OFFSET := 0x01f00000
-
 # =====================
 # Verified Boot (AVB)
 # =====================
@@ -142,12 +157,8 @@ BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 3
 # =================
 # Kernel Modules
 # =================
-BOOT_KERNEL_MODULES := \
-    $(shell cat $(DEVICE_PATH)/prebuilts/modules/modules.load)
-
-BOARD_VENDOR_KERNEL_MODULES := \
-    $(wildcard $(DEVICE_PATH)/prebuilts/vendor_dlkm/lib/modules/*.ko)
-
+BOOT_KERNEL_MODULES := $(shell cat $(DEVICE_PATH)/prebuilts/modules/modules.load)
+BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)/prebuilts/vendor_dlkm/lib/modules/*.ko)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
 
@@ -174,12 +185,12 @@ TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 include vendor/realme/RE58C2/BoardConfigVendor.mk
 
 # ====================
-# Header Verification
+# Prebuilt Validation
 # ====================
-ifeq ($(wildcard $(BOARD_32BIT_KERNEL_HEADERS)/asm-arm/sigcontext.h),)
-  $(error 32-bit kernel headers missing at $(BOARD_32BIT_KERNEL_HEADERS))
-endif
-
 ifeq ($(wildcard $(TARGET_PREBUILT_KERNEL)),)
   $(error Prebuilt kernel missing at $(TARGET_PREBUILT_KERNEL))
+endif
+
+ifeq ($(wildcard $(TARGET_PREBUILT_DTB)),)
+  $(error Prebuilt DTB missing at $(TARGET_PREBUILT_DTB))
 endif
