@@ -210,7 +210,7 @@ PRODUCT_PACKAGES += $(INIT_RC_FILES)
 PRODUCT_PREBUILT_DTBO_IMAGE := $(TARGET_PREBUILT_DTBO)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img \
-    $(LOCAL_PATH)/prebuilts/dtbo.img:$(TARGET_COPY_OUT)/dtbo.img
+    $(TARGET_PREBUILT_DTBO):$(TARGET_COPY_OUT)/dtbo.img
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
