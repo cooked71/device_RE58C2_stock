@@ -59,6 +59,12 @@ TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
 BOARD_PREBUILT_DTBIMAGE := $(DEVICE_PATH)/prebuilts/dtb.img
 TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilts/dtbo.img
+<<<<<<< HEAD
+#TARGET_KERNEL_SOURCE := kernel/realme/RE58C2
+#TARGET_KERNEL_CONFIG := RE58C2_defconfig
+BOARD_PREBUILT_BOOTIMAGE := $(DEVICE_PATH)/prebuilts/boot.img
+=======
+>>>>>>> dd94fced538b39e14947a6aafc0457e0ffd457a3
 
 # Fix boot image prebuilt handling
 BOARD_USE_PREBUILT_BOOTIMG := true
