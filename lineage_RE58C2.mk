@@ -14,7 +14,6 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit from RE58C2 device
 $(call inherit-product, device/realme/RE58C2/device.mk)
 
-
 PRODUCT_DEVICE := RE58C2
 PRODUCT_NAME := lineage_RE58C2
 PRODUCT_BRAND := realme
