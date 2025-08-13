@@ -54,6 +54,7 @@ TARGET_KERNEL_HEADERS := $(BOARD_32BIT_KERNEL_HEADERS)
 # =====================
 # Prebuilt Kernel
 # =====================
+TARGET_NO_KERNEL := true
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
