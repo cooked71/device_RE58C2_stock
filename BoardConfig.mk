@@ -52,18 +52,18 @@ endif
 TARGET_KERNEL_HEADERS := $(BOARD_32BIT_KERNEL_HEADERS)
 
 # =====================
-# Prebuilt Kernel
+# Prebuilt Kernel / Boot Fix
 # =====================
-#TARGET_NO_KERNEL := true
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
-#BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 BOARD_PREBUILT_DTBIMAGE := $(DEVICE_PATH)/prebuilts/dtb.img
 TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilts/dtbo.img
-#TARGET_KERNEL_SOURCE := kernel/realme/RE58C2
-#TARGET_KERNEL_CONFIG := RE58C2_defconfig
 
+# Fix boot image prebuilt handling
+BOARD_USE_PREBUILT_BOOTIMG := true
+BOARD_BOOTIMAGE_PREBUILT := $(DEVICE_PATH)/prebuilts/boot.img
+BOARD_VENDOR_BOOTIMAGE_PREBUILT := $(DEVICE_PATH)/prebuilts/vendor_boot.img
 
 # =====================
 # Boot / Vendor Boot
