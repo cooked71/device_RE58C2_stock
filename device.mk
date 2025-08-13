@@ -18,6 +18,12 @@ PRODUCT_SHIPPING_API_LEVEL := 33
 BOARD_VNDK_VERSION := current
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
+# Disable strict OTA kernel requirement checks (prebuilt kernel setup)
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+
+# Skip dexpreopt checks for missing artifacts
+WITH_DEXPREOPT := false
+
 # ------------------------
 # Kernel prebuilts
 # ------------------------
