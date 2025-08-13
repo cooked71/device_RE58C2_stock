@@ -206,11 +206,13 @@ INIT_RC_FILES := \
 
 PRODUCT_PACKAGES += $(INIT_RC_FILES)
 
-# Device tree blobs
-PRODUCT_PREBUILT_DTBO_IMAGE := $(TARGET_PREBUILT_DTBO)
+# Prebuilt DTBO and DT images
+PRODUCT_PREBUILT_DTBO_IMAGE := $(LOCAL_PATH)/prebuilts/dtbo.img
+BOARD_USE_DTBO_IMAGE := true
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img \
-    $(TARGET_PREBUILT_DTBO):$(TARGET_COPY_OUT)/dtbo.img
+    $(PRODUCT_PREBUILT_DTBO_IMAGE):$(TARGET_COPY_OUT)/dtbo.img
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
