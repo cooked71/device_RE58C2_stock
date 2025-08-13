@@ -58,16 +58,12 @@ TARGET_NO_KERNEL := true
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
+#BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+BOARD_PREBUILT_DTBIMAGE := $(DEVICE_PATH)/prebuilts/dtb.img
 TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilts/dtbo.img
 #TARGET_KERNEL_SOURCE := kernel/realme/RE58C2
 #TARGET_KERNEL_CONFIG := RE58C2_defconfig
 
-ifeq ($(wildcard $(TARGET_PREBUILT_KERNEL)),)
-  $(error Prebuilt kernel missing at $(TARGET_PREBUILT_KERNEL))
-endif
-ifeq ($(wildcard $(TARGET_PREBUILT_DTB)),)
-  $(error Prebuilt DTB missing at $(TARGET_PREBUILT_DTB))
-endif
 
 # =====================
 # Boot / Vendor Boot
