@@ -1,50 +1,38 @@
+#
 # Copyright (C) 2025 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
+#
 
-LOCAL_PATH := device/realme/RE58C2
-
-# ------------------------
-# Base product definitions
-# ------------------------
+# Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+# A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
+# Kernel
 PRODUCT_ENABLE_UFFD_GC := false
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-PRODUCT_CHARACTERISTICS := default
-PRODUCT_SHIPPING_API_LEVEL := 33
-BOARD_VNDK_VERSION := current
-PRODUCT_ENFORCE_RRO_TARGETS := *
 
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    vendor/realme/RE58C2
-
-# ------------------------
-# Kernel prebuilts
-# ------------------------
-# These lines ensure the kernel and blobs get into boot/vendor_boot
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/prebuilts/kernel:kernel \
-#    $(LOCAL_PATH)/prebuilts/dtb.img:dtb.img \
-#    $(LOCAL_PATH)/prebuilts/dtbo.img:dtbo.img
-
-# ------------------------
-# Device-specific manifests
-# ------------------------
+# Compatibility matrices
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE := \
-    $(LOCAL_PATH)/product/compatibility_matrix.xml
-DEVICE_VENDOR_COMPATIBILITY_MATRIX_FILE := \
-    $(LOCAL_PATH)/compatibility_matrix.device.xml
+    device/realme/RE58C2/product/compatibility_matrix.xml
 
+DEVICE_VENDOR_COMPATIBILITY_MATRIX_FILE := \
+    device/realme/RE58C2/compatibility_matrix.device.xml
+
+# Manifest files
 DEVICE_MANIFEST_FILES := \
-    $(LOCAL_PATH)/manifest.xml \
+    device/realme/RE58C2/manifest.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest.xml
 
+# VINTF manifests from vendor
+PRODUCT_PACKAGES += \
+    manifest_oplus_performance.xml \
+    manifest_dualsim.xml \
+    manifest_media_c2_V1_1_unisoc.xml
+
+# Hardware-specific manifests
 HARDWARE_MANIFESTS := \
     ai_engine-default \
     android.hardware.biometrics.fingerprint@2.1-service \
@@ -81,17 +69,25 @@ HARDWARE_MANIFESTS := \
     vendor.sprd.hardware.thermal@2.0-service \
     vibrator
 
-DEVICE_MANIFEST_FILES += $(foreach m,$(HARDWARE_MANIFESTS),\
-    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/$(m).xml)
+DEVICE_MANIFEST_FILES += $(foreach manifest,$(HARDWARE_MANIFESTS),\
+   vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/$(manifest).xml)
 
-# ------------------------
-# Recovery
-# ------------------------
+
+# ===========================
+# Recovery configuration
+# ===========================
+
+# recovery.fstab → recovery ramdisk (vendor_boot)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/root/recovery.fstab:$(TARGET_COPY_OUT_RECOVERY)/etc/recovery.fstab \
+    $(LOCAL_PATH)/recovery/root/recovery.fstab:$(TARGET_COPY_OUT_RECOVERY)/etc/recovery.fstab
+
+# init.recovery.mount.rc → root of recovery ramdisk
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/init.recovery.mount.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mount.rc
 
-# Boot control HAL + recovery tools
+
+
+# Boot control HAL
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl \
     android.hardware.boot@1.2-impl.recovery \
@@ -99,7 +95,10 @@ PRODUCT_PACKAGES += \
     vendor.sprd.hardware.boot@1.2-impl.recovery \
     bootctrl \
     bootctrl.recovery \
-    bootctrl.ums9230 \
+    bootctrl.ums9230
+
+# Recovery tools
+PRODUCT_PACKAGES += \
     linker.vendor_ramdisk \
     tune2fs.vendor_ramdisk \
     resize2fs.vendor_ramdisk \
@@ -109,9 +108,7 @@ PRODUCT_PACKAGES += \
     fastbootd \
     android.hardware.fastboot@1.0-impl-mock
 
-# ------------------------
-# OTA update engine
-# ------------------------
+# Update engine
 PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
@@ -131,9 +128,20 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_vendor=erofs \
     POSTINSTALL_OPTIONAL_vendor=true
 
-# ------------------------
+# API levels
+PRODUCT_SHIPPING_API_LEVEL := 33
+BOARD_VNDK_VERSION := current
+
+# Overlays
+PRODUCT_ENFORCE_RRO_TARGETS := *
+
+# Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# Product characteristics
+PRODUCT_CHARACTERISTICS := default
+
 # Rootdir scripts
-# ------------------------
 ROOTDIR_SCRIPTS := \
     log_to_csv.sh \
     loading.sh \
@@ -147,9 +155,7 @@ ROOTDIR_SCRIPTS := \
 
 PRODUCT_PACKAGES += $(ROOTDIR_SCRIPTS)
 
-# ------------------------
-# NFC
-# ------------------------
+# NFC packages
 NFC_PACKAGES := \
     vendor.nxp.eventprocessor@1.0 \
     vendor.nxp.nxpnfclegacy@1.0 \
@@ -159,9 +165,11 @@ NFC_PACKAGES := \
 
 PRODUCT_PACKAGES += $(NFC_PACKAGES)
 
-# ------------------------
+
+
+
+
 # Init scripts
-# ------------------------
 INIT_RC_FILES := \
     init.RMX3624.rc \
     init.RMX3624.usb.rc \
@@ -198,20 +206,36 @@ INIT_RC_FILES := \
 
 PRODUCT_PACKAGES += $(INIT_RC_FILES)
 
-# ------------------------
+# Device tree blobs
+PRODUCT_PREBUILT_DTBO_IMAGE := $(TARGET_PREBUILT_DTBO)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img \
+    $(LOCAL_PATH)/prebuilts/dtbo.img:dtbo.img
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    vendor/realme/RE58C2
+
+
+
+
+# Platform-specific configurations
+ifneq ($(TARGET_BOARD_PLATFORM),)
+PRODUCT_PLATFORM := ums9230
+endif
+
 # Recovery modules
-# ------------------------
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/stuff/modules,$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/lib/modules)
 
-# ------------------------
-# Vendor blobs
-# ------------------------
+# Inherit the proprietary files
 $(call inherit-product, vendor/realme/RE58C2/RE58C2-vendor.mk)
 
-# ------------------------
-# Core Lineage apps
-# ------------------------
+# ---------------------------------------------
+# ✅ ADD CORE AOSP/LINEAGE APPS FOR A FULL SYSTEM
+# ---------------------------------------------
+
 PRODUCT_PACKAGES += \
     SystemUI \
     Settings \
