@@ -3,6 +3,11 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+# Add this at the top
+PRODUCT_SOONG_NAMESPACES += \
+    device/realme/RE58C2 \
+    vendor/realme/RE58C2 \
+    kernel/realme/RE58C2
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
