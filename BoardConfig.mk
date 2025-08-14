@@ -386,6 +386,15 @@ wcn_bsp.ko \
 zram.ko \
 zsmalloc.ko
 
+
+# For vendor_boot modules:
+BOARD_VENDOR_BOOT_MODULES_ALIAS := $(DEVICE_PATH)/prebuilts/modules/vendor_boot_modules/modules.alias
+
+# For vendor_dlkm modules:
+BOARD_VENDOR_DLKM_MODULES_ALIAS := $(DEVICE_PATH)/prebuilts/modules/vendor_dlkm_modules/modules.alias
+
+
+
 # For vendor_boot modules
 BOOT_KERNEL_MODULES := \
     $(wildcard $(DEVICE_PATH)/prebuilts/modules/vendor_boot_modules/*.ko)
