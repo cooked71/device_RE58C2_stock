@@ -388,6 +388,7 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(notdir $(BOOT_KERNEL_MODULES))
 
 # Where to install vendor_boot modules (Android 12+)
 BOARD_VENDOR_BOOT_MODULES += $(BOOT_KERNEL_MODULES)
+
 #sepolicy for fastdotd
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/common
 
