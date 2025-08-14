@@ -40,8 +40,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 BOARD_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilts/kernel
 TARGET_PREBUILT_KERNEL := $(BOARD_PREBUILT_KERNEL)
 
-# If you prefer prebuilt boot.img instead of building boot image from kernel+ramdisk:
-# BOARD_PREBUILT_BOOTIMAGE := $(LOCAL_PATH)/prebuilts/boot.img
-
-# Disable strict kernel checks if prebuilt info is missing
-PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
