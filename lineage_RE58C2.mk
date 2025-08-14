@@ -33,10 +33,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="ums9230_hulk_Natv-user 13 TP1A.220624.014 1063 release-keys" \
     BUILD_FINGERPRINT=realme/RMX3760/RE58C2:13/TP1A.220624.014/T.R4T2.1720264765:user/release-keys
 
-# ===========================
-# Prebuilt kernel handling
-# ===========================
-# Path to your prebuilt kernel binary
-BOARD_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilts/kernel
-TARGET_PREBUILT_KERNEL := $(BOARD_PREBUILT_KERNEL)
-
