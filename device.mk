@@ -11,6 +11,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
+# Add this at the top
+PRODUCT_SOONG_NAMESPACES += \
+    device/realme/RE58C2 \
+    vendor/realme/RE58C2 \
+    kernel/realme/RE58C2
 
 
 
