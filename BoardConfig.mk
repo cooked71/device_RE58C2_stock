@@ -38,7 +38,7 @@ TARGET_SCREEN_DENSITY := 320
 # ========================
 # Kernel source for headers
 TARGET_KERNEL_SOURCE := kernel/realme/RE58C2
-TARGET_KERNEL_CONFIG := lineageos_RE58C2_defconfig
+TARGET_KERNEL_CONFIG := RE58C2_defconfig
 
 # Prebuilt kernel override
 TARGET_FORCE_PREBUILT_KERNEL := true
