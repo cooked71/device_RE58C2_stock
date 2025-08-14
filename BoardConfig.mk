@@ -93,7 +93,6 @@ BOARD_32BIT_KERNEL_HEADERS := $(DEVICE_PATH)/headers/arm32_headers/include/
 ifneq ($(TARGET_ARCH),arm64)
   LOCAL_HEADER_LIBS := $(BOARD_32BIT_KERNEL_HEADERS)
 endif
-TARGET_KERNEL_HEADERS_GEN := false
 
 
 # Kernel arguments
@@ -124,6 +123,11 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 # Disable kernel includes generation (since we use prebuilt kernel)
 BUILD_BROKEN_DONT_GENERATE_KERNEL_INCLUDES := true
 TARGET_KERNEL_HEADERS_GEN := false
+TARGET_NO_KERNEL := true
+
+# Completely disable kernel building
+TARGET_KERNEL_SOURCE := 
+TARGET_KERNEL_CONFIG := 
 
 # DTBO
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
