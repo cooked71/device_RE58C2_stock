@@ -423,5 +423,20 @@ TARGET_VENDOR_DLKM_PROP   += $(DEVICE_PATH)/vendor_dlkm.prop
 TARGET_ODM_DLKM_PROP      += $(DEVICE_PATH)/odm_dlkm.prop
 
 
+
+# ===== DEBUG TRAP =====
+# Check if files exist when variables are used
+define file_check
+$(if $(wildcard $1),,\
+  $(warning Missing file: $1)\
+  $(shell echo "[ERROR] MISSING: $1" >> $(DEVICE_PATH)/missing_files.log))
+$1
+endef
+
+# Apply to critical prebuilts
+TARGET_PREBUILT_KERNEL := $(call file_check,$(DEVICE_PATH)/prebuilts/kernel)
+TARGET_PREBUILT_DTB := $(call file_check,$(DEVICE_PATH)/prebuilts/dtb.img)
+BOARD_PREBUILT_DTBOIMAGE := $(call file_check,$(DEVICE_PATH)/prebuilts/dtbo.img)
+
 # Inherit vendor blobs
 include vendor/realme/RE58C2/BoardConfigVendor.mk
