@@ -224,8 +224,10 @@ PRODUCT_PACKAGES += \
     otapreopt_script
 
 # API levels
-PRODUCT_SHIPPING_API_LEVEL := 34
-
+# Keep multiple versions but ensure minimum matches API level
+BOARD_SYSTEMSDK_VERSIONS := 33 34
+PRODUCT_SHIPPING_API_LEVEL := 33
+BOARD_API_LEVEL := 33
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
