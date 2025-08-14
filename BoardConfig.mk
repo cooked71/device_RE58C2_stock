@@ -11,6 +11,7 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 ALLOW_MISSING_DEPENDENCIES := true
+BUILD_BROKEN_DISABLE_DEPMOD := true
 
 # Release tools
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
@@ -374,9 +375,19 @@ wcn_bsp.ko \
 zram.ko \
 zsmalloc.ko
 
-BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)/prebuilts/vendor_dlkm/lib/modules/*.ko)
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
+# For vendor_boot modules
+BOOT_KERNEL_MODULES := \
+    $(wildcard $(DEVICE_PATH)/prebuilts/modules/vendor_boot_modules/*.ko)
 
+# For vendor_dlkm modules (if needed)
+BOARD_VENDOR_KERNEL_MODULES := \
+    $(wildcard $(DEVICE_PATH)/prebuilts/modules/vendor_dlkm_modules/*.ko)
+
+# Load vendor_boot modules into ramdisk
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(notdir $(BOOT_KERNEL_MODULES))
+
+# Where to install vendor_boot modules (Android 12+)
+BOARD_VENDOR_BOOT_MODULES += $(BOOT_KERNEL_MODULES)
 #sepolicy for fastdotd
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/common
 
