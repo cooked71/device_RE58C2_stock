@@ -118,6 +118,9 @@ BOARD_HAS_DTBOIMAGE := false
 BOARD_PREBUILT_DTBO := true
 TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilts/dtbo.img
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
+BOARD_PREBUILT_BOOTIMAGE := $(DEVICE_PATH)/prebuilts/boot.img
+
+
 
 # Disable kernel includes generation (since we use prebuilt kernel)
 BUILD_BROKEN_DONT_GENERATE_KERNEL_INCLUDES := true
@@ -407,6 +410,8 @@ BOARD_VENDOR_BOOT_MODULES += $(BOOT_KERNEL_MODULES)
 #sepolicy for fastdotd
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/common
 
+
+BOARD_KERNEL_VERSION := 5.4.254
 
 # VINTF manifest
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
