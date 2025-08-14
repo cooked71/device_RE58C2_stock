@@ -120,9 +120,9 @@ BOARD_PREBUILT_DTBO := true
 TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilts/dtbo.img
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 
-
-
-
+# Disable kernel includes generation (since we use prebuilt kernel)
+BUILD_BROKEN_DONT_GENERATE_KERNEL_INCLUDES := true
+TARGET_KERNEL_HEADERS_GEN := false
 
 # DTBO
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
