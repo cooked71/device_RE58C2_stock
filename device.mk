@@ -87,8 +87,8 @@ PRODUCT_COPY_FILES += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    vendor.sprd.hardware.boot@1.2-impl \
-    vendor.sprd.hardware.boot@1.2-impl.recovery 
+   # vendor.sprd.hardware.boot@1.2-impl \
+   # vendor.sprd.hardware.boot@1.2-impl.recovery 
    # bootctrl \
    # bootctrl.recovery \
    # bootctrl.ums9230
