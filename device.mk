@@ -30,11 +30,7 @@ DEVICE_MANIFEST_FILES := \
     device/realme/RE58C2/manifest.xml \
     vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest.xml
 
-# VINTF manifests from vendor
-PRODUCT_PACKAGES += \
-    manifest_oplus_performance.xml \
-    manifest_dualsim.xml \
-    manifest_media_c2_V1_1_unisoc.xml
+
 
 # Hardware-specific manifests
 HARDWARE_MANIFESTS := \
@@ -91,13 +87,11 @@ PRODUCT_COPY_FILES += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl \
-    android.hardware.boot@1.2-impl.recovery \
     vendor.sprd.hardware.boot@1.2-impl \
-    vendor.sprd.hardware.boot@1.2-impl.recovery \
-    bootctrl \
-    bootctrl.recovery \
-    bootctrl.ums9230
+    vendor.sprd.hardware.boot@1.2-impl.recovery 
+   # bootctrl \
+   # bootctrl.recovery \
+   # bootctrl.ums9230
 
 # Recovery tools
 PRODUCT_PACKAGES += \
