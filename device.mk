@@ -33,7 +33,7 @@ DEVICE_MANIFEST_FILES := \
 
 
 # Hardware-specific manifests
-HARDWARE_MANIFESTS := \
+#HARDWARE_MANIFESTS := \
     ai_engine-default \
     android.hardware.biometrics.fingerprint@2.1-service \
     android.hardware.cas@1.2-service \
@@ -69,7 +69,7 @@ HARDWARE_MANIFESTS := \
     vendor.sprd.hardware.thermal@2.0-service \
     vibrator
 
-DEVICE_MANIFEST_FILES += $(foreach manifest,$(HARDWARE_MANIFESTS),\
+#DEVICE_MANIFEST_FILES += $(foreach manifest,$(HARDWARE_MANIFESTS),\
    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest/$(manifest).xml)
 
 
