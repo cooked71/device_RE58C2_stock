@@ -158,7 +158,8 @@ BOARD_RECOVERY_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
 
 # API / vendor matching
 PLATFORM_SEPOLICY_VERSION := 33
-BOARD_SEPOLICY_VERS := 33
+# Match platform sepolicy (use date-based, not 33)
+BOARD_SEPOLICY_VERS := 202404
 BOARD_VNDK_VERSION := current
 
 # ========================
