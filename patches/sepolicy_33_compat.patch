@@ -1,0 +1,26 @@
+From 9c3f1c6b9c0fba93e92f68e3c9c3a7a88f3f93e4 Mon Sep 17 00:00:00 2001
+From: YourName <you@example.com>
+Date: Sun, 17 Aug 2025 20:10:00 +0200
+Subject: [PATCH] soong: Map BOARD_SEPOLICY_VERS 33 to 202404 for A13 vendors
+
+Some devices (with Android 13 vendor) ship BOARD_SEPOLICY_VERS=33,
+while AOSP expects 202404. This patch remaps 33 -> 202404 internally
+so assemble_vintf doesn't fail.
+
+---
+
+diff --git a/build/soong/android/config.go b/build/soong/android/config.go
+index 3f28b8a..a27f9c3 100644
+--- a/build/soong/android/config.go
++++ b/build/soong/android/config.go
+@@ -452,6 +452,11 @@ func (c *config) VendorApiLevel() int {
+        vendorApiLevel, _ := strconv.Atoi(c.VendorApiLevelRaw())
+
++       // HACK: Treat legacy sepolicy level 33 as equivalent to 202404
++       // Needed for devices shipping Android 13 vendor blobs
++       if vendorApiLevel == 33 {
++               vendorApiLevel = 202404
++       }
+ 
+        if vendorApiLevel < 202404 || vendorApiLevel%100 != 4 {
+                return vendorApiLevel
