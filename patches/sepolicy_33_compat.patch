@@ -1,23 +1,34 @@
 From: YourName <you@example.com>
 Date: Sun, 17 Aug 2025 23:59:00 +0200
-Subject: [PATCH] soong: Handle API level 33 in PrevVendorApiLevel for A13 vendor
+Subject: [PATCH] soong: Add Android 13 (API 33) sepolicy compatibility
 
 ---
- build/soong/android/config.go | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+ build/soong/android/config.go | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
 
 diff --git a/build/soong/android/config.go b/build/soong/android/config.go
 index 3f28b8a..a1b2c3d 100644
 --- a/build/soong/android/config.go
 +++ b/build/soong/android/config.go
-@@ -1342,6 +1342,12 @@ func (c *config) PrevVendorApiLevel() string {
-        vendorApiLevel, err := strconv.Atoi(c.VendorApiLevel())
+@@ -1342,6 +1342,11 @@ func (c *config) VendorApiLevel() string {
+        vendorApiLevel, err := strconv.Atoi(c.VendorApiLevelRaw())
         if err != nil {
+                panic(fmt.Errorf("Cannot parse vendor API level %s to an integer: %s",
+                        c.VendorApiLevelRaw(), err))
+        }
++
++       if vendorApiLevel == 33 {
++               return "202404"
++       }
++
+        return c.VendorApiLevelRaw()
+ }
+ 
+@@ -1352,6 +1357,11 @@ func (c *config) PrevVendorApiLevel() string {
                 panic(fmt.Errorf("Cannot parse vendor API level %s to an integer: %s",
                         c.VendorApiLevel(), err))
         }
 +
-+       // Handle API level 33 (Android 13) special case
 +       if c.VendorApiLevel() == "202404" {
 +               return "33"
 +       }
