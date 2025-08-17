@@ -156,6 +156,11 @@ VENDOR_SECURITY_PATCH := 2024-07-05
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/
 BOARD_RECOVERY_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
 
+# API / vendor matching
+PLATFORM_SEPOLICY_VERSION := 33
+BOARD_SEPOLICY_VERS := 33
+BOARD_VNDK_VERSION := current
+
 # ========================
 # Debugging
 # ========================
