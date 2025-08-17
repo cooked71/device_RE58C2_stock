@@ -8,12 +8,14 @@ while AOSP expects 202404. This patch remaps 33 -> 202404 internally
 so assemble_vintf doesn't fail.
 
 ---
+ build/soong/android/config.go | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/build/soong/android/config.go b/build/soong/android/config.go
 index 3f28b8a..a27f9c3 100644
 --- a/build/soong/android/config.go
 +++ b/build/soong/android/config.go
-@@ -452,6 +452,11 @@ func (c *config) VendorApiLevel() int {
+@@ -452,6 +452,12 @@ func (c *config) VendorApiLevel() int {
         vendorApiLevel, _ := strconv.Atoi(c.VendorApiLevelRaw())
 
 +       // HACK: Treat legacy sepolicy level 33 as equivalent to 202404
@@ -21,6 +23,6 @@ index 3f28b8a..a27f9c3 100644
 +       if vendorApiLevel == 33 {
 +               vendorApiLevel = 202404
 +       }
- 
++
         if vendorApiLevel < 202404 || vendorApiLevel%100 != 4 {
                 return vendorApiLevel
