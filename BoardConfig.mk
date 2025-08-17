@@ -159,6 +159,7 @@ BOARD_RECOVERY_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
 # API / vendor matching
 PLATFORM_SEPOLICY_VERSION := 33
 BOARD_SEPOLICY_VERS := 33
+BOARD_SEPOLICY_VERS_OVERRIDE := true
 BOARD_VNDK_VERSION := current
 
 # ========================
