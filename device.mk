@@ -8,6 +8,9 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/realme/RE58C2 \
     kernel/realme/RE58C2
 
+# Product shipping API level
+PRODUCT_SHIPPING_API_LEVEL := 33
+
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
