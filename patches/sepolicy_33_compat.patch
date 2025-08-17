@@ -1,15 +1,9 @@
-From: YourNiame <you@example.com>
+From: YourName <you@example.com>
 Date: Sun, 17 Aug 2025 23:59:00 +0200
 Subject: [PATCH] soong: Add Android 13 (API 33) sepolicy compatibility
 
----
- build/soong/android/config.go | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
-
-diff --git a/build/soong/android/config.go b/build/soong/android/config.go
-index 3f28b8a..a1b2c3d 100644
---- a/build/soong/android/config.go
-+++ b/build/soong/android/config.go
+--- a/android/config.go
++++ b/android/config.go
 @@ -1338,6 +1338,11 @@ func (c *config) VendorApiLevel() string {
         vendorApiLevel, err := strconv.Atoi(c.VendorApiLevelRaw())
         if err != nil {
