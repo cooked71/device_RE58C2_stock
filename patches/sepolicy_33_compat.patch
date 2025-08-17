@@ -10,7 +10,7 @@ diff --git a/build/soong/android/config.go b/build/soong/android/config.go
 index 3f28b8a..a1b2c3d 100644
 --- a/build/soong/android/config.go
 +++ b/build/soong/android/config.go
-@@ -1342,6 +1342,11 @@ func (c *config) VendorApiLevel() string {
+@@ -1338,6 +1338,11 @@ func (c *config) VendorApiLevel() string {
         vendorApiLevel, err := strconv.Atoi(c.VendorApiLevelRaw())
         if err != nil {
                 panic(fmt.Errorf("Cannot parse vendor API level %s to an integer: %s",
@@ -24,7 +24,7 @@ index 3f28b8a..a1b2c3d 100644
         return c.VendorApiLevelRaw()
  }
  
-@@ -1352,6 +1357,11 @@ func (c *config) PrevVendorApiLevel() string {
+@@ -1348,6 +1353,11 @@ func (c *config) PrevVendorApiLevel() string {
                 panic(fmt.Errorf("Cannot parse vendor API level %s to an integer: %s",
                         c.VendorApiLevel(), err))
         }
