@@ -21,9 +21,9 @@ index abc1234..def5678 100644
 +		return "202404"
 +	}
 +	return vendorApiLevel
- 	return String(c.productVariables.VendorApiLevel)
  }
  
+ func (c *config) PrevVendorApiLevel() string {
 @@ -1345,6 +1351,11 @@ func (c *config) PrevVendorApiLevel() string {
  		panic(fmt.Errorf("Cannot parse vendor API level %s to an integer: %s",
  			c.VendorApiLevel(), err))
