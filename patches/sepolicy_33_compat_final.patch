@@ -1,32 +1,46 @@
-From: YourName <you@example.com>
-Date: Sun, 17 Aug 2025 23:59:00 +0200
-Subject: [PATCH] soong: Add Android 13 (API 33) sepolicy compatibility
+From 9d6845bf890b851f9ccc196350430f834c4f83a3 Mon Sep 17 00:00:00 2001
+From: cooked71 <53344663+cooked71@users.noreply.github.com>
+Date: Mon, 18 Aug 2025 03:03:14 +0200
+Subject: [PATCH] cdsad
 
---- a/build/soong/android/config.go
-+++ b/build/soong/android/config.go
-@@ -1338,6 +1338,11 @@ func (c *config) VendorApiLevel() string {
-        vendorApiLevel, err := strconv.Atoi(c.VendorApiLevelRaw())
-        if err != nil {
-                panic(fmt.Errorf("Cannot parse vendor API level %s to an integer: %s",
-                        c.VendorApiLevelRaw(), err))
-        }
-+
-+       if vendorApiLevel == 33 {
-+               return "202404"
-+       }
-+
-        return c.VendorApiLevelRaw()
+---
+ android/config.go | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+
+--- a//build/soong/android/config.go
++++ b//build/soong/android/config.go
+@@ -1336,6 +1336,10 @@ func (c *config) IsVndkDeprecated() bool {
  }
  
-@@ -1348,6 +1353,11 @@ func (c *config) PrevVendorApiLevel() string {
-                panic(fmt.Errorf("Cannot parse vendor API level %s to an integer: %s",
-                        c.VendorApiLevel(), err))
-        }
+ func (c *config) VendorApiLevel() string {
++	// Handle API level 33 special case
++	if c.productVariables.VendorApiLevel == "33" {
++		return "202404"
++	}
+ 	return String(c.productVariables.VendorApiLevel)
+ }
+ 
+@@ -1345,6 +1349,12 @@ func (c *config) PrevVendorApiLevel() string {
+ 		panic(fmt.Errorf("Cannot parse vendor API level %s to an integer: %s",
+ 			c.VendorApiLevel(), err))
+ 	}
 +
-+       if c.VendorApiLevel() == "202404" {
-+               return "33"
-+       }
++	// New mapping: 202404 string → 33
++	if c.VendorApiLevel() == "202404" {
++		return "33"
++	}
 +
-        if vendorApiLevel < 202404 || vendorApiLevel%100 != 4 {
-                panic("Unknown vendor API level " + c.VendorApiLevel())
-        }
+ 	if vendorApiLevel < 202404 || vendorApiLevel%100 != 4 {
+ 		panic("Unknown vendor API level " + c.VendorApiLevel())
+ 	}
+@@ -1354,7 +1364,6 @@ func (c *config) PrevVendorApiLevel() string {
+ 	}
+ 	return strconv.Itoa(vendorApiLevel - 100)
+ }
+-
+ func (c *config) VendorApiLevelFrozen() bool {
+ 	return c.productVariables.GetBuildFlagBool("RELEASE_BOARD_API_LEVEL_FROZEN")
+ }
+-- 
+2.43.0
