@@ -164,6 +164,12 @@ VENDOR_SECURITY_PATCH := 2024-07-05
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/
 BOARD_RECOVERY_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
 
+# Explicitly declare VNDK version
+BOARD_VNDK_VERSION := 33
+PRODUCT_EXTRA_VNDK_VERSIONS := 33
+
+# Optional: ABI freeze for specific libs
+TARGET_VNDK_ABI_FREEZE := true
 
 # ========================
 # Debugging
