@@ -15,7 +15,7 @@ Subject: [PATCH] cdsad
  
  func (c *config) VendorApiLevel() string {
 +	// Handle API level 33 special case
-+	if c.productVariables.VendorApiLevel == "33" {
++	if String(c.productVariables.VendorApiLevel) == "33" {
 +		return "202404"
 +	}
  	return String(c.productVariables.VendorApiLevel)
