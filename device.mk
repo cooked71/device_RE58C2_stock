@@ -212,9 +212,6 @@ PRODUCT_CHARACTERISTICS := default
 #     init.zramwb.rc
 # PRODUCT_PACKAGES += $(INIT_RC_FILES)
 
-# Prebuilt DTBO and DT images
-PRODUCT_PREBUILT_DTBO_IMAGE := $(LOCAL_PATH)/prebuilts/dtbo.img
-BOARD_USE_DTBO_IMAGE := true
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img \
