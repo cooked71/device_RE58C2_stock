@@ -13,7 +13,7 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/
 BOARD_RECOVERY_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
 
 # Optional: ABI freeze for specific libs
-TARGET_VNDK_ABI_FREEZE := true
+#TARGET_VNDK_ABI_FREEZE := true
 
 # API / vendor matching
 #PLATFORM_SEPOLICY_VERSION := 33
@@ -33,7 +33,6 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 ALLOW_MISSING_DEPENDENCIES := false
-TARGET_NO_KERNEL_MODULES := true
 
 # ========================
 # Platform Configuration
@@ -70,7 +69,7 @@ TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
 # Header generation control
 TARGET_KERNEL_HEADERS_GEN := true
 BUILD_BROKEN_DONT_GENERATE_KERNEL_INCLUDES := false
-TARGET_NO_KERNEL := false
+#TARGET_NO_KERNEL := false
 
 # Kernel version (must match prebuilt)
 BOARD_KERNEL_VERSION := 5.4.254
