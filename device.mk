@@ -5,7 +5,6 @@
 # Add this at the top
 PRODUCT_SOONG_NAMESPACES += \
   $(LOCAL_PATH) \
-    device/realme/RE58C2 \
     vendor/realme/RE58C2 \
     kernel/realme/RE58C2
 
