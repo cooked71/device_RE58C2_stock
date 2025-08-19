@@ -65,7 +65,6 @@ TARGET_KERNEL_CONFIG := RE58C2_defconfig
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
-BOARD_PREBUILT_BOOTIMAGE := $(LOCAL_PATH)/prebuilts/boot.img
 
 # Header generation control
 TARGET_KERNEL_HEADERS_GEN := true
@@ -151,6 +150,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 # ========================
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
+BOARD_PREBUILT_BOOTIMAGE := $(DEVICE_PATH)/prebuilts/boot.img
+
 # Prebuilt DTBO and DT images
 BOARD_USE_DTBO_IMAGE := true
 
