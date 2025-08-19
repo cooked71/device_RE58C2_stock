@@ -5,12 +5,31 @@
 DEVICE_PATH := device/realme/RE58C2
 
 
+
+# ========================
+# Security
+# ========================
+VENDOR_SECURITY_PATCH := 2024-07-05
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/
+BOARD_RECOVERY_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
+
+# Optional: ABI freeze for specific libs
+TARGET_VNDK_ABI_FREEZE := true
+
 # API / vendor matching
 PLATFORM_SEPOLICY_VERSION := 33
-BOARD_SEPOLICY_VERS := 33
+#BOARD_SEPOLICY_VERS := 33
 BOARD_VNDK_VERSION := current
-#PRODUCT_SHIPPING_API_LEVEL := 33
 
+# Device launched with Android 13
+BOARD_SHIPPING_API_LEVEL := 33
+PRODUCT_SHIPPING_API_LEVEL := 33
+
+# Vendor stuck at policy v33, so include compat rules
+PRODUCT_EXTRA_VNDK_VERSIONS := 33
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+PRODUCT_SEPOLICY_SPLIT := true
 
 # ========================
 # Build System Flags
@@ -157,18 +176,6 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_ALGORITHM := SHA256_RSA4096
 
-# ========================
-# Security
-# ========================
-VENDOR_SECURITY_PATCH := 2024-07-05
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/
-BOARD_RECOVERY_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
-
-BOARD_VNDK_VERSION := current
-
-
-# Optional: ABI freeze for specific libs
-TARGET_VNDK_ABI_FREEZE := true
 
 # ========================
 # Debugging
