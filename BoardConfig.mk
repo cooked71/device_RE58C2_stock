@@ -2,6 +2,8 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 TARGET_CHECK_ABI := false
+TARGET_ALLOW_MISSING_LLNDK_LIBS := true
+
 
 DEVICE_PATH := device/realme/RE58C2
 
