@@ -148,10 +148,9 @@ TARGET_USERIMAGES_USE_F2FS := true
 # ========================
 # DTBO/Modules
 # ========================
-BOARD_KERNEL_SEPARATED_DTBO := false
+BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 # Prebuilt DTBO and DT images
-PRODUCT_PREBUILT_DTBO_IMAGE := $(LOCAL_PATH)/prebuilts/dtbo.img
 BOARD_USE_DTBO_IMAGE := true
 
 # Module loading
