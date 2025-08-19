@@ -1,3 +1,0 @@
-# vndk_abi_freeze.txt
-libnativewindow 33
-libbinder 33
