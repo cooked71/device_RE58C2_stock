@@ -210,7 +210,7 @@ PRODUCT_CHARACTERISTICS := default
 #     init.ums9230_zebu.rc \
 #     init.ums9230_zebu.usb.rc \
 #     init.zramwb.rc
-# PRODUCT_PACKAGES += $(INIT_RC_FILES)
+# PRODUCT_PACKAGES += $(INIT_RC_FILES)  
 
 
 PRODUCT_COPY_FILES += \
