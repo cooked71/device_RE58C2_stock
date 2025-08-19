@@ -5,7 +5,6 @@
 DEVICE_PATH := device/realme/RE58C2
 
 
-
 # ========================
 # Security
 # ========================
@@ -23,12 +22,8 @@ BOARD_VNDK_VERSION := current
 
 # Device launched with Android 13
 BOARD_SHIPPING_API_LEVEL := 33
-PRODUCT_SHIPPING_API_LEVEL := 33
 
 # Vendor stuck at policy v33, so include compat rules
-PRODUCT_EXTRA_VNDK_VERSIONS := 33
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 PRODUCT_SEPOLICY_SPLIT := true
 
 # ========================

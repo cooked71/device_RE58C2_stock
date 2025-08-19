@@ -4,12 +4,10 @@
 #
 # Add this at the top
 PRODUCT_SOONG_NAMESPACES += \
+  $(LOCAL_PATH) \
     device/realme/RE58C2 \
     vendor/realme/RE58C2 \
     kernel/realme/RE58C2
-
-# Product shipping API level
-PRODUCT_SHIPPING_API_LEVEL := 33
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -127,13 +125,22 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_vendor=erofs \
     POSTINSTALL_OPTIONAL_vendor=true
 
-# API levels
-# Vendor manifest enforcement
-PRODUCT_ENFORCE_VINTF_MANIFEST := false
+# API / VNDK
 PRODUCT_SHIPPING_API_LEVEL := 33
 PRODUCT_TARGET_VNDK_VERSION := 33
 PRODUCT_VNDK_VERSION := current
+
+# Vendor stuck at sepolicy v33 → allow compat
 PRODUCT_EXTRA_VNDK_VERSIONS := 33
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+
+# Treble / sepolicy
+PRODUCT_SEPOLICY_SPLIT := true
+
+# Manifest enforcement (disable for bring-up, re-enable later)
+PRODUCT_ENFORCE_VINTF_MANIFEST := false
+
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
@@ -213,10 +220,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img \
     $(PRODUCT_PREBUILT_DTBO_IMAGE):$(TARGET_COPY_OUT)/dtbo.img
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    vendor/realme/RE58C2
 
 # Platform-specific configurations
 ifneq ($(TARGET_BOARD_PLATFORM),)
