@@ -3,6 +3,11 @@
 # SPDX-License-Identifier: Apache-2.0
 TARGET_CHECK_ABI := false
 TARGET_ALLOW_MISSING_LLNDK_LIBS := true
+# Disable ABI check for prebuilt libbinder_ndk (stock blob)
+SOONG_CONFIG_NAMESPACES += header_abi_checker
+SOONG_CONFIG_header_abi_checker := skip_libs
+SOONG_CONFIG_header_abi_checker_skip_libs := libbinder_ndk
+
 
 
 DEVICE_PATH := device/realme/RE58C2

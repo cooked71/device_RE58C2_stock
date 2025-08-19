@@ -86,6 +86,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/init.recovery.mount.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mount.rc
 
+
+    # Prebuilt libbinder_ndk
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/libs/lib/libbinder_ndk.so:system/lib/libbinder_ndk.so \
+    $(LOCAL_PATH)/prebuilts/libs/lib64/libbinder_ndk.so:system/lib64/libbinder_ndk.so
+
+
 # Boot control HAL
 PRODUCT_PACKAGES += \
    # vendor.sprd.hardware.boot@1.2-impl \
