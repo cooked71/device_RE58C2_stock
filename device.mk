@@ -215,7 +215,7 @@ PRODUCT_CHARACTERISTICS := default
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img \
-    $(PRODUCT_PREBUILT_DTBO_IMAGE):$(TARGET_COPY_OUT)/dtbo.img
+  $(LOCAL_PATH)/prebuilts/dtbo.img:$(TARGET_COPY_OUT)/dtbo.img
 
 
 # Platform-specific configurations
