@@ -28,7 +28,6 @@ DEVICE_VENDOR_COMPATIBILITY_MATRIX_FILE := \
 # Manifest files
 DEVICE_MANIFEST_FILES := \
     device/realme/RE58C2/manifest.xml \
-    vendor/realme/RE58C2/proprietary/vendor/etc/vintf/manifest.xml
 
 
 
@@ -86,12 +85,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/root/init.recovery.mount.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mount.rc
 
 
-    # Prebuilt libbinder_ndk
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/libs/lib/libbinder_ndk.so:system/lib/libbinder_ndk.so \
-    $(LOCAL_PATH)/prebuilts/libs/lib64/libbinder_ndk.so:system/lib64/libbinder_ndk.so
-
-
 # Boot control HAL
 PRODUCT_PACKAGES += \
    # vendor.sprd.hardware.boot@1.2-impl \
@@ -135,6 +128,7 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_SHIPPING_API_LEVEL := 33
 PRODUCT_TARGET_VNDK_VERSION := current
 PRODUCT_SEPOLICY_VERS := 33 
+PRODUCT_SEPOLICY_COMPAT_VERSIONS := 33
 
 # Vendor stuck at sepolicy v33 → allow compat
 PRODUCT_EXTRA_VNDK_VERSIONS := 33
