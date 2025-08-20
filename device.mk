@@ -132,9 +132,9 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_OPTIONAL_vendor=true
 
 # API / VNDK
-#PRODUCT_SHIPPING_API_LEVEL := 33
-PRODUCT_TARGET_VNDK_VERSION := 33
-PRODUCT_VNDK_VERSION := current
+PRODUCT_SHIPPING_API_LEVEL := 33
+PRODUCT_TARGET_VNDK_VERSION := current
+PRODUCT_SEPOLICY_VERS := 33 
 
 # Vendor stuck at sepolicy v33 → allow compat
 PRODUCT_EXTRA_VNDK_VERSIONS := 33
@@ -220,8 +220,8 @@ PRODUCT_CHARACTERISTICS := default
 
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT)/dtb.img \
-  $(LOCAL_PATH)/prebuilts/dtbo.img:$(TARGET_COPY_OUT)/dtbo.img
+    $(LOCAL_PATH)/prebuilts/dtb.img:$(TARGET_COPY_OUT_VENDOR)/dtb.img \
+  $(LOCAL_PATH)/prebuilts/dtbo.img:$(TARGET_COPY_OUT_VENDOR)/dtbo.img
 
 
 # Platform-specific configurations
