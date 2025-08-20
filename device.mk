@@ -142,7 +142,7 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Treble / sepolicy
-PRODUCT_SEPOLICY_SPLIT := true
+#PRODUCT_SEPOLICY_SPLIT := true
 
 # Manifest enforcement (disable for bring-up, re-enable later)
 PRODUCT_ENFORCE_VINTF_MANIFEST := false
