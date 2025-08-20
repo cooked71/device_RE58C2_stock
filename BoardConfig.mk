@@ -37,7 +37,7 @@ BOARD_VNDK_VERSION := current
 BOARD_SHIPPING_API_LEVEL := 33
 
 # Vendor stuck at policy v33, so include compat rules
-PRODUCT_SEPOLICY_SPLIT := true
+#PRODUCT_SEPOLICY_SPLIT := true
 
 # ========================
 # Build System Flags
