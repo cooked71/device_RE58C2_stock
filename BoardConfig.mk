@@ -98,7 +98,7 @@ BUILD_BROKEN_DONT_GENERATE_KERNEL_INCLUDES := false
 #TARGET_NO_KERNEL := false
 
 # Kernel version (must match prebuilt)
-BOARD_KERNEL_VERSION := 5.4.254
+KERNEL_VERSION := 5.4.254-android12-9-gb10a25caafa5-ab1063
 
 # Clang Toolchain
 KERNEL_CLANG_PATH := prebuilts/clang/kernel/linux-x86/clang-r416183b
