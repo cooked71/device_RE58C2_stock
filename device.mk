@@ -18,6 +18,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := false
 
+KERNEL_MODULES_DEPMOD := false
+
+
 # Compatibility matrices
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE := \
     device/realme/RE58C2/product/compatibility_matrix.xml
