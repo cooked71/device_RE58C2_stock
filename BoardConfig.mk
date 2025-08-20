@@ -182,16 +182,24 @@ BOARD_PREBUILT_BOOTIMAGE := $(DEVICE_PATH)/prebuilts/boot.img
 BOARD_USE_DTBO_IMAGE := true
 
 # Module loading
+#BOOT_KERNEL_MODULES := \
+#    $(wildcard $(DEVICE_PATH)/prebuilts/modules/vendor_boot_modules/*.ko) \
+#    $(wildcard $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/vendor_boot_modules/*.ko)
+
+#BOARD_VENDOR_KERNEL_MODULES := \
+#    $(wildcard $(DEVICE_PATH)/prebuilts/modules/vendor_dlkm_modules/*.ko) \
+#    $(wildcard $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/vendor_dlkm_modules/*.ko)
+
+#BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(notdir $(BOOT_KERNEL_MODULES))
+
+# Module loading - Use ONLY prebuilt modules
 BOOT_KERNEL_MODULES := \
-    $(wildcard $(DEVICE_PATH)/prebuilts/modules/vendor_boot_modules/*.ko) \
-    $(wildcard $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/vendor_boot_modules/*.ko)
+    $(wildcard $(DEVICE_PATH)/prebuilts/modules/vendor_boot_modules/*.ko)
 
 BOARD_VENDOR_KERNEL_MODULES := \
-    $(wildcard $(DEVICE_PATH)/prebuilts/modules/vendor_dlkm_modules/*.ko) \
-    $(wildcard $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/vendor_dlkm_modules/*.ko)
+    $(wildcard $(DEVICE_PATH)/prebuilts/modules/vendor_dlkm_modules/*.ko)
 
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(notdir $(BOOT_KERNEL_MODULES))
-
 # ========================
 # AVB/Verification
 # ========================
