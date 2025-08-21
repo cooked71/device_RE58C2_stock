@@ -30,31 +30,15 @@ VENDOR_SECURITY_PATCH := 2024-07-05
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/
 BOARD_RECOVERY_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
 
-# Optional: ABI freeze for specific libs
-#TARGET_VNDK_ABI_FREEZE := true
-
-# API / vendor matching
-#PLATFORM_SEPOLICY_VERSION := 33
-
 
 BOARD_VNDK_VERSION := current
 BOARD_VNDK_CURRENT_VERSION := current
-#BOARD_VENDORIMAGE_VNDK_VERSION := 33
-#BOARD_VNDK_VERSION_OVERRIDES := 33
 BOARD_FULL_TREBLE_OVERRIDE := true
 BOARD_COMPATIBLE_PROPERTY_OVERRIDE := true
-BOARD_ENFORCE_VINTF_MANIFEST := true
 TARGET_PREBUILT_VENDOR := $(DEVICE_PATH)/vendor
 BOARD_SHIPPING_API_LEVEL := 33
 BOARD_PREBUILT_DTBO := $(TARGET_PREBUILT_VENDOR)/prebuilts/dtbo.img
 BOARD_ENFORCE_VINTF_MANIFEST := false
-
-
-
-
-
-# Vendor stuck at policy v33, so include compat rules
-#PRODUCT_SEPOLICY_SPLIT := true
 
 # ========================
 # Build System Flags
@@ -226,7 +210,7 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_ALGORITHM := SHA256_RSA4096
 
-BOARD_SEPOLICY_VERS := 33
+BOARD_SEPOLICY_VERS := 202404
 # ========================
 # Debugging
 # ========================
