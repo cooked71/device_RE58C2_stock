@@ -220,6 +220,10 @@ $(if $(wildcard $(TARGET_PREBUILT_KERNEL)),,$(error Missing kernel at $(TARGET_P
 $(if $(wildcard $(TARGET_KERNEL_SOURCE)/Makefile),,$(error Missing kernel source at $(TARGET_KERNEL_SOURCE)))
 $(if $(wildcard $(BOARD_PREBUILT_DTBOIMAGE)),,$(error Missing DTBO at $(BOARD_PREBUILT_DTBOIMAGE)))
 
+
+
+$(call add-dependency, lineage-21.0-%-UNOFFICIAL-RE58C2.zip, systemimage)
+
 # ========================
 # Inherit
 # ========================
