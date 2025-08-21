@@ -18,6 +18,11 @@ SOONG_CONFIG_header_abi_checker_skip_libs := libbinder_ndk
 DEVICE_PATH := device/realme/RE58C2
 
 
+# Release tools
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
+
+
+
 # ========================
 # Security
 # ========================
@@ -34,20 +39,17 @@ BOARD_RECOVERY_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
 
 BOARD_VNDK_VERSION := current
 BOARD_VNDK_CURRENT_VERSION := current
-BOARD_VENDORIMAGE_VNDK_VERSION := 33
-BOARD_VNDK_VERSION_OVERRIDES := 33
+#BOARD_VENDORIMAGE_VNDK_VERSION := 33
+#BOARD_VNDK_VERSION_OVERRIDES := 33
 BOARD_FULL_TREBLE_OVERRIDE := true
 BOARD_COMPATIBLE_PROPERTY_OVERRIDE := true
-BOARD_ENFORCE_VINTF_MANIFEST := false
-TARGET_PREBUILT_VENDOR := vendor/realme/RE58C2
+BOARD_ENFORCE_VINTF_MANIFEST := true
+TARGET_PREBUILT_VENDOR := $(DEVICE_PATH)/vendor
 BOARD_SHIPPING_API_LEVEL := 33
 BOARD_PREBUILT_DTBO := $(TARGET_PREBUILT_VENDOR)/prebuilts/dtbo.img
 
 
 
-
-# Device launched with Android 13
-BOARD_SHIPPING_API_LEVEL := 33
 
 # Vendor stuck at policy v33, so include compat rules
 #PRODUCT_SEPOLICY_SPLIT := true
