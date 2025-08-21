@@ -230,5 +230,8 @@ endif
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/stuff/modules,$(TARGET_COPY_OUT_VENDOR_RECOVERY)/root/lib/modules)
 
+$(call add-dependency, lineage-21.0-%-UNOFFICIAL-RE58C2.zip, systemimage)
+
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/realme/RE58C2/RE58C2-vendor.mk)
