@@ -217,7 +217,6 @@ PRODUCT_CHARACTERISTICS := default
 #     init.zramwb.rc
 # PRODUCT_PACKAGES += $(INIT_RC_FILES)  
 
-$(call add-dependency, lineage-21.0-%-UNOFFICIAL-RE58C2.zip, systemimage)
 
 
 PRODUCT_COPY_FILES += \
