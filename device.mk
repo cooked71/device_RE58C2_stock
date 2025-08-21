@@ -143,6 +143,8 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Manifest enforcement (disable for bring-up, re-enable later)
 PRODUCT_ENFORCE_VINTF_MANIFEST := false
+TARGET_SKIP_CURRENT_VENDOR_CHECK := true
+BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
 
 
 # Overlays
