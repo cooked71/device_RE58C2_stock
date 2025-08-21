@@ -7,7 +7,6 @@
 # ========================
 TARGET_CHECK_ABI := true
 TARGET_ALLOW_MISSING_LLNDK_LIBS := true
-
 SOONG_CONFIG_NAMESPACES += header_abi_checker
 SOONG_CONFIG_header_abi_checker := skip_libs
 SOONG_CONFIG_header_abi_checker_skip_libs := libbinder_ndk
@@ -46,6 +45,7 @@ BOARD_ENFORCE_VINTF_MANIFEST := false
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+ALLOW_MISSING_DEPENDENCIES := false
 
 # ========================
 # Platform Configuration
