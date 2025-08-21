@@ -5,11 +5,11 @@
 # ========================
 # ABI / Dependency Checks
 # ========================
-TARGET_CHECK_ABI := true
-TARGET_ALLOW_MISSING_LLNDK_LIBS := true
-SOONG_CONFIG_NAMESPACES += header_abi_checker
-SOONG_CONFIG_header_abi_checker := skip_libs
-SOONG_CONFIG_header_abi_checker_skip_libs := libbinder_ndk
+#TARGET_CHECK_ABI := true
+#TARGET_ALLOW_MISSING_LLNDK_LIBS := true
+#SOONG_CONFIG_NAMESPACES += header_abi_checker
+#SOONG_CONFIG_header_abi_checker := skip_libs
+#SOONG_CONFIG_header_abi_checker_skip_libs := libbinder_ndk
 
 
 
@@ -30,14 +30,14 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/
 BOARD_RECOVERY_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
 
 
-BOARD_VNDK_VERSION := current
-BOARD_VNDK_CURRENT_VERSION := current
-BOARD_FULL_TREBLE_OVERRIDE := true
-BOARD_COMPATIBLE_PROPERTY_OVERRIDE := true
-TARGET_PREBUILT_VENDOR := $(DEVICE_PATH)/vendor
-BOARD_SHIPPING_API_LEVEL := 33
+#BOARD_VNDK_VERSION := current
+#BOARD_VNDK_CURRENT_VERSION := current
+#BOARD_FULL_TREBLE_OVERRIDE := true
+#BOARD_COMPATIBLE_PROPERTY_OVERRIDE := true
+#TARGET_PREBUILT_VENDOR := $(DEVICE_PATH)/vendor
+#BOARD_SHIPPING_API_LEVEL := 33
 BOARD_PREBUILT_DTBO := $(TARGET_PREBUILT_VENDOR)/prebuilts/dtbo.img
-BOARD_ENFORCE_VINTF_MANIFEST := false
+#BOARD_ENFORCE_VINTF_MANIFEST := false
 
 # ========================
 # Build System Flags
@@ -123,13 +123,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 BOARD_SUPER_PARTITION_SIZE := 8388608000
 BOARD_SUPER_PARTITION_GROUPS := realme_dynamic_partitions
 BOARD_REALME_DYNAMIC_PARTITIONS_SIZE := 8356268032
-BOARD_REALME_DYNAMIC_PARTITIONS_PARTITION_LIST := \
-    system \
-    product \
-    system_ext \
-    vendor \
-    odm \
-    vendor_dlkm
+BOARD_REALME_DYNAMIC_PARTITIONS_PARTITION_LIST := system product system_ext vendor odm vendor_dlkm
 
 # Partition sizes
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
