@@ -70,7 +70,7 @@
         </interface>
         <fqname>@1.1::INetd/default</fqname>
     </hal>
-    <hal format="hidl">
+        <hal format="hidl">
         <name>android.system.wifi.keystore</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -84,6 +84,69 @@
         <name>netutils-wrapper</name>
         <version>1.0</version>
     </hal>
+     <!--  ADDED MISSING -->
+     <hal format="hidl" optional="true">
+        <name>vendor.nxp.nxpnfc</name>
+        <version>2.0</version>
+        <interface>
+            <name>INxpNfc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
+    <hal format="hidl" optional="true">
+        <name>vendor.nxp.nxpnfclegacy</name>
+        <version>1.0</version>
+        <interface>
+            <name>INxpNfcLegacy</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
+    <hal format="hidl" optional="true">
+        <name>vendor.oppo.engnative.engineer</name>
+        <version>1.0</version>
+        <interface>
+            <name>IEngineer</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
+    <hal format="hidl" optional="true">
+        <name>vendor.sprd.hardware.connmgr</name>
+        <version>1.0</version>
+        <interface>
+            <name>IConnmgr</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
+    <hal format="aidl" optional="true">
+        <name>vendor.sprd.hardware.enhance</name>
+        <interface>
+            <name>IEnhance</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
+    <hal format="hidl" optional="true">
+        <name>vendor.sprd.hardware.network</name>
+        <version>1.0</version>
+        <interface>
+            <name>INetworkControl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
+    <hal format="hidl" optional="true">
+        <name>vendor.sprd.hardware.wcn</name>
+        <version>1.0</version>
+        <interface>
+            <name>IWcnVendorInterface</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!--  END MISSING -->
     <system-sdk>
         <version>28</version>
         <version>29</version>
