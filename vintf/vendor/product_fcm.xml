@@ -194,10 +194,10 @@
 
     <!-- SDK / NDK Versions -->
     <vendor-ndk>
-        <version>33</version>
+        <version>32</version>
     </vendor-ndk>
     <system-sdk>
-        <version>33</version>
+        <version>32</version>
     </system-sdk>
 
 </compatibility-matrix>
