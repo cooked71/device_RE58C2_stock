@@ -89,7 +89,4 @@
         <transport>hwbinder</transport>
         <fqname>@1.0::IWcnVendorInterface/default</fqname>
     </hal>
-    <sepolicy>
-    <version>202404</version>
-   </sepolicy>
-</manifest>
+    </manifest>
