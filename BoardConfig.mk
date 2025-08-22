@@ -121,6 +121,8 @@ AB_OTA_PARTITIONS += \
 BOARD_USES_VENDOR_BOOT_IMAGE := true
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_RAMDISK_USE_LZ4 := true
+BUILD_OTA_PACKAGE := true
+AB_OTA_UPDATER := true
 
 
 
@@ -129,7 +131,6 @@ BOARD_SUPER_PARTITION_SIZE := 8388608000
 BOARD_SUPER_PARTITION_GROUPS := realme_dynamic_partitions
 BOARD_REALME_DYNAMIC_PARTITIONS_SIZE := 8356268032
 BOARD_REALME_DYNAMIC_PARTITIONS_PARTITION_LIST := system product system_ext vendor odm vendor_dlkm
-AB_OTA_UPDATER := true
 BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := true
 
 
@@ -203,6 +204,7 @@ BOARD_VENDOR_KERNEL_MODULES := \
     $(wildcard $(DEVICE_PATH)/prebuilts/modules/vendor_dlkm_modules/*.ko)
 
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(notdir $(BOOT_KERNEL_MODULES))
+
 # ========================
 # AVB/Verification
 # ========================
@@ -210,6 +212,37 @@ BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_ROLLBACK_INDEX := 1
+BOARD_AVB_ROLLBACK_INDEX_LOCATION := 1
+
+# Vendor_boot signing
+BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_VENDOR_BOOT_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX := 1
+BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 3
+
+# Boot signing
+BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_BOOT_ROLLBACK_INDEX := 1
+BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
+
+# Development only: disable hashtree verification to avoid dm-verity panic
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+
+# AVB for system_other (postinstall)
+# BOARD_AVB_SYSTEM_KEY_PATH := $(DEVICE_PATH)/avb_keys/system.key
+# BOARD_AVB_SYSTEM_ALGORITHM := SHA256_RSA4096
+# BOARD_AVB_SYSTEM_ROLLBACK_INDEX := 1
+# BOARD_AVB_SYSTEM_ROLLBACK_INDEX_LOCATION := 4
+  
+
+
+
+
+
+
 
 BOARD_SEPOLICY_VERS := 202404
 # ========================
