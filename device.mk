@@ -221,36 +221,21 @@ PRODUCT_CHARACTERISTICS := default
 
 # --- Ensure critical images are built before target_files/OTA zip ---
 
-# Helper macro: only add a dependency if the variable is defined/non-empty
-define add_dep_if_defined
-ifneq ($$($(1)),)
-BUILT_TARGET_FILES_PACKAGE_DEPS += $$($(1))
-endif
-endef
-
-# boot / vendor_boot
-$(call add_dep_if_defined,INSTALLED_BOOTIMAGE_TARGET)
-$(call add_dep_if_defined,INSTALLED_BOOTIMAGE)
-$(call add_dep_if_defined,INSTALLED_VENDOR_BOOTIMAGE_TARGET)
-$(call add_dep_if_defined,INSTALLED_VENDOR_BOOTIMAGE)
-
-# dtbo
-$(call add_dep_if_defined,INSTALLED_DTBOIMAGE_TARGET)
-$(call add_dep_if_defined,INSTALLED_DTBOIMAGE)
-
-# system / vendor / product / system_ext
-$(call add_dep_if_defined,INSTALLED_SYSTEMIMAGE)
-$(call add_dep_if_defined,INSTALLED_VENDORIMAGE)
-$(call add_dep_if_defined,INSTALLED_PRODUCTIMAGE)
-$(call add_dep_if_defined,INSTALLED_SYSTEM_EXTIMAGE)
-
-# odm / vendor_dlkm
-$(call add_dep_if_defined,INSTALLED_ODMIMAGE)
-$(call add_dep_if_defined,INSTALLED_VENDOR_DLKMIMAGE)
-
-# vbmeta
-$(call add_dep_if_defined,INSTALLED_VBMETAIMAGE_TARGET)
-$(call add_dep_if_defined,INSTALLED_VBMETAIMAGE)
+BUILT_TARGET_FILES_PACKAGE_DEPS += \
+    $(INSTALLED_BOOTIMAGE_TARGET) \
+    $(INSTALLED_BOOTIMAGE) \
+    $(INSTALLED_VENDOR_BOOTIMAGE_TARGET) \
+    $(INSTALLED_VENDOR_BOOTIMAGE) \
+    $(INSTALLED_DTBOIMAGE_TARGET) \
+    $(INSTALLED_DTBOIMAGE) \
+    $(INSTALLED_SYSTEMIMAGE) \
+    $(INSTALLED_VENDORIMAGE) \
+    $(INSTALLED_PRODUCTIMAGE) \
+    $(INSTALLED_SYSTEM_EXTIMAGE) \
+    $(INSTALLED_ODMIMAGE) \
+    $(INSTALLED_VENDOR_DLKMIMAGE) \
+    $(INSTALLED_VBMETAIMAGE_TARGET) \
+    $(INSTALLED_VBMETAIMAGE)
 
 
 PRODUCT_COPY_FILES += \
