@@ -256,7 +256,6 @@ $(if $(wildcard $(BOARD_PREBUILT_DTBOIMAGE)),,$(error Missing DTBO at $(BOARD_PR
 
 
 
-$(call add-dependency, lineage-21.0-%-UNOFFICIAL-RE58C2.zip, systemimage)
 
 # ========================
 # Inherit
