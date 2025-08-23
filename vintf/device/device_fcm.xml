@@ -1,5 +1,5 @@
 
-<manifest version="5.0" type="framework">
+<compatibility-matrix  version="5.0" type="framework">
     <hal format="hidl" max-level="6">
         <name>android.frameworks.displayservice</name>
         <transport>hwbinder</transport>
@@ -167,4 +167,4 @@
     <avb>
         <vbmeta-version>1.0</vbmeta-version>
     </avb>
-</manifest>
+</compatibility-matrix >
